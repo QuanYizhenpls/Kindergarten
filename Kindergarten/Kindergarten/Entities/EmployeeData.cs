@@ -8,17 +8,46 @@ using System.Threading.Tasks;
 
 namespace KinderData.Entities
 {
+    /// <summary>
+    /// Представляет данные о сотруднике.
+    /// </summary>
     public class EmployeeData
     {
+        /// <summary>
+        /// Получает или задает идентификатор сотрудника.
+        /// </summary>
         [Key]
         public Guid Employee_Id { get; set; }
-        public int Pasport { get; set; }
-        public int SNILS { get; set; }
-        public int INN { get; set; }
-        public string EmploymentRecord { get; set; }
-        public virtual ICollection<Employee> Employees { get; set; }
 
+        /// <summary>
+        /// Получает или задает номер паспорта сотрудника.
+        /// </summary>
+        public int Pasport { get; set; }
+
+        /// <summary>
+        /// Получает или задает СНИЛС сотрудника.
+        /// </summary>
+        public int SNILS { get; set; }
+
+        /// <summary>
+        /// Получает или задает ИНН сотрудника.
+        /// </summary>
+        public int INN { get; set; }
+
+        /// <summary>
+        /// Получает или задает информацию о трудовой книжке сотрудника.
+        /// </summary>
+        public string? EmploymentRecord { get; set; }
+
+        /// <summary>
+        /// Получает или задает коллекцию сотрудников, связанных с этими данными.
+        /// </summary>
+        public virtual ICollection<Employee> Employees { get; set; } = null!;
+
+        /// <summary>
+        /// Получает или задает сотрудника, связанного с этими данными.
+        /// </summary>
         [ForeignKey("Employee_Id")]
-        public virtual Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; } = null!;
     }
 }

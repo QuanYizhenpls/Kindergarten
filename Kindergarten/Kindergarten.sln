@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinderData", "Kindergarten\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinderApp", "KinderApp\KinderApp.csproj", "{6B8A150B-142E-4CB9-8333-FF47816EDFB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KInderDbContext", "KInderDbContext\KInderDbContext.csproj", "{E59710C9-235B-4177-9FF0-5D8B70855E26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +23,15 @@ Global
 		{6B8A150B-142E-4CB9-8333-FF47816EDFB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B8A150B-142E-4CB9-8333-FF47816EDFB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B8A150B-142E-4CB9-8333-FF47816EDFB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59710C9-235B-4177-9FF0-5D8B70855E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59710C9-235B-4177-9FF0-5D8B70855E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59710C9-235B-4177-9FF0-5D8B70855E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59710C9-235B-4177-9FF0-5D8B70855E26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0390CBD4-7DA4-4364-803E-E7F4965C4A24}
 	EndGlobalSection
 EndGlobal

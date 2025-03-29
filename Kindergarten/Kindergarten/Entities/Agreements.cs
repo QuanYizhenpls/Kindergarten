@@ -9,19 +9,40 @@ using System.Threading.Tasks;
 namespace KinderData.Entities
 {
     /// <summary>
-    /// Таблица договоров
+    /// Представляет собой договоры, связанные с сотрудником.
     /// </summary>
     public class Agreements
     {
+        /// <summary>
+        /// Получает или задает уникальный идентификатор договора.
+        /// </summary>
         [Key]
         public Guid Agreements_Id { get; set; }
-        public string Vacation { get; set; }
-        public string SickLeave { get; set; }
-        public string Dismissal { get; set; }
-        public string EmploymentContract { get; set; }
 
+        /// <summary>
+        /// Получает или задает информацию о договоре по отпуску.
+        /// </summary>
+        public string? Vacation { get; set; }
+
+        /// <summary>
+        /// Получает или задает информацию о договоре по больничному.
+        /// </summary>
+        public string? SickLeave { get; set; }
+
+        /// <summary>
+        /// Получает или задает информацию о договоре при увольнении.
+        /// </summary>
+        public string? Dismissal { get; set; }
+
+        /// <summary>
+        /// Получает или задает информацию по трудовому договору.
+        /// </summary>
+        public string? EmploymentContract { get; set; }
+
+        /// <summary>
+        /// Получает или задает сотрудника, с которым связан это договор.
+        /// </summary>
         [ForeignKey("Employee_Id")]
-        public virtual Employee Employee { get; set; }
-
+        public virtual Employee Employee { get; set; } = null!;
     }
 }
