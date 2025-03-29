@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace KinderData.Entities
 {
+    /// <summary>
+    /// Таблица договоров
+    /// </summary>
     public class Agreements
     {
         [Key]
