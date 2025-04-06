@@ -5,75 +5,159 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="450" Width="1000">
+        Title="MenuWindow" Height="450" Width="800">
     <Grid>
-        
-       
-        <Border Background="Aquamarine">
-            
 
-            <TabControl Background="Transparent" BorderBrush="Transparent" Margin="10,10,0,0">
+        <Border Background="Aquamarine" Height="434" VerticalAlignment="Bottom">
+
+            <StackPanel Orientation="Horizontal">
+                <TabControl TabStripPlacement="Top" Background="Aquamarine">
+                    <TabControl.Resources>
+                        <Style TargetType="TabItem">
+                            <Setter Property="Margin" Value="0,0,0,0"/>
+                            <Setter Property="Padding" Value="10,5"/>
+                            <Setter Property="FontSize" Value="14"/>
+
+                        </Style>
+                    </TabControl.Resources>
+
+                    <TabItem Header="Сотрудники" Background="LightCoral">
+                        <StackPanel Height="400" Margin="0,0,0,0" Background="LightCoral">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="Create"/>
+                            <Button Content="Update"/>
+                            <Button Content="Delete"/>
+                            <Button Content="Show"/>
+                            <Button Content="Hide"/>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Воспитанники" Background="PeachPuff">
+                        <StackPanel Background="PeachPuff">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="Create"/>
+                            <Button Content="Update"/>
+                            <Button Content="Delete"/>
+                            <Button Content="Show"/>
+                            <Button Content="Hide"/>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Группы" Background="LightGoldenrodYellow">
+                        <StackPanel Background="LightGoldenrodYellow">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="Create"/>
+                            <Button Content="Update"/>
+                            <Button Content="Delete"/>
+                            <Button Content="Show"/>
+                            <Button Content="Hide"/>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Договоры" Background="LightGreen">
+                        <StackPanel Background="LightGreen">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="Create"/>
+                            <Button Content="Update"/>
+                            <Button Content="Delete"/>
+                            <Button Content="Show"/>
+                            <Button Content="Hide"/>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Данные сотрудников" Background="SkyBlue">
+                        <StackPanel Background="SkyBlue">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="Create"/>
+                            <Button Content="Update"/>
+                            <Button Content="Delete"/>
+                            <Button Content="Show"/>
+                            <Button Content="Hide"/>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Зарплата" Background="Violet">
+                        <StackPanel Background="Violet">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="Create"/>
+                            <Button Content="Update"/>
+                            <Button Content="Delete"/>
+                            <Button Content="Show"/>
+                            <Button Content="Hide"/>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Планы" Background="WhiteSmoke">
+                        <StackPanel Background="WhiteSmoke">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="Create"/>
+                            <Button Content="Update"/>
+                            <Button Content="Delete"/>
+                            <Button Content="Show"/>
+                            <Button Content="Hide"/>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+                <StackPanel Background="Aquamarine">
+                    <Image Source="pack://application:,,,/Icons/Lastochka.jpg" Width="150" Height="200" Margin="0,-30,0,0"/>
+                </StackPanel>
                 
-                <TabItem Header="Сотрудники" Margin="-10,0,-10,0" Width="110" Height="30" FontSize="16">
+            </StackPanel>
 
-                    <Grid>
-
-                        <Grid Grid.Row="1">
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="400"/>
-
-                                <ColumnDefinition Width="531*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
-
-                                <Button Content="Create" Command="{Binding CreateCommand}" Width="70" Height="30" Margin="0,-300,100,0"/>
-                                <Button Content="Update" Command="{Binding UpdateCommand}" Width="70" Height="30" Margin="-90,-300,100,0"/>
-                                <Button Content="Delete" Command="{Binding DeleteCommand}" Width="70" Height="30" Margin="-90,-300,100,0"/>
-                                <Button Content="Show"  Command="{Binding ShowCommand}" Width="70" Height="30" Margin="-90,-300,100,0"/>
-                                <Button Content="Hide"  Command="{Binding HideCommand}" Width="70" Height="30" Margin="-90,-300,100,0"/>
-
-                            </StackPanel>
-                            
-                        </Grid>
-
-                    </Grid>
-
-                </TabItem>
-
-                <TabItem Header="Воспитанники" Margin="10,0,-20,0" Width="120" Height="30" FontSize="16">
-
-                    
-
-                </TabItem>
-
-                <TabItem Header="Группы" Margin="20,0,-40,0" Width="70" Height="30" FontSize="16">
-
-
-                </TabItem>
-
-                <TabItem Header="Договоры" Margin="30,0,-60,0" Width="90" Height="30" FontSize="16">
-
-
-                </TabItem>
-
-                <TabItem Header="Данные сотрудников" Margin="40,0,-80,0" Width="170" Height="30" FontSize="16">
-
-                    
-
-                </TabItem>
-
-                <TabItem Header="Зарплата" Margin="50,0,-100,0" Width="80" Height="30" FontSize="16">
-
-                </TabItem>
-
-                <TabItem Header="Планы" Margin="60,0,-120,0" Width="70" Height="30" FontSize="16">
-
-                    
-
-                </TabItem>
-            </TabControl>
         </Border>
         
     </Grid>

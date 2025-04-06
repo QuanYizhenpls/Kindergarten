@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using KinderData.Entities;
 
-namespace KInderDbContext.Connections
+namespace KinderDbContext.Connections
 {
     /// <summary>
     /// Абстрактный класс, представляющий контекст приложения для работы с базами данных.

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace KInderDbContext.Connections
+namespace KinderDbContext.Connections
 {
     /// <summary>
     /// Класс, представляющий контекст для работы с базой данных SQLite.

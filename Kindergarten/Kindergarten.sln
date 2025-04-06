@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinderData", "Kindergarten\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinderApp", "KinderApp\KinderApp.csproj", "{6B8A150B-142E-4CB9-8333-FF47816EDFB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KInderDbContext", "KInderDbContext\KInderDbContext.csproj", "{E59710C9-235B-4177-9FF0-5D8B70855E26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinderDbContext", "KInderDbContext\KinderDbContext.csproj", "{E59710C9-235B-4177-9FF0-5D8B70855E26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLitePCL;
 
-namespace KInderDbContext.Connections
+namespace KinderDbContext.Connections
 {
     /// <summary>
     /// Контроллер для управления контекстами базы данных. Использует паттерн Singleton.
