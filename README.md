@@ -27,10 +27,10 @@
 ```
 
 ## Библиотеки
--
--
--
--
+* [Microsft.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore/)
+* [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/10.0.0-preview.2.25163.8)
+* [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/10.0.0-preview.2.25163.8)
+* [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite/10.0.0-preview.2.25163.8)
 
 ## Базы данных
 В проекте есть возможность использовать такие варианты БД как MS Sql Server и Sqlite
