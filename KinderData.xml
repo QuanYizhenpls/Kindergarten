@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KinderData</name>
+    </assembly>
+    <members>
+        <member name="T:KinderData.Entities.Agreements">
+            <summary>
+            Представляет собой договоры, связанные с сотрудником.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Agreements.Agreements_Id">
+            <summary>
+            Получает или задает уникальный идентификатор договора.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Agreements.Vacation">
+            <summary>
+            Получает или задает информацию о договоре по отпуску.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Agreements.SickLeave">
+            <summary>
+            Получает или задает информацию о договоре по больничному.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Agreements.Dismissal">
+            <summary>
+            Получает или задает информацию о договоре при увольнении.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Agreements.EmploymentContract">
+            <summary>
+            Получает или задает информацию по трудовому договору.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Agreements.Employee">
+            <summary>
+            Получает или задает сотрудника, с которым связан это договор.
+            </summary>
+        </member>
+        <member name="T:KinderData.Entities.Employee">
+            <summary>
+            Представляет сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Employee.Employee_Id">
+            <summary>
+            Получает или задает уникальный идентификатор сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Employee.FIO">
+            <summary>
+            Получает или задает полное имя сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Employee.Education">
+            <summary>
+            Получает или задает образование сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Employee.Experience">
+            <summary>
+            Получает или задает опыт работы сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Employee.Post">
+            <summary>
+            Получает или задает должность сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Employee.Groups">
+            <summary>
+            Получает или задает коллекцию групп, к которым принадлежит сотрудник.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Employee.Group">
+            <summary>
+            Получает или задает группу, к которой принадлежит сотрудник.
+            </summary>
+        </member>
+        <member name="T:KinderData.Entities.EmployeeData">
+            <summary>
+            Представляет данные о сотруднике.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.EmployeeData.Employee_Id">
+            <summary>
+            Получает или задает идентификатор сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.EmployeeData.Pasport">
+            <summary>
+            Получает или задает номер паспорта сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.EmployeeData.SNILS">
+            <summary>
+            Получает или задает СНИЛС сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.EmployeeData.INN">
+            <summary>
+            Получает или задает ИНН сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.EmployeeData.EmploymentRecord">
+            <summary>
+            Получает или задает информацию о трудовой книжке сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.EmployeeData.Employees">
+            <summary>
+            Получает или задает коллекцию сотрудников, связанных с этими данными.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.EmployeeData.Employee">
+            <summary>
+            Получает или задает сотрудника, связанного с этими данными.
+            </summary>
+        </member>
+        <member name="T:KinderData.Entities.Group">
+            <summary>
+            Представляет группу.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Group.Groups_Id">
+            <summary>
+            Получает или задает уникальный идентификатор группы.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Group.GroupsName">
+            <summary>
+            Получает или задает наименование группы.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Group.Kindergartners">
+            <summary>
+            Получает или задает коллекцию детей, входящих в эту группу.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Group.Kindergartner">
+            <summary>
+            Получает или задает воспитанника, связанного с группой.
+            </summary>
+        </member>
+        <member name="T:KinderData.Entities.Kindergartner">
+            <summary>
+            Представляет воспитанника детского сада.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Kindergartner.Kindergartner_Id">
+            <summary>
+            Получает или задает уникальный идентификатор воспитанника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Kindergartner.FIO">
+            <summary>
+            Получает или задает полное имя воспитанника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Kindergartner.DateOfBirth">
+            <summary>
+            Получает или задает дату рождения воспитанника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Kindergartner.ParentsContactInfo">
+            <summary>
+            Получает или задает контактную информацию родителей воспитанника.
+            </summary>
+        </member>
+        <member name="T:KinderData.Entities.Plan">
+            <summary>
+            Представляет план или мероприятие.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Plan.Plan_Id">
+            <summary>
+            Получает или задает уникальный идентификатор плана.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Plan.DateOfTheEvent">
+            <summary>
+            Получает или задает дату проведения мероприятия.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Plan.Development">
+            <summary>
+            Получает или задает описание мероприятия.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Plan.Group">
+            <summary>
+            Получает или задает группу, для которой предназначен этот план.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Plan.Employee">
+            <summary>
+            Получает или задает сотрудника, ответственного за этот план.
+            </summary>
+        </member>
+        <member name="T:KinderData.Entities.Salary">
+            <summary>
+            Представляет информацию о заработной плате сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Salary.Salary_Id">
+            <summary>
+            Получает или задает уникальный идентификатор записи о заработной плате.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Salary.Wage">
+            <summary>
+            Получает или задает размер оклада сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Salary.Bonus">
+            <summary>
+            Получает или задает размер премии сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Salary.Allowance">
+            <summary>
+            Получает или задает размер надбавки сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Salary.Prepayment">
+            <summary>
+            Получает или задает размер аванса сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Salary.Penalty">
+            <summary>
+            Получает или задает размер штрафа сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.Salary.Employee">
+            <summary>
+            Получает или задает сотрудника, которому начислена данная заработная плата.
+            </summary>
+        </member>
+    </members>
+</doc>
