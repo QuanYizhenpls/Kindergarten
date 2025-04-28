@@ -1,0 +1,158 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0" version="25.0.3">
+  <diagram name="Страница — 1" id="ApELO_HcXbHjUyUN57vd">
+    <mxGraphModel dx="1383" dy="922" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-1" value="Сотрудник подаёт заявление о принятии на работу" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-103" y="262" width="135" height="87" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-2" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="fcmeIZn-ffQWN_sdDxRc-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-35" y="447" as="sourcePoint" />
+            <mxPoint x="-5" y="399" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-5" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-50.5" y="446" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-6" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="-47.25" y="449.25" width="23.5" height="23.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="fcmeIZn-ffQWN_sdDxRc-1" target="fcmeIZn-ffQWN_sdDxRc-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-45.25" y="225" as="sourcePoint" />
+            <mxPoint x="-35" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-10" value="&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap;&quot;&gt;Сотрудник&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 11px; text-wrap-mode: nowrap;&quot;&gt;подал заявление&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="173" width="91.75" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-11" value="Сотрудник предоставляет свои данные" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-103" y="42" width="133" height="87.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="fcmeIZn-ffQWN_sdDxRc-11" target="fcmeIZn-ffQWN_sdDxRc-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-33" y="39" as="sourcePoint" />
+            <mxPoint x="-40" y="-88" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-14" value="Сотрудник предоставил свои данные" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-33" y="-48" width="91.75" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-15" value="Сотрудник приступает к работе" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-102" y="-179" width="133" height="87.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fcmeIZn-ffQWN_sdDxRc-15" target="fcmeIZn-ffQWN_sdDxRc-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="36" y="-130" as="sourcePoint" />
+            <mxPoint x="203" y="-133" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-17" value="Сотрудник учится работать согласно плану" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="65" y="-182" width="100" height="33" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-18" value="Сотрудник выполняет работу&amp;nbsp;&lt;div&gt;согласно плану&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="199" y="-177.62" width="132" height="84.75" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-20" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="-5" as="sourcePoint" />
+            <mxPoint x="411" y="-275" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-21" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fcmeIZn-ffQWN_sdDxRc-18" target="fcmeIZn-ffQWN_sdDxRc-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="347" y="-134" as="sourcePoint" />
+            <mxPoint x="506" y="-134" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-22" value="Сотрудник&amp;nbsp; продолжает работу&amp;nbsp;&lt;div&gt;согласно плану&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="507" y="-179" width="132" height="84.75" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-23" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.008;entryY=0.448;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="fcmeIZn-ffQWN_sdDxRc-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="-274.97" as="sourcePoint" />
+            <mxPoint x="504" y="-275" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-24" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="fcmeIZn-ffQWN_sdDxRc-25">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="-5.970000000000027" as="sourcePoint" />
+            <mxPoint x="504" y="-6" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-25" value="Сотрудник&amp;nbsp; выходит на больничный" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="507" y="-48" width="132" height="84.75" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-26" value="Сотрудник выходит в отпуск" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="507" y="-312" width="132" height="84.75" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-27" value="Сотрудник заболел" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="422" y="3" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-28" value="Сотрудник в порядке" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="427" y="-128" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-29" value="Сотрудник использовал право на отпуск" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="429" y="-257.25" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-32" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=default;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="fcmeIZn-ffQWN_sdDxRc-25" target="fcmeIZn-ffQWN_sdDxRc-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="643" y="-5.9399999999999995" as="sourcePoint" />
+            <mxPoint x="896" y="-6" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="752" y="-6" />
+              <mxPoint x="754" y="-137" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-34" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;Сотрудник в порядке&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="654" y="-140" width="62.97" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-37" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="fcmeIZn-ffQWN_sdDxRc-26">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="673" y="-235" as="sourcePoint" />
+            <mxPoint x="754" y="-137" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="754" y="-270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-38" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="117" as="sourcePoint" />
+            <mxPoint x="411" y="-18" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-40" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="fcmeIZn-ffQWN_sdDxRc-42">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="411" y="117.02999999999997" as="sourcePoint" />
+            <mxPoint x="507" y="117" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-41" value="Сотрудник&amp;nbsp; перестаёт работать" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="416" y="119" width="65" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-42" value="Сотрудник уволен" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="75" width="132" height="84.75" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-43" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="fcmeIZn-ffQWN_sdDxRc-42">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="644" y="117.46999999999997" as="sourcePoint" />
+            <mxPoint x="810" y="117.03" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="810" y="117" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-45" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="810" y="102.37" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fcmeIZn-ffQWN_sdDxRc-44" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="813.25" y="106" width="23.5" height="23.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
