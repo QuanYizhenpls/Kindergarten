@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KinderApp</name>
+    </assembly>
+    <members>
+        <member name="T:KinderApp.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:KinderApp.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:KinderApp.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:KinderApp.MenuWindow">
+            <summary>
+            Логика взаимодействия для MenuWindow.xaml
+            </summary>
+            <summary>
+            MenuWindow
+            </summary>
+        </member>
+        <member name="M:KinderApp.MenuWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:KinderApp.RegistrationWindow">
+            <summary>
+            Логика взаимодействия для RegistrationWindow.xaml
+            </summary>
+            <summary>
+            RegistrationWindow
+            </summary>
+        </member>
+        <member name="M:KinderApp.RegistrationWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>
