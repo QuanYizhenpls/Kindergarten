@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KinderDbContext</name>
+    </assembly>
+    <members>
+        <member name="T:KinderDbContext.Connections.AppDbContext">
+            <summary>
+            Абстрактный класс, представляющий контекст приложения для работы с базами данных.
+            Наследуется от DbContext (Entity Framework Core).
+            </summary>
+        </member>
+        <member name="P:KinderDbContext.Connections.AppDbContext.Agreements">
+            <summary>
+             Представляет набор данных (таблицу) "Agreements" в базе данных.
+            </summary>
+        </member>
+        <member name="P:KinderDbContext.Connections.AppDbContext.Employees">
+            <summary>
+             Представляет набор данных (таблицу) "Employees" в базе данных.
+            </summary>
+        </member>
+        <member name="P:KinderDbContext.Connections.AppDbContext.EmployeeDatas">
+            <summary>
+             Представляет набор данных (таблицу) "EmployeeDatas" в базе данных.
+            </summary>
+        </member>
+        <member name="P:KinderDbContext.Connections.AppDbContext.Groups">
+            <summary>
+             Представляет набор данных (таблицу) "Groups" в базе данных.
+            </summary>
+        </member>
+        <member name="P:KinderDbContext.Connections.AppDbContext.Kindergartners">
+            <summary>
+             Представляет набор данных (таблицу) "Kindergartners" в базе данных.
+            </summary>
+        </member>
+        <member name="P:KinderDbContext.Connections.AppDbContext.Plans">
+            <summary>
+             Представляет набор данных (таблицу) "Plans" в базе данных.
+            </summary>
+        </member>
+        <member name="P:KinderDbContext.Connections.AppDbContext.Salaries">
+            <summary>
+             Представляет набор данных (таблицу) "Salaries" в базе данных.
+            </summary>
+        </member>
+        <member name="T:KinderDbContext.Connections.DbController">
+            <summary>
+            Контроллер для управления контекстами базы данных. Использует паттерн Singleton.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Connections.DbController.#ctor">
+            <summary>
+            Приватный конструктор, предотвращающий создание экземпляров класса извне.
+            </summary>
+        </member>
+        <member name="F:KinderDbContext.Connections.DbController._appDbContext">
+            <summary>
+            Приватное поле для хранения экземпляра контекста базы данных.
+            </summary>
+        </member>
+        <member name="F:KinderDbContext.Connections.DbController._instance">
+            <summary>
+            Приватное статическое поле для хранения единственного экземпляра DbController 
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Connections.DbController.GetContext">
+            <summary>
+            Возвращает текущий контекст базы данных.
+            </summary>
+            <returns>Экземпляр AppDbContext.</returns>
+        </member>
+        <member name="M:KinderDbContext.Connections.DbController.GetInstance">
+            <summary>
+            Возвращает единственный экземпляр класса DbController .
+            </summary>
+            <returns>Единственный экземпляр DbController.</returns>
+        </member>
+        <member name="M:KinderDbContext.Connections.DbController.SetSqliteConnection">
+            <summary>
+            Устанавливает соединение с базой данных SQLite.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Connections.DbController.SetSqlServerConnection">
+            <summary>
+            Устанавливает соединение с базой данных SQL Server.
+            </summary>
+        </member>
+        <member name="T:KinderDbContext.Connections.SQLiteDbContext">
+            <summary>
+            Класс, представляющий контекст для работы с базой данных SQLite.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Connections.SQLiteDbContext.#ctor">
+            <summary>
+            Конструктор класса SQLiteDbContext.
+            </summary>
+        </member>
+        <member name="F:KinderDbContext.Connections.SQLiteDbContext._connectionString">
+            <summary>
+            Строка подключения к базе данных SQLite.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Connections.SQLiteDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Настраивает параметры подключения к базе данных.
+            </summary>
+            <param name="optionsBuilder">Объект, позволяющий настроить параметры контекста базы данных.</param>
+        </member>
+        <member name="T:KinderDbContext.Connections.SQLServerDbContext">
+            <summary>
+            Класс, представляющий контекст для работы с базой данных SQL Server.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Connections.SQLServerDbContext.#ctor">
+            <summary>
+            Конструктор класса SQLServerDbContext.
+            </summary>
+        </member>
+        <member name="F:KinderDbContext.Connections.SQLServerDbContext._connectionString">
+            <summary>
+            Строка подключения к базе данных SQL Server.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Connections.SQLServerDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Настраивает параметры подключения к базе данных.
+            </summary>
+            <param name="optionsBuilder">Объект, позволяющий настроить параметры контекста базы данных.</param>
+        </member>
+    </members>
+</doc>
