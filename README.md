@@ -33,14 +33,14 @@
 * [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite/10.0.0-preview.2.25163.8)
 
 ## Базы данных
-В проекте есть возможность использовать такие варианты БД как MS Sql Server и Sqlite
+В проекте есть возможность использовать такие варианты БД как MS Sql Server и Sqlite.
 
 ## XML Докумеентация
 Ссылка на XML документацию:
 > link
 
 ## Диаграммы сущностей
-![Диаграмма классов]()
+![Диаграмма сущность-связь]()
 
 ## Инструкция
 Краткое руководство использования:
