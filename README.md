@@ -40,7 +40,10 @@
 
 
 ## Диаграммы сущностей
-
+![Диаграмма переходов состояний](https://github.com/QuanYizhenpls/Kindergarten/blob/main/Диаграмма%20переходов%20состояний.drawio)
+![Диаграмма сущность-связь](https://github.com/QuanYizhenpls/Kindergarten/blob/main/Диаграмма%20сущность-связь.drawio)
+![Диаграмма потоков данных](https://github.com/QuanYizhenpls/Kindergarten/blob/main/Диаграмма%20потоков%20данных.drawio)
+![Функциональная диаграмма](https://github.com/QuanYizhenpls/Kindergarten/blob/main/Функциональная%20диаграмма.drawio)
 
 ## Инструкция
 Краткое руководство использования:
