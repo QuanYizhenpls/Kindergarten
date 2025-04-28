@@ -23,7 +23,7 @@
 ## Установка
 Для установки в **`Bash`** или **`Power Shell`** введите эту команду:
 ```
-
+https://github.com/QuanYizhenpls/Kindergarten.git
 ```
 
 ## Библиотеки
