@@ -48,5 +48,9 @@ namespace KinderDbContext.Connections
         ///  Представляет набор данных (таблицу) "Salaries" в базе данных.
         /// </summary>
         public DbSet<Salary> Salaries { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+
     }
 }

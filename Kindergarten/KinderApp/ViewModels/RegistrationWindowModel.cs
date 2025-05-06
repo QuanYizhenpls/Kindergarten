@@ -1,0 +1,14 @@
+﻿using KinderApp.Commands;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KinderApp.ViewModels
+{
+    public class RegistrationWindowModel : ViewModelBase
+    {
+
+    }
+}

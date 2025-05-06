@@ -1,13 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
@@ -16,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Styles\" />
+    <ProjectReference Include="..\KinderData\KinderData.csproj" />
+    <ProjectReference Include="..\Kindergarten\KinderData.csproj" />
   </ItemGroup>
 
 </Project>

@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace KinderApp
+namespace KinderApp.VIews
 {
     /// <summary>
-    /// Логика взаимодействия для RegistrationWindow.xaml
+    /// Логика взаимодействия для ObjectEditorWindow.xaml
     /// </summary>
-    public partial class RegistrationWindow : Window
+    public partial class ObjectEditorWindow : Window
     {
-        public RegistrationWindow()
+        public ObjectEditorWindow()
         {
             InitializeComponent();
         }
