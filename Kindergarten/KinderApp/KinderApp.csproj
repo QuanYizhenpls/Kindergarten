@@ -19,4 +19,9 @@
     <Folder Include="Assets\Styles\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KinderData\KinderData.csproj" />
+    <ProjectReference Include="..\KInderDbContext\KinderDbContext.csproj" />
+  </ItemGroup>
+
 </Project>

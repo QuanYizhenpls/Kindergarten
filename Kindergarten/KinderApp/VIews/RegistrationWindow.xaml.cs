@@ -1,4 +1,5 @@
-﻿using KinderApp.ViewModels;
+﻿using KinderApp.Commands;
+using KinderApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,11 @@ namespace KinderApp
     /// </summary>
     public partial class RegistrationWindow : Window
     {
-        public RegistrationWindow()
+        private RegistrationWindowModel _viewModel;
+        public RegistrationWindow(ViewModelBase viewModel)
         {
             InitializeComponent();
-            DataContext = new RegistrationWindowModel();
+            DataContext = _viewModel = new RegistrationWindowModel(viewModel);
         }
     }
 }

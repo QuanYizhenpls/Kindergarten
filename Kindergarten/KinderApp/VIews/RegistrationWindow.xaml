@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp"
         mc:Ignorable="d"
-        Title="RegistrationWindow" Height="400" Width="250"
+        Title="RegistrationWindow" Height="350" Width="250"
     WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"

@@ -27,7 +27,7 @@ namespace KinderData.Services
         {
             if (entity == null) return await Task.FromResult(false);
 
-            ctx.Employees.Add(entity);
+            ctx.EmployeeDatas.Add(entity);
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);
         }
@@ -51,7 +51,7 @@ namespace KinderData.Services
         {
             if (entity == null) return await Task.FromResult(false);
 
-            ctx.Employees.Remove(entity);
+            ctx.EmployeeDatas.Remove(entity);
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);
         }

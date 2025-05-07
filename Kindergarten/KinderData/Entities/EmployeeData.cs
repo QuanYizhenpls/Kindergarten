@@ -17,7 +17,7 @@ namespace KinderData.Entities
         /// Получает или задает идентификатор сотрудника.
         /// </summary>
         [Key]
-        public Guid Employee_Id { get; set; }
+        public Guid EmployeeData_Id { get; set; }
 
         /// <summary>
         /// Получает или задает номер паспорта сотрудника.

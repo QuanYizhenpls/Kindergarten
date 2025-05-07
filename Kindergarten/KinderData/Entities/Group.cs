@@ -17,12 +17,12 @@ namespace KinderData.Entities
         /// Получает или задает уникальный идентификатор группы.
         /// </summary>
         [Key]
-        public Guid Groups_Id { get; set; }
+        public Guid Group_Id { get; set; }
 
         /// <summary>
         /// Получает или задает наименование группы.
         /// </summary>
-        public string? GroupsName { get; set; }
+        public string? GroupName { get; set; }
 
         /// <summary>
         /// Получает или задает коллекцию детей, входящих в эту группу.
