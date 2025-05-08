@@ -16,7 +16,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает уникальный идентификатор группы.
         /// </summary>
-        [Key]
+       
         public Guid Group_Id { get; set; }
 
         /// <summary>
@@ -24,15 +24,12 @@ namespace KinderData.Entities
         /// </summary>
         public string? GroupName { get; set; }
 
+        
         /// <summary>
         /// Получает или задает коллекцию детей, входящих в эту группу.
         /// </summary>
         public virtual ICollection<Kindergartner> Kindergartners { get; set; } = null!;
 
-        /// <summary>
-        /// Получает или задает воспитанника, связанного с группой.
-        /// </summary>
-        [ForeignKey("Kindergartner_Id")]
-        public virtual Kindergartner Kindergartner { get; set; } = null!;
+       
     }
 }

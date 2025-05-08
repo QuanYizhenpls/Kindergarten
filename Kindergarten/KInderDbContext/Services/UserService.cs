@@ -32,9 +32,9 @@ namespace KinderData.Services
             try
             {
                 await ctx.AddAsync(entity);
-                Debug.WriteLine($"{GetType().Name}: entity was added!");
+                Debug.WriteLine($"{GetType().Name}: пользователь добавлен!");
                 await ctx.SaveChangesAsync();
-                Debug.WriteLine($"{GetType().Name}: entity was saved!");
+                Debug.WriteLine($"{GetType().Name}: пользователь сохранён!");
             }
             catch (Exception ex)
             {
@@ -80,9 +80,9 @@ namespace KinderData.Services
 
                 // Сохранение в бд
                 ctx.Update(entity);
-                Debug.WriteLine($"{GetType().Name}: entity updated!");
+                Debug.WriteLine($"{GetType().Name}: пользователь обновлен!");
                 await ctx.SaveChangesAsync();
-                Debug.WriteLine($"{GetType().Name}: changes saved!");
+                Debug.WriteLine($"{GetType().Name}: изменения сохранены!");
             }
             catch (Exception ex)
             {

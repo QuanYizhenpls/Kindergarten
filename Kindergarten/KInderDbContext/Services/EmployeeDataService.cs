@@ -41,7 +41,6 @@ namespace KinderData.Services
             entity.INN = newEntity.INN;
             entity.EmploymentRecord = newEntity.EmploymentRecord;
             entity.Employees = newEntity.Employees;
-            entity.Employee = newEntity.Employee;
 
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);

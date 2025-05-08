@@ -41,7 +41,6 @@ namespace KinderData.Services
             entity.Experience = newEntity.Experience;
             entity.Post = newEntity.Post;
             entity.Groups = newEntity.Groups;
-            entity.Group = newEntity.Group;
 
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);

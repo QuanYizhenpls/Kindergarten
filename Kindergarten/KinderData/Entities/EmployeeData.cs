@@ -16,7 +16,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает идентификатор сотрудника.
         /// </summary>
-        [Key]
+       
         public Guid EmployeeData_Id { get; set; }
 
         /// <summary>
@@ -39,15 +39,12 @@ namespace KinderData.Entities
         /// </summary>
         public string? EmploymentRecord { get; set; }
 
+
         /// <summary>
         /// Получает или задает коллекцию сотрудников, связанных с этими данными.
         /// </summary>
-        public virtual ICollection<Employee> Employees { get; set; } = null!;
-
-        /// <summary>
-        /// Получает или задает сотрудника, связанного с этими данными.
-        /// </summary>
         [ForeignKey("Employee_Id")]
-        public virtual Employee Employee { get; set; } = null!;
+        public Employee Employees { get; set; }
+
     }
 }

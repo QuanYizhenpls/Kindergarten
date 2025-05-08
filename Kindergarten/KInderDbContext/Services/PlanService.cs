@@ -38,8 +38,8 @@ namespace KinderData.Services
 
             entity.DateOfTheEvent = newEntity.DateOfTheEvent;
             entity.Development = newEntity.Development;
-            entity.Group = newEntity.Group;
-            entity.Employee = newEntity.Employee;
+            entity.Groups = newEntity.Groups;
+            entity.Employees = newEntity.Employees;
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);
         }

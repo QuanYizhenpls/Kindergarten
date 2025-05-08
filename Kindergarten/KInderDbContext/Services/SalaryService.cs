@@ -41,7 +41,7 @@ namespace KinderData.Services
             entity.Allowance = newEntity.Allowance;
             entity.Prepayment = newEntity.Prepayment;
             entity.Penalty = newEntity.Penalty;
-            entity.Employee = newEntity.Employee;
+            entity.Employees = newEntity.Employees;
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);
         }

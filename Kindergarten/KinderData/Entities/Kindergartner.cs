@@ -15,7 +15,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает уникальный идентификатор воспитанника.
         /// </summary>
-        [Key]
+   
         public Guid Kindergartner_Id { get; set; }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает дату рождения воспитанника.
         /// </summary>
-        public DateOnly DateOfBirth { get; set; }
+        public string? DateOfBirth { get; set; }
 
         /// <summary>
         /// Получает или задает контактную информацию родителей воспитанника.

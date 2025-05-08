@@ -38,7 +38,7 @@ namespace KinderData.Services
 
             entity.GroupName = newEntity.GroupName;
             entity.Kindergartners = newEntity.Kindergartners;
-            entity.Kindergartner = newEntity.Kindergartner;
+            entity.Kindergartners = newEntity.Kindergartners;
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);
         }

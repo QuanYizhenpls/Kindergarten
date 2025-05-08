@@ -38,7 +38,7 @@ SelectedItem="{Binding SelectedEmployee}"
       Width="140" Margin="0,20,0,10" HorizontalAlignment="Left"/>
             <Button Content="Закрыть" Width="50" 
       x:Name="CloseButton"
-      Click="CloseButton_Click" HorizontalAlignment="Left"/>
+       HorizontalAlignment="Left"/>
         </StackPanel>
     </Grid>
 </Page>

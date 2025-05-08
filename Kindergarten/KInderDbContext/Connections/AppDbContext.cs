@@ -17,7 +17,7 @@ namespace KinderDbContext.Connections
         /// <summary>
         ///  Представляет набор данных (таблицу) "Agreements" в базе данных.
         /// </summary>
-        public DbSet<Agreements> Agreements { get; set; }
+        public DbSet<Agreement> Agreements { get; set; }
 
         /// <summary>
         ///  Представляет набор данных (таблицу) "Employees" в базе данных.
