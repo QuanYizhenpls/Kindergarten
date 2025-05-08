@@ -1,0 +1,34 @@
+﻿<Page x:Class="KinderApp.VIews.GroupEditWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KinderApp.VIews"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GroupEditWindow">
+
+    <Grid>
+        <StackPanel Background="Aqua" HorizontalAlignment="Center" Width="500" Height="400">
+
+            <Label Content="Название группы"  HorizontalAlignment="Left"/>
+
+            <TextBox Text="{Binding GroupName, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Left"/>
+
+
+            <Label Content="Воспитанники" HorizontalAlignment="Left"/>
+            <ComboBox ItemsSource="{Binding Kindergartner, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
+SelectedItem="{Binding SelectedKindergartner}"
+        Width="200"
+        Margin="5"
+        Tag="Groups"
+        VerticalContentAlignment="Top"/>
+
+            <Button Content="Сохранить" Command="{Binding SaveCommand}"
+      Width="140" Margin="0,20,0,10" HorizontalAlignment="Left"/>
+            <Button Content="Закрыть" Width="50" 
+      x:Name="CloseButton"
+      Click="CloseButton_Click" HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</Page>

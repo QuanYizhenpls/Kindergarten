@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodSupplyInventoryManagementDBContext.Services.Abstraction
+namespace KinderDbContext.Abstraction
 {
     public abstract class DbEntityServiceBase<T> : IBaseManagement<T>
     {

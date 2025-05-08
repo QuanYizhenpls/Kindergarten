@@ -24,7 +24,6 @@ namespace KinderApp.ViewModels
                     Firstname = _firstname,
                     Lastname = _lastname,
                     Middlename = _middlename,
-                    Organization = _organization,
                     Login = _login,
                     Password = _password
                 }).Result)
@@ -46,7 +45,6 @@ namespace KinderApp.ViewModels
         private string _firstname = string.Empty;
         private string _lastname = string.Empty;
         private string _middlename = string.Empty;
-        private string _organization = string.Empty;
         private string _login = string.Empty;
         private string _password = string.Empty;
         #endregion
@@ -66,11 +64,6 @@ namespace KinderApp.ViewModels
         {
             get => _middlename;
             set => Set(ref _middlename, value, nameof(Middlename));
-        }
-        public string Organization
-        {
-            get => _organization;
-            set => Set(ref _organization, value, nameof(Organization));
         }
         public string Login
         {

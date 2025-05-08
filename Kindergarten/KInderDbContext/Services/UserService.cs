@@ -1,4 +1,4 @@
-﻿using FoodSupplyInventoryManagementDBContext.Services.Abstraction;
+﻿using KinderDbContext.Abstraction;
 using KinderData.Entities;
 using System;
 using System.Collections.Generic;
@@ -23,8 +23,6 @@ namespace KinderData.Services
             if (string.IsNullOrEmpty(entity.Firstname)) return await Task.FromResult(false);
             if (string.IsNullOrEmpty(entity.Lastname)) return await Task.FromResult(false);
 
-            // проверка организации
-            if (string.IsNullOrEmpty(entity.Organization)) return await Task.FromResult(false);
 
             // проверка логина и пароля
             if (string.IsNullOrEmpty(entity.Login)) return await Task.FromResult(false);
@@ -65,8 +63,6 @@ namespace KinderData.Services
             if (string.IsNullOrEmpty(newEntity.Firstname)) return await Task.FromResult(false);
             if (string.IsNullOrEmpty(newEntity.Lastname)) return await Task.FromResult(false);
 
-            // проверка организации
-            if (string.IsNullOrEmpty(newEntity.Organization)) return await Task.FromResult(false);
 
             // проверка логина и пароля
             if (string.IsNullOrEmpty(newEntity.Login)) return await Task.FromResult(false);
@@ -79,7 +75,6 @@ namespace KinderData.Services
                 entity.Firstname = newEntity.Firstname;
                 entity.Lastname = newEntity.Lastname;
                 entity.Middlename = newEntity.Middlename;
-                entity.Organization = newEntity.Organization;
                 entity.Login = newEntity.Login;
                 entity.Password = newEntity.Password;
 

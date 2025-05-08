@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KinderApp.ViewModels
 {
-    class ObjectEditorWindowModel
+    internal class GroupEditWindowModel
     {
     }
 }

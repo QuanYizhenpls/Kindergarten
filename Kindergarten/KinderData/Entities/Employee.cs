@@ -42,12 +42,12 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает коллекцию групп, к которым принадлежит сотрудник.
         /// </summary>
-        public virtual ICollection<Group> Groups { get; set; } = null!;
+        public virtual ICollection<Group> Groups { get; set; } = null;
 
         /// <summary>
         /// Получает или задает группу, к которой принадлежит сотрудник.
         /// </summary>
         [ForeignKey("Group_Id")]
-        public virtual Group Group { get; set; } = null!;
+        public virtual Group Group { get; set; } = null;
     }
 }

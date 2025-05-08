@@ -22,22 +22,22 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает информацию о договоре по отпуску.
         /// </summary>
-        public string? Vacation { get; set; }
+        public string Vacation { get; set; } = null;
 
         /// <summary>
         /// Получает или задает информацию о договоре по больничному.
         /// </summary>
-        public string? SickLeave { get; set; }
+        public string SickLeave { get; set; } = null;
 
         /// <summary>
         /// Получает или задает информацию о договоре при увольнении.
         /// </summary>
-        public string? Dismissal { get; set; }
+        public string Dismissal { get; set; } = null;
 
         /// <summary>
         /// Получает или задает информацию по трудовому договору.
         /// </summary>
-        public string? EmploymentContract { get; set; }
+        public string EmploymentContract { get; set; } = null;
 
         /// <summary>
         /// Получает или задает сотрудника, с которым связан это договор.

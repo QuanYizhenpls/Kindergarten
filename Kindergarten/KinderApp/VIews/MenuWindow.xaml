@@ -5,14 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="450" Width="800"
-        Icon="">
+        Title="MenuWindow" Height="450" Width="800">
     <Grid>
 
-        <Border Background="Aquamarine" Height="434" VerticalAlignment="Bottom">
+        <Border Background="Beige" Height="434" VerticalAlignment="Bottom">
 
             <StackPanel Orientation="Horizontal">
-                <TabControl TabStripPlacement="Top" Background="Aquamarine">
+                <TabControl TabStripPlacement="Top" Background="Beige">
                     <TabControl.Resources>
                         <Style TargetType="TabItem">
                             <Setter Property="Margin" Value="0,0,0,0"/>
@@ -30,13 +29,13 @@
                                     <Setter Property="Padding" Value="10,5"/>
                                     <Setter Property="Width" Value="100"/>
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Create"/>
-                            <Button Content="Update"/>
-                            <Button Content="Delete"/>
-                            <Button Content="Show"/>
-                            <Button Content="Hide"/>
+                            <Button Content="Добавить"/>
+                            <Button Content="Обновить"/>
+                            <Button Content="Удалить"/>
                         </StackPanel>
                     </TabItem>
 
@@ -48,14 +47,13 @@
                                     <Setter Property="Padding" Value="10,5"/>
                                     <Setter Property="Width" Value="100"/>
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
-
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Create"/>
-                            <Button Content="Update"/>
-                            <Button Content="Delete"/>
-                            <Button Content="Show"/>
-                            <Button Content="Hide"/>
+                            <Button Content="Добавить"/>
+                            <Button Content="Обновить"/>
+                            <Button Content="Удалить"/>
                         </StackPanel>
                     </TabItem>
 
@@ -67,13 +65,13 @@
                                     <Setter Property="Padding" Value="10,5"/>
                                     <Setter Property="Width" Value="100"/>
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Create"/>
-                            <Button Content="Update"/>
-                            <Button Content="Delete"/>
-                            <Button Content="Show"/>
-                            <Button Content="Hide"/>
+                            <Button Content="Добавить"/>
+                            <Button Content="Обновить"/>
+                            <Button Content="Удалить"/>
                         </StackPanel>
                     </TabItem>
 
@@ -85,14 +83,13 @@
                                     <Setter Property="Padding" Value="10,5"/>
                                     <Setter Property="Width" Value="100"/>
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
-
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Create"/>
-                            <Button Content="Update"/>
-                            <Button Content="Delete"/>
-                            <Button Content="Show"/>
-                            <Button Content="Hide"/>
+                            <Button Content="Добавить"/>
+                            <Button Content="Обновить"/>
+                            <Button Content="Удалить"/>
                         </StackPanel>
                     </TabItem>
 
@@ -104,14 +101,13 @@
                                     <Setter Property="Padding" Value="10,5"/>
                                     <Setter Property="Width" Value="100"/>
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
-
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Create"/>
-                            <Button Content="Update"/>
-                            <Button Content="Delete"/>
-                            <Button Content="Show"/>
-                            <Button Content="Hide"/>
+                            <Button Content="Добавить"/>
+                            <Button Content="Обновить"/>
+                            <Button Content="Удалить"/>
                         </StackPanel>
                     </TabItem>
 
@@ -123,14 +119,13 @@
                                     <Setter Property="Padding" Value="10,5"/>
                                     <Setter Property="Width" Value="100"/>
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
-
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Create"/>
-                            <Button Content="Update"/>
-                            <Button Content="Delete"/>
-                            <Button Content="Show"/>
-                            <Button Content="Hide"/>
+                            <Button Content="Добавить"/>
+                            <Button Content="Обновить"/>
+                            <Button Content="Удалить"/>
                         </StackPanel>
                     </TabItem>
 
@@ -142,14 +137,13 @@
                                     <Setter Property="Padding" Value="10,5"/>
                                     <Setter Property="Width" Value="100"/>
                                     <Setter Property="HorizontalAlignment" Value="Left"/>
-
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Create"/>
-                            <Button Content="Update"/>
-                            <Button Content="Delete"/>
-                            <Button Content="Show"/>
-                            <Button Content="Hide"/>
+                            <Button Content="Добавить"/>
+                            <Button Content="Обновить"/>
+                            <Button Content="Удалить"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>

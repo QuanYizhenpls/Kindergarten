@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FoodSupplyInventoryManagementDBContext.Services.Abstraction
+namespace KinderDbContext.Abstraction
 {
     public interface ISupplyManagment<T>
     {

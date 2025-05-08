@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace KinderApp.VIews
 {
     /// <summary>
-    /// Логика взаимодействия для ObjectEditorWindow.xaml
+    /// Логика взаимодействия для EmployeeEditWindow.xaml
     /// </summary>
-    public partial class ObjectEditorWindow : Window
+    public partial class EmployeeEditWindow : Page
     {
-        public ObjectEditorWindow()
+        public EmployeeEditWindow()
         {
             InitializeComponent();
         }
