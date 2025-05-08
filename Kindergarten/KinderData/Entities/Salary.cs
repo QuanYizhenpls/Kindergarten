@@ -48,6 +48,6 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает сотрудника, которому начислена данная заработная плата.
         /// </summary>
-        public virtual ICollection<Employee> Employees { get; set; } = null!;
+        public virtual ICollection<Employee>? Employees { get; set; } = null!;
     }
 }

@@ -16,7 +16,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает идентификатор сотрудника.
         /// </summary>
-       
+        [Key]
         public Guid EmployeeData_Id { get; set; }
 
         /// <summary>
@@ -43,8 +43,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает коллекцию сотрудников, связанных с этими данными.
         /// </summary>
-        [ForeignKey("Employee_Id")]
-        public Employee Employees { get; set; }
+        public Employee? Employees { get; set; }
 
     }
 }

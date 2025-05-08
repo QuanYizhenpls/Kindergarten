@@ -17,7 +17,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает уникальный идентификатор договора.
         /// </summary>
-        
+        [Key]
         public Guid Agreement_Id { get; set; }
 
         /// <summary>

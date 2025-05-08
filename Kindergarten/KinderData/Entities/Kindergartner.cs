@@ -15,7 +15,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает уникальный идентификатор воспитанника.
         /// </summary>
-   
+        [Key]
         public Guid Kindergartner_Id { get; set; }
 
         /// <summary>

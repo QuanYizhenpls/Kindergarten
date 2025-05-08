@@ -16,6 +16,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает уникальный идентификатор плана.
         /// </summary>
+        [Key]
         public Guid Plan_Id { get; set; }
 
         /// <summary>
@@ -31,11 +32,11 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает группу, для которой предназначен этот план.
         /// </summary>
-        public virtual ICollection<Group> Groups { get; set; } = null!;
+        public virtual ICollection<Group>? Groups { get; set; } = null!;
 
         /// <summary>
         /// Получает или задает сотрудника, ответственного за этот план.
         /// </summary>
-        public virtual ICollection<Employee> Employees { get; set; } = null!;
+        public virtual ICollection<Employee>? Employees { get; set; } = null!;
     }
 }
