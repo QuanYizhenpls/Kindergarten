@@ -22,7 +22,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает дату проведения мероприятия.
         /// </summary>
-        public DateOnly DateOfTheEvent { get; set; }
+        public string? DateOfTheEvent { get; set; }
 
         /// <summary>
         /// Получает или задает описание мероприятия.

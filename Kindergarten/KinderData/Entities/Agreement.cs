@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,5 +45,6 @@ namespace KinderData.Entities
         /// Получает или задает сотрудника, с которым связан это договор.
         /// </summary>
         public virtual ICollection<Employee>? Employees { get; set; }
+        
     }
 }

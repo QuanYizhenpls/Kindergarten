@@ -15,74 +15,66 @@ namespace KinderApp.ViewModels
     {
         public RegistrationWindowModel(ViewModelBase viewModel)
         {
-            
+            LoginCommand = new RelayCommand(o =>
+            {
+                var user = new UserService().GetAccount(Login, Password).Result;
+                if (user != null)
+                {
+                    Debug.WriteLine($"[{GetType()}] - пользователь найден!");
+                    MessageBox.Show($"[{GetType()}] - пользователь найден!");
+                    var newWin = new MenuWindow();
+                    var pervWin = Application.Current.MainWindow;
+                    Application.Current.MainWindow = newWin;
+                    newWin.Show();
+                    pervWin.Close();
+                }
+                else Debug.WriteLine($"[{GetType()}] - пользователь не найден!");
+            });
+
+
+
             RegisterCommand = new RelayCommand(o =>
             {
                 if (new UserService().Add(new User()
                 {
                     Id = Guid.NewGuid(),
-                    Firstname = _firstname,
-                    Lastname = _lastname,
-                    Middlename = _middlename,
-                    Login = _login,
-                    Password = _password
+                    Firstname = firstname,
+                    Lastname = lastname,
+                    Middlename = middlename,
+                    Login = login,
+                    Password = password
                 }).Result)
                 {
-                    Debug.WriteLine($"[{GetType()}] - user has created!");
-                    MessageBox.Show($"[{GetType()}] - user has created!");
+                    Debug.WriteLine($"[{GetType()}] - пользователь создан!");
+                    MessageBox.Show($"[{GetType()}] - пользователь создан!");
                 }
                 else
                 {
-                    Debug.WriteLine($"[{GetType()}] - user doesn't created!");
-                    MessageBox.Show($"[{GetType()}] - user doesn't created!");
+                    Debug.WriteLine($"[{GetType()}] - пользователь не был создан!!");
+                    MessageBox.Show($"[{GetType()}] - пользователь не был создан!");
                 }
+            });
+
+            CloseCommand = new RelayCommand(o =>
+            {
+                AppClose();
             });
         }
 
-        #region Variables
+        private string firstname = string.Empty;
+        private string lastname = string.Empty;
+        private string middlename = string.Empty;
+        private string login = string.Empty;
+        private string password = string.Empty;
 
-        #region Fields
-        private string _firstname = string.Empty;
-        private string _lastname = string.Empty;
-        private string _middlename = string.Empty;
-        private string _login = string.Empty;
-        private string _password = string.Empty;
-        #endregion
+        public string Firstname { get => firstname; set => Set(ref firstname, value, nameof(Firstname)); }
+        public string Lastname { get => lastname; set => Set(ref lastname, value, nameof(Lastname)); }
+        public string Middlename { get => middlename; set => Set(ref middlename, value, nameof(Middlename)); }
+        public string Login { get => login; set => Set(ref login, value, nameof(Login)); }
+        public string Password { get => password; set => Set(ref password, value, nameof(Password)); }
 
-        #region Property
-        public string Firstname
-        {
-            get => _firstname;
-            set => Set(ref _firstname, value, nameof(Firstname));
-        }
-        public string Lastname
-        {
-            get => _lastname;
-            set => Set(ref _lastname, value, nameof(Lastname));
-        }
-        public string Middlename
-        {
-            get => _middlename;
-            set => Set(ref _middlename, value, nameof(Middlename));
-        }
-        public string Login
-        {
-            get => _login;
-            set => Set(ref _login, value, nameof(Login));
-        }
-        public string Password
-        {
-            get => _password;
-            set => Set(ref _password, value, nameof(Password));
-        }
-
-        #endregion
-
-        #region Commands
-        public RelayCommand SwitchToLoginCommand { get; }
+        public RelayCommand LoginCommand { get; }
         public RelayCommand RegisterCommand { get; }
-        #endregion
-
-        #endregion
+        public RelayCommand CloseCommand { get; }
     }
 }

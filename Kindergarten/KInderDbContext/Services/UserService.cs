@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using KinderDbContext.Connections;
 
 namespace KinderData.Services
 {
@@ -67,6 +69,7 @@ namespace KinderData.Services
             // проверка логина и пароля
             if (string.IsNullOrEmpty(newEntity.Login)) return await Task.FromResult(false);
             if (string.IsNullOrEmpty(newEntity.Password)) return await Task.FromResult(false);
+
 
             // обновление данных
             try

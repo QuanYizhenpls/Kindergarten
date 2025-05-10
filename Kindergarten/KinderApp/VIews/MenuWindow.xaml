@@ -33,9 +33,9 @@
                                     <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Добавить"/>
-                            <Button Content="Обновить"/>
-                            <Button Content="Удалить"/>
+                            <Button Content="Добавить" Command="{Binding EAddCommand}"/>
+                            <Button Content="Обновить" Command="{Binding EUpdateCommand}"/>
+                            <Button Content="Удалить" Command="{Binding ERemoveCommand}"/>
                         </StackPanel>
                     </TabItem>
 
