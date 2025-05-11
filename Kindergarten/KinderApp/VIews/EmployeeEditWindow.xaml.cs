@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KinderApp.ViewModels;
+using KinderData.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,14 @@ namespace KinderApp.VIews
     /// <summary>
     /// Логика взаимодействия для EmployeeEditWindow.xaml
     /// </summary>
-    public partial class EmployeeEditWindow : Page
+    public partial class EmployeeEditWindow : Window
     {
-        public EmployeeEditWindow()
+        EmployeeEditWindowModel viewModel;
+        public EmployeeEditWindow(User user, Employee employee = null!)
         {
             InitializeComponent();
+            viewModel = new(user, employee);
+            DataContext = viewModel;
         }
     }
 }

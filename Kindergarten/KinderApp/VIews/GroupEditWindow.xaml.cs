@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KinderApp.ViewModels;
+using KinderData.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,14 @@ namespace KinderApp.VIews
     /// <summary>
     /// Логика взаимодействия для GroupEditWindow.xaml
     /// </summary>
-    public partial class GroupEditWindow : Page
+    public partial class GroupEditWindow : Window
     {
-        public GroupEditWindow()
+        GroupEditWindowModel viewModel;
+        public GroupEditWindow(User user, Group group = null!)
         {
             InitializeComponent();
+            viewModel = new(user, group);
+            DataContext = viewModel;
         }
     }
 }

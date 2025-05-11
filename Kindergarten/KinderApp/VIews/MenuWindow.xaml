@@ -51,9 +51,9 @@
                                     <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Добавить"/>
-                            <Button Content="Обновить"/>
-                            <Button Content="Удалить"/>
+                            <Button Content="Добавить" Command="{Binding KAddCommand}"/>
+                            <Button Content="Обновить" Command="{Binding KUpdateCommand}"/>
+                            <Button Content="Удалить" Command="{Binding KRemoveCommand}"/>
                         </StackPanel>
                     </TabItem>
 
@@ -69,9 +69,9 @@
                                     <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Добавить"/>
-                            <Button Content="Обновить"/>
-                            <Button Content="Удалить"/>
+                            <Button Content="Добавить" Command="{Binding GAddCommand}"/>
+                            <Button Content="Обновить" Command="{Binding GUpdateCommand}"/>
+                            <Button Content="Удалить" Command="{Binding GRemoveCommand}"/>
                         </StackPanel>
                     </TabItem>
 
@@ -87,9 +87,9 @@
                                     <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Добавить"/>
-                            <Button Content="Обновить"/>
-                            <Button Content="Удалить"/>
+                            <Button Content="Добавить" Command="{Binding AAddCommand}"/>
+                            <Button Content="Обновить" Command="{Binding AUpdateCommand}"/>
+                            <Button Content="Удалить" Command="{Binding ARemoveCommand}"/>
                         </StackPanel>
                     </TabItem>
 
@@ -105,9 +105,9 @@
                                     <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Добавить"/>
-                            <Button Content="Обновить"/>
-                            <Button Content="Удалить"/>
+                            <Button Content="Добавить" Command="{Binding EDAddCommand}"/>
+                            <Button Content="Обновить" Command="{Binding EDUpdateCommand}"/>
+                            <Button Content="Удалить" Command="{Binding EDRemoveCommand}"/>
                         </StackPanel>
                     </TabItem>
 
@@ -123,9 +123,9 @@
                                     <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Добавить"/>
-                            <Button Content="Обновить"/>
-                            <Button Content="Удалить"/>
+                            <Button Content="Добавить" Command="{Binding SAddCommand}"/>
+                            <Button Content="Обновить" Command="{Binding SUpdateCommand}"/>
+                            <Button Content="Удалить" Command="{Binding SRemoveCommand}"/>
                         </StackPanel>
                     </TabItem>
 
@@ -141,9 +141,9 @@
                                     <Setter Property="Foreground" Value="DarkSalmon"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="Добавить"/>
-                            <Button Content="Обновить"/>
-                            <Button Content="Удалить"/>
+                            <Button Content="Добавить" Command="{Binding PAddCommand}"/>
+                            <Button Content="Обновить" Command="{Binding PUpdateCommand}"/>
+                            <Button Content="Удалить" Command="{Binding PRemoveCommand}"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>

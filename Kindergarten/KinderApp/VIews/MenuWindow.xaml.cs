@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KinderApp.ViewModels;
+using KinderData.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,13 @@ namespace KinderApp
     /// </summary>
     public partial class MenuWindow : Window
     {
-        public MenuWindow()
+        MenuWindowModel viewModel;
+        public MenuWindow(User user)
         {
             InitializeComponent();
+            viewModel = new MenuWindowModel(user);
+            DataContext = viewModel;
+            Title = $"Окно пользователя: {user.Fullname}";
         }
     }
 }

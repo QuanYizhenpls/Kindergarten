@@ -1,6 +1,9 @@
-﻿using System;
+﻿using KinderApp.ViewModels;
+using KinderData.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,11 +21,14 @@ namespace KinderApp.VIews
     /// <summary>
     /// Логика взаимодействия для AgreementsEditWindow.xaml
     /// </summary>
-    public partial class AgreementsEditWindow : Page
+    public partial class AgreementsEditWindow :  Window
     {
-        public AgreementsEditWindow()
+        AgreementsEditWindowModel viewModel;
+        public AgreementsEditWindow(User user, Agreement agreement = null!)
         {
             InitializeComponent();
+            viewModel = new(user, agreement);
+            DataContext = viewModel;
         }
     }
 }
