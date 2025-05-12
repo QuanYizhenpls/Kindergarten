@@ -17,10 +17,10 @@ namespace KinderApp.ViewModels
             Agreement = agreement;
             if (agreement != null)
             {
-                Vacation = agreement.Vacation!;
-                SickLeave = agreement.SickLeave!;
-                Dismissal = agreement.Dismissal!;
-                EmploymentContract = agreement.EmploymentContract;
+                Vacation = agreement.Vacation;
+                SickLeave = agreement.SickLeave;
+                Dismissal = agreement.Dismissal;
+                EmploymentContract = agreement.EmploymentContract!;
                 SelectedEmployee = agreement.Employees;
             }
             else
@@ -36,7 +36,7 @@ namespace KinderApp.ViewModels
                 }
                 else
                 {
-                    AgreementsService.Update(agreement, Vacation!, SickLeave!, Dismissal!, EmploymentContract, SelectedEmployee, user);
+                    AgreementsService.Update(agreement, Vacation, SickLeave, Dismissal, EmploymentContract!, SelectedEmployee, user);
                 }
             });
             CloseCommand = new RelayCommand(o =>

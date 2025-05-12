@@ -1,13 +1,11 @@
-﻿<Page x:Class="KinderApp.VIews.EmployeeDataEditWindow"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:KinderApp.VIews"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="EmployeeDataEditWindow">
-
+﻿<Window x:Class="KinderApp.VIews.EmployeeDataEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KinderApp.VIews"
+        mc:Ignorable="d"
+        Title="EmployeeDataEditWindow" Width="500" Height="400">
     <Grid>
         <StackPanel Background="Aqua" HorizontalAlignment="Center" Width="500" Height="400">
 
@@ -39,6 +37,5 @@ SelectedItem="{Binding SelectedEmployee}"
             <Button Content="Закрыть" Width="50" 
       x:Name="CloseButton" HorizontalAlignment="Left"/>
         </StackPanel>
-
     </Grid>
-</Page>
+</Window>
