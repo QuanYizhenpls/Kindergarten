@@ -13,7 +13,7 @@ namespace KinderApp.ViewModels
 {
     public class EmployeeEditWindowModel : ViewModelBase
     {
-        public EmployeeEditWindowModel(User user, Employee employee)
+        public EmployeeEditWindowModel(User user, Employee employee, EmployeeService employeeService)
         {
             Employee = employee;
             if (employee != null)
@@ -22,22 +22,20 @@ namespace KinderApp.ViewModels
                 Education = employee.Education;
                 Experience = employee.Experience;
                 Post = employee.Post!;
-                SelectedGroup = employee.Groups;
+                SelectedGroup = Employee.Groups;
+                _employeeService = employeeService;
             }
-            else
-            {
-                SelectedGroup = Groups.FirstOrDefault()!;
-            }
+            
             SaveCommand = new RelayCommand(o =>
             {
                 if (employee == null)
                 {
-                    EmployeeService.Add(employee);
+                    _employeeService.Add(employee);
 
                 }
                 else
                 {
-                    EmployeeService.Update(employee, FIO, Education, Experience, Post, SelectedGroup, user);
+                    _employeeService.Update(employee, new Employee());
                 }
             });
             CloseCommand = new RelayCommand(o =>
@@ -49,8 +47,8 @@ namespace KinderApp.ViewModels
         private string education = string.Empty;
         private string experience = string.Empty;
         private string post = string.Empty;
-        private Group selectedGroup;
-
+        private KinderData.Entities.Group selectedGroup;
+        private EmployeeService _employeeService;
         private Employee employee;
 
         public Employee Employee { get => employee; set => Set(ref employee, value, nameof(employee)); }
@@ -59,7 +57,7 @@ namespace KinderApp.ViewModels
         public string Education { get => education; set => Set(ref education, value, nameof(education)); }
         public string Experience { get => experience; set => Set(ref experience, value, nameof(experience)); }
         public string Post { get => post; set => Set(ref post, value, nameof(post)); }
-        public Group SelectedGroup { get => selectedGroup; set => Set(ref selectedGroup, value, nameof(selectedGroup)); }
+        public KinderData.Entities.Group SelectedGroup { get => selectedGroup; set => Set(ref selectedGroup, value, nameof(selectedGroup)); }
 
         public RelayCommand SaveCommand { get; }
         public RelayCommand CloseCommand { get; }

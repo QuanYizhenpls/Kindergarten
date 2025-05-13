@@ -1,4 +1,6 @@
 ﻿using KinderApp.Commands;
+using KinderApp.ViewModels;
+using KinderDbContext.Connections;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -13,9 +15,7 @@ namespace KinderApp
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            // Создаем экземпляр RegistrationWindowModel (или получаем его из IoC контейнера)
-            ViewModelBase viewModel = new (); 
+            ViewModelBase viewModel = new RegistrationWindowModel(); 
 
             // Создаем экземпляр RegistrationWindow, передавая ViewModel
             RegistrationWindow registrationWindow = new RegistrationWindow(viewModel);

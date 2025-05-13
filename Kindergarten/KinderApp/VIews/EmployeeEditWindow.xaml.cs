@@ -1,5 +1,6 @@
 ﻿using KinderApp.ViewModels;
 using KinderData.Entities;
+using KinderDbContext.Connections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace KinderApp.VIews
         public EmployeeEditWindow(User user, Employee employee = null!)
         {
             InitializeComponent();
-            viewModel = new(user, employee);
+            viewModel = new(user, employee, new KinderData.Services.EmployeeService((new SQLServerDbContext())));
             DataContext = viewModel;
         }
     }

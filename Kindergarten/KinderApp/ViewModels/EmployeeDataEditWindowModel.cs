@@ -11,7 +11,7 @@ namespace KinderApp.ViewModels
 {
     internal class EmployeeDataEditWindowModel : ViewModelBase
     {
-        public EmployeeDataEditWindowModel(User user, EmployeeData employeeData)
+        public EmployeeDataEditWindowModel(User user, EmployeeData employeeData, EmployeeDataService employeeDataService)
         {
             EmployeeData = employeeData;
             if (employeeData != null)
@@ -20,22 +20,21 @@ namespace KinderApp.ViewModels
                 SNILS = employeeData.SNILS;
                 INN = employeeData.INN;
                 EmploymentRecord = employeeData.EmploymentRecord!;
-                SelectedEmployee = employeeData.Employees;
+                SelectedEmployee = EmployeeData.Employees;
+                _employeeDataService = employeeDataService;
             }
-            else
-            {
-                SelectedEmployee = Employees.FirstOrDefault()!;
-            }
+            
             SaveCommand = new RelayCommand(o =>
             {
                 if (employeeData == null)
                 {
-                    EmployeeDataService.Add(employeeData);
+
+                    _employeeDataService.Add(employeeData);
 
                 }
                 else
                 {
-                    EmployeeDataService.Update(employeeData, Pasport, SNILS, INN, EmploymentRecord, SelectedEmployee, user);
+                    _employeeDataService.Update(employeeData, new EmployeeData());
                 }
             });
             CloseCommand = new RelayCommand(o =>
@@ -50,7 +49,7 @@ namespace KinderApp.ViewModels
         private Employee selectedEmployee;
 
         private EmployeeData employeeData;
-
+        private EmployeeDataService _employeeDataService;
         public EmployeeData EmployeeData { get => employeeData; set => Set(ref employeeData, value, nameof(employeeData)); }
 
         public int Pasport { get => pasport; set => Set(ref pasport, value, nameof(pasport)); }

@@ -32,11 +32,11 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает группу, для которой предназначен этот план.
         /// </summary>
-        public virtual ICollection<Group>? Groups { get; set; } = null!;
+        public Group? Groups { get; set; } 
 
         /// <summary>
         /// Получает или задает сотрудника, ответственного за этот план.
         /// </summary>
-        public virtual ICollection<Employee>? Employees { get; set; } = null!;
+        public Employee? Employees { get; set; }
     }
 }

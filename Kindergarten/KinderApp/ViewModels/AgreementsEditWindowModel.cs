@@ -1,6 +1,7 @@
 ﻿using KinderApp.Commands;
 using KinderData.Entities;
 using KinderData.Services;
+using KinderDbContext.Connections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace KinderApp.ViewModels
 {
     public class AgreementsEditWindowModel : ViewModelBase
     {
-        public AgreementsEditWindowModel(User user, Agreement agreement)
+        public AgreementsEditWindowModel(User user, Agreement agreement, AgreementsService agreementsService)
         {
             Agreement = agreement;
             if (agreement != null)
@@ -22,21 +23,20 @@ namespace KinderApp.ViewModels
                 Dismissal = agreement.Dismissal;
                 EmploymentContract = agreement.EmploymentContract!;
                 SelectedEmployee = agreement.Employees;
+                _agreementService = agreementsService;
             }
-            else
-            {
-                SelectedEmployee = Employees.FirstOrDefault()!;
-            }
+            
             SaveCommand = new RelayCommand(o =>
             {
                 if (agreement == null)
                 {
-                    AgreementsService.Add(agreement);
+                    _agreementService.Add(agreement);
 
                 }
                 else
                 {
-                    AgreementsService.Update(agreement, Vacation, SickLeave, Dismissal, EmploymentContract!, SelectedEmployee, user);
+
+                    _agreementService.Update(agreement, new Agreement());
                 }
             });
             CloseCommand = new RelayCommand(o =>
@@ -51,6 +51,7 @@ namespace KinderApp.ViewModels
         private Employee selectedEmployee;
 
         private Agreement agreement;
+        private AgreementsService _agreementService;
 
         public Agreement Agreement { get => agreement; set => Set(ref agreement, value, nameof(agreement)); }
         

@@ -42,7 +42,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает коллекцию групп, к которым принадлежит сотрудник.
         /// </summary>
-        public virtual ICollection<Group>? Groups { get; set; }
+        public Group? Groups { get; set; }
 
         
     }

@@ -22,7 +22,7 @@ namespace KinderApp.ViewModels
                 {
                     Debug.WriteLine($"[{GetType()}] - пользователь найден!");
                     MessageBox.Show($"[{GetType()}] - пользователь найден!");
-                    var newWin = new MenuWindow();
+                    var newWin = new MenuWindow(user);
                     var pervWin = Application.Current.MainWindow;
                     Application.Current.MainWindow = newWin;
                     newWin.Show();

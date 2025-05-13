@@ -11,28 +11,26 @@ namespace KinderApp.ViewModels
 {
     public class GroupEditWindowModel : ViewModelBase
     {
-        public GroupEditWindowModel(User user, Group group)
+        public GroupEditWindowModel(User user, Group group, GroupService groupService)
         {
             Group = group;
             if (group != null)
             {
                 GroupName = group.GroupName;
                 SelectedKindergartner = group.Kindergartners;
+                _groupService = groupService;
             }
-            else
-            {
-                SelectedKindergartner = Kindergartners.FirstOrDefault()!;
-            }
+            
             SaveCommand = new RelayCommand(o =>
             {
                 if (group == null)
                 {
-                    GroupService.Add(group);
+                    _groupService.Add(group);
 
                 }
                 else
                 {
-                    GroupService.Update(group, GroupName, SelectedKindergartner, user);
+                    _groupService.Update(group, new Group());
                 }
             });
             CloseCommand = new RelayCommand(o =>
@@ -43,7 +41,7 @@ namespace KinderApp.ViewModels
 
         private string groupName = string.Empty;
         private Kindergartner selectedKindergartner;
-
+        private GroupService _groupService;
         private Group group;
 
         public Group Group { get => group; set => Set(ref group, value, nameof(group)); }

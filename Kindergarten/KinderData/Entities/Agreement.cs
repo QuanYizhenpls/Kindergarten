@@ -44,7 +44,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает сотрудника, с которым связан это договор.
         /// </summary>
-        public virtual ICollection<Employee>? Employees { get; set; }
+        public Employee? Employees { get; set; }
         
     }
 }

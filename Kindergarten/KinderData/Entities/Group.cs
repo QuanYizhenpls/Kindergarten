@@ -28,7 +28,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает коллекцию детей, входящих в эту группу.
         /// </summary>
-        public virtual ICollection<Kindergartner>? Kindergartners { get; set; } = null!;
+        public Kindergartner? Kindergartners { get; set; } = null!;
 
        
     }

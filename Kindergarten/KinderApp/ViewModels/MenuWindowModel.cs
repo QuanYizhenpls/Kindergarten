@@ -17,7 +17,7 @@ namespace KinderApp.ViewModels
 {
     public class MenuWindowModel : ViewModelBase
     {
-        public MenuWindowModel(User user)
+        public MenuWindowModel(User user, AgreementsService agreementsService, EmployeeDataService employeeDataService, EmployeeService employeeService, GroupService groupService, KindergartnerService kindergartnerService, PlanService planService, SalaryService salaryService)
         {
             CurrentUser = user;
 
@@ -49,11 +49,12 @@ namespace KinderApp.ViewModels
 
             ARemoveCommand = new RelayCommand(o =>
             {
+                _agreementService = agreementsService;
                 if (SelectedAddAgreement != null)
                 {
                     try
                     {
-                        EmployeeDataService.Remove(SelectedAddAgreement);
+                        _agreementService.Remove(SelectedAddAgreement);
 
                     }
                     catch (Exception ex)
@@ -96,11 +97,12 @@ namespace KinderApp.ViewModels
 
             ERemoveCommand = new RelayCommand(o =>
             {
+                _employeeService = employeeService;
                 if (SelectedAddEmployee != null)
                 {
                     try
                     {
-                        EmployeeService.Remove(SelectedAddEmployee);
+                        _employeeService.Remove(SelectedAddEmployee);
 
                     }
                     catch (Exception ex)
@@ -143,13 +145,13 @@ namespace KinderApp.ViewModels
 
             EDRemoveCommand = new RelayCommand(o =>
             {
+                _employeeDataService = employeeDataService;
                 if (SelectedAddEmployeeData != null)
                 {
                     try
                     {
-                        EmployeeDataService employeeService = new EmployeeDataService();
 
-                        employeeService.Remove(SelectedAddEmployeeData);
+                        _employeeDataService.Remove(SelectedAddEmployeeData);
 
                     }
                     catch (Exception ex)
@@ -192,11 +194,12 @@ namespace KinderApp.ViewModels
 
             GRemoveCommand = new RelayCommand(o =>
             {
+                _groupService = groupService;
                 if (SelectedAddGroup != null)
                 {
                     try
                     {
-                        EmployeeDataService.Remove(SelectedAddGroup);
+                        _groupService.Remove(SelectedAddGroup);
 
                     }
                     catch (Exception ex)
@@ -239,11 +242,12 @@ namespace KinderApp.ViewModels
 
             KRemoveCommand = new RelayCommand(o =>
             {
+                _kindergartnerService = kindergartnerService;
                 if (SelectedAddKindergartner != null)
                 {
                     try
                     {
-                        EmployeeDataService.Remove(SelectedAddKindergartner);
+                        _kindergartnerService.Remove(SelectedAddKindergartner);
 
                     }
                     catch (Exception ex)
@@ -285,11 +289,12 @@ namespace KinderApp.ViewModels
 
             PRemoveCommand = new RelayCommand(o =>
             {
+                _planService = planService;
                 if (SelectedAddPlan != null)
                 {
                     try
                     {
-                        EmployeeDataService.Remove(SelectedAddPlan);
+                        _planService.Remove(SelectedAddPlan);
 
                     }
                     catch (Exception ex)
@@ -332,11 +337,12 @@ namespace KinderApp.ViewModels
 
             SRemoveCommand = new RelayCommand(o =>
             {
+                _salaryService = salaryService;
                 if (SelectedAddSalary != null)
                 {
                     try
                     {
-                        EmployeeDataService.Remove(SelectedAddSalary);
+                        _salaryService.Remove(SelectedAddSalary);
 
                     }
                     catch (Exception ex)
@@ -363,6 +369,14 @@ namespace KinderApp.ViewModels
         private Kindergartner selectedAddKindergartner;
         private Plan selectedAddPlan;
         private Salary selectedAddSalary;
+
+        private AgreementsService _agreementService;
+        private EmployeeService _employeeService;
+        private EmployeeDataService _employeeDataService;
+        private GroupService _groupService;
+        private KindergartnerService _kindergartnerService;
+        private PlanService _planService;
+        private SalaryService _salaryService;
 
         public User CurrentUser
         {

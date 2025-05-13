@@ -11,7 +11,7 @@ namespace KinderApp.ViewModels
 {
     public class KindergartnerEditWindowModel: ViewModelBase
     {
-        public KindergartnerEditWindowModel(User user, Kindergartner kindergartner)
+        public KindergartnerEditWindowModel(User user, Kindergartner kindergartner, KindergartnerService kindergartnerService)
         {
             Kindergartner = kindergartner;
             if (kindergartner != null)
@@ -19,18 +19,19 @@ namespace KinderApp.ViewModels
                 FIO = kindergartner.FIO;
                 DateOfBirth = kindergartner.DateOfBirth;
                 ParentsContactInfo = kindergartner.ParentsContactInfo;
+                _kindergartnerService = kindergartnerService;
             }
             
             SaveCommand = new RelayCommand(o =>
             {
                 if (kindergartner == null)
                 {
-                    KindergartnerService.Add(kindergartner);
+                    _kindergartnerService.Add(kindergartner);
 
                 }
                 else
                 {
-                    KindergartnerService.Update(kindergartner, FIO, DateOfBirth, ParentsContactInfo, user);
+                    _kindergartnerService.Update(kindergartner, new Kindergartner());
                 }
             });
             CloseCommand = new RelayCommand(o =>
@@ -42,7 +43,7 @@ namespace KinderApp.ViewModels
         private string fio = string.Empty;
         private string dateOfBirth = string.Empty;
         private string parentsContactInfo = string.Empty;
-
+        private KindergartnerService _kindergartnerService;
         private Kindergartner kindergartner;
 
         public Kindergartner Kindergartner { get => kindergartner; set => Set(ref kindergartner, value, nameof(kindergartner)); }

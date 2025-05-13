@@ -12,7 +12,8 @@ namespace KinderApp.ViewModels
 {
     public class SalaryEditWindowModel : ViewModelBase
     {
-        public SalaryEditWindowModel(User user, Salary salary)
+
+        public SalaryEditWindowModel(User user, Salary salary, SalaryService salaryService)
         {
             Salary = salary;
             if (salary != null)
@@ -23,27 +24,26 @@ namespace KinderApp.ViewModels
                 Prepayment = salary.Prepayment;
                 Penalty = salary.Penalty;
                 SelectedEmployee = salary.Employees;
+                _salaryService = salaryService;
             }
-            else
-            {
-                SelectedEmployee = Employees.FirstOrDefault()!;
-            }
+            
             SaveCommand = new RelayCommand(o =>
             {
                 if (salary == null)
                 {
-                    SalaryService.Add(salary);
+                    _salaryService.Add(salary);
 
                 }
                 else
                 {
-                    SalaryService.Update(salary, Wage, Bonus, Allowance, Prepayment, Penalty, SelectedEmployee, user);
+                    _salaryService.Update(salary, new Salary());
                 }
             });
             CloseCommand = new RelayCommand(o =>
             {
                 AppClose();
             });
+            _salaryService = salaryService;
         }
         private decimal wage = 0;
         private decimal bonus = 0;
@@ -51,7 +51,7 @@ namespace KinderApp.ViewModels
         private decimal prepayment = 0;
         private decimal penalty = 0;
         private Employee selectedEmployee;
-
+        private SalaryService _salaryService;
         private Salary salary;
 
         public Salary Salary { get => salary; set => Set(ref salary, value, nameof(salary)); }
