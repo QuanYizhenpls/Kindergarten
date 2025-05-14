@@ -27,7 +27,7 @@ namespace KinderApp.ViewModels
             {
                 if (kindergartner == null)
                 {
-                    _kindergartnerService.Add(kindergartner);
+                    _kindergartnerService.Add(new Kindergartner() { Kindergartner_Id = Guid.NewGuid() , FIO = this.FIO, DateOfBirth = this.DateOfBirth, ParentsContactInfo = this.ParentsContactInfo});
 
                 }
                 else

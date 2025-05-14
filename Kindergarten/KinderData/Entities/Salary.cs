@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace KinderData.Entities
@@ -49,5 +50,9 @@ namespace KinderData.Entities
         /// Получает или задает сотрудника, которому начислена данная заработная плата.
         /// </summary>
         public Employee? Employees { get; set; }
+        public override string ToString()
+        {
+            return $"{Wage - Penalty} - {Employees}";
+        }
     }
 }

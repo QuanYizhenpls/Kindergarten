@@ -38,5 +38,9 @@ namespace KinderData.Entities
         /// Получает или задает сотрудника, ответственного за этот план.
         /// </summary>
         public Employee? Employees { get; set; }
+        public override string ToString()
+        {
+            return $"{Development} - {Groups}, {Employees}";
+        }
     }
 }

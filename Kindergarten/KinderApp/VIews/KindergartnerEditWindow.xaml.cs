@@ -26,8 +26,13 @@ namespace KinderApp.VIews
         public KindergartnerEditWindow(User user, Kindergartner kindergartner = null!)
         {
             InitializeComponent();
-            viewModel = new(user, kindergartner, new KinderData.Services.KindergartnerService(new SQLServerDbContext()));
+            var dbContext = DbContextSingleton.Instance.DbContext;
+            viewModel = new(user, kindergartner, new KinderData.Services.KindergartnerService(dbContext));
             DataContext = viewModel;
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

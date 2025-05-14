@@ -17,8 +17,7 @@ namespace KinderApp
             base.OnStartup(e);
             ViewModelBase viewModel = new RegistrationWindowModel(); 
 
-            // Создаем экземпляр RegistrationWindow, передавая ViewModel
-            RegistrationWindow registrationWindow = new RegistrationWindow(viewModel);
+            RegistrationWindow registrationWindow = new RegistrationWindow();
 
             // Показываем окно
             registrationWindow.Show();

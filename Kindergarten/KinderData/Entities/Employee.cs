@@ -44,6 +44,9 @@ namespace KinderData.Entities
         /// </summary>
         public Group? Groups { get; set; }
 
-        
+        public override string ToString()
+        {
+            return $"{FIO} - {Groups}";
+        }
     }
 }

@@ -30,6 +30,9 @@ namespace KinderData.Entities
         /// </summary>
         public Kindergartner? Kindergartners { get; set; } = null!;
 
-       
+        public override string ToString()
+        {
+            return $"{GroupName} - {Kindergartners}";
+        }
     }
 }

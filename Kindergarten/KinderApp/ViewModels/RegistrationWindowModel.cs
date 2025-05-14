@@ -13,7 +13,7 @@ namespace KinderApp.ViewModels
 {
     public class RegistrationWindowModel : ViewModelBase
     {
-        public RegistrationWindowModel(ViewModelBase viewModel)
+        public RegistrationWindowModel()
         {
             LoginCommand = new RelayCommand(o =>
             {
@@ -29,6 +29,7 @@ namespace KinderApp.ViewModels
                     pervWin.Close();
                 }
                 else Debug.WriteLine($"[{GetType()}] - пользователь не найден!");
+                
             });
 
 

@@ -26,7 +26,20 @@ namespace KinderApp
         public MenuWindow(User user)
         {
             InitializeComponent();
-            viewModel = new MenuWindowModel(user, new KinderData.Services.AgreementsService((new SQLServerDbContext())), new KinderData.Services.EmployeeDataService(new SQLServerDbContext()), new KinderData.Services.EmployeeService(new SQLServerDbContext()), new KinderData.Services.GroupService(new SQLServerDbContext()), new KinderData.Services.KindergartnerService(new SQLServerDbContext()), new KinderData.Services.PlanService(new SQLServerDbContext()), new KinderData.Services.SalaryService(new SQLServerDbContext()));
+
+            var dbContext = DbContextSingleton.Instance.DbContext;
+
+            viewModel = new MenuWindowModel(
+                user,
+                new KinderData.Services.AgreementsService(dbContext),
+                new KinderData.Services.EmployeeDataService(dbContext),
+                new KinderData.Services.EmployeeService(dbContext),
+                new KinderData.Services.GroupService(dbContext),
+                new KinderData.Services.KindergartnerService(dbContext),
+                new KinderData.Services.PlanService(dbContext),
+                new KinderData.Services.SalaryService(dbContext)
+            );
+
             DataContext = viewModel;
             Title = $"Окно пользователя: {user.Fullname}";
         }

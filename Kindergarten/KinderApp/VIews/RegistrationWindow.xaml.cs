@@ -22,10 +22,10 @@ namespace KinderApp
     public partial class RegistrationWindow : Window
     {
         private RegistrationWindowModel _viewModel;
-        public RegistrationWindow(ViewModelBase viewModel)
+        public RegistrationWindow()
         {
             InitializeComponent();
-            DataContext = _viewModel = new RegistrationWindowModel(viewModel);
+            DataContext = _viewModel = new RegistrationWindowModel();
         }
     }
 }

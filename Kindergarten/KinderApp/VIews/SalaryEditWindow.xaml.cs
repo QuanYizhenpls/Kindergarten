@@ -26,8 +26,13 @@ namespace KinderApp.VIews
         public SalaryEditWindow(User user, Salary salary = null!)
         {
             InitializeComponent();
-            viewModel = new(user, salary, new KinderData.Services.SalaryService(new SQLServerDbContext()));
+            var dbContext = DbContextSingleton.Instance.DbContext;
+            viewModel = new(user, salary, new KinderData.Services.SalaryService(dbContext));
             DataContext = viewModel;
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

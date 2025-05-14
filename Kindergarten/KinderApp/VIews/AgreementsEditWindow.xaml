@@ -35,7 +35,8 @@ SelectedItem="{Binding SelectedEmployee}"
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
       Width="140" Margin="0,20,0,10" HorizontalAlignment="Left"/>
             <Button Content="Закрыть" Width="50" 
-      x:Name="CloseButton"
+            x:Name="CloseButton"
+Click="CloseButton_Click"
        HorizontalAlignment="Left"/>
         </StackPanel>
     </Grid>

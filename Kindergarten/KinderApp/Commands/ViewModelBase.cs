@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Effects;
 using System.Windows;
+using System.Diagnostics;
 
 namespace KinderApp.Commands
 {
@@ -43,6 +44,7 @@ namespace KinderApp.Commands
             }
             catch (Exception ex)
             {
+                Debug.WriteLine($"{ex.GetType()} - {ex.Message}");
             }
 
             return window;

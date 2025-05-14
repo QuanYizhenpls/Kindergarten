@@ -8,9 +8,10 @@
         Title="MenuWindow" Height="450" Width="800">
     <Grid>
 
-        <Border Background="Beige" Height="434" VerticalAlignment="Bottom">
+        <Border Background="Beige" Height="434" VerticalAlignment="Bottom" Margin="0,0,0,-20">
 
             <StackPanel Orientation="Horizontal">
+                
                 <TabControl TabStripPlacement="Top" Background="Beige">
                     <TabControl.Resources>
                         <Style TargetType="TabItem">
@@ -21,26 +22,10 @@
                         </Style>
                     </TabControl.Resources>
 
-                    <TabItem Header="Сотрудники" Background="LightCoral">
-                        <StackPanel Height="400" Background="LightCoral" HorizontalAlignment="Left" Width="795">
-                            <StackPanel.Resources>
-                                <Style TargetType="Button">
-                                    <Setter Property="Margin" Value="5"/>
-                                    <Setter Property="Padding" Value="10,5"/>
-                                    <Setter Property="Width" Value="100"/>
-                                    <Setter Property="HorizontalAlignment" Value="Left"/>
-                                    <Setter Property="Background" Value="AliceBlue"/>
-                                    <Setter Property="Foreground" Value="DarkSalmon"/>
-                                </Style>
-                            </StackPanel.Resources>
-                            <Button Content="Добавить" Command="{Binding EAddCommand}"/>
-                            <Button Content="Обновить" Command="{Binding EUpdateCommand}"/>
-                            <Button Content="Удалить" Command="{Binding ERemoveCommand}"/>
-                        </StackPanel>
-                    </TabItem>
 
-                    <TabItem Header="Воспитанники" Background="PeachPuff">
-                        <StackPanel Background="PeachPuff" Width="795">
+
+                    <TabItem Header="Воспитанники" Background="LightCoral">
+                        <StackPanel Background="LightCoral" Width="795">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
                                     <Setter Property="Margin" Value="5"/>
@@ -54,11 +39,12 @@
                             <Button Content="Добавить" Command="{Binding KAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding KUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding KRemoveCommand}"/>
+                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Kindergartners}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="Группы" Background="LightGoldenrodYellow">
-                        <StackPanel Background="LightGoldenrodYellow" Width="795" >
+                    <TabItem Header="Группы" Background="PeachPuff">
+                        <StackPanel Background="PeachPuff" Width="795" >
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
                                     <Setter Property="Margin" Value="5"/>
@@ -72,9 +58,29 @@
                             <Button Content="Добавить" Command="{Binding GAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding GUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding GRemoveCommand}"/>
+                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedAddGroup, UpdateSourceTrigger=PropertyChanged}"/>
+
                         </StackPanel>
                     </TabItem>
+                    <TabItem Header="Сотрудники" Background="LightGoldenrodYellow">
+                        <StackPanel Height="400" Background="LightGoldenrodYellow" HorizontalAlignment="Left" Width="795">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="10,5"/>
+                                    <Setter Property="Width" Value="100"/>
+                                    <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    <Setter Property="Background" Value="AliceBlue"/>
+                                    <Setter Property="Foreground" Value="DarkSalmon"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="Добавить" Command="{Binding EAddCommand}"/>
+                            <Button Content="Обновить" Command="{Binding EUpdateCommand}"/>
+                            <Button Content="Удалить" Command="{Binding ERemoveCommand}"/>
+                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Employee}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"/>
 
+                        </StackPanel>
+                    </TabItem>
                     <TabItem Header="Договоры" Background="LightGreen">
                         <StackPanel Background="LightGreen" Width="795">
                             <StackPanel.Resources>
@@ -90,6 +96,8 @@
                             <Button Content="Добавить" Command="{Binding AAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding AUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding ARemoveCommand}"/>
+                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Agreements}" SelectedItem="{Binding SelectedAddAgreement, UpdateSourceTrigger=PropertyChanged}"/>
+
                         </StackPanel>
                     </TabItem>
 
@@ -108,6 +116,8 @@
                             <Button Content="Добавить" Command="{Binding EDAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding EDUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding EDRemoveCommand}"/>
+                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding EmployeeDatas}" SelectedItem="{Binding SelectedAddEmployeeData, UpdateSourceTrigger=PropertyChanged}"/>
+
                         </StackPanel>
                     </TabItem>
 
@@ -126,11 +136,12 @@
                             <Button Content="Добавить" Command="{Binding SAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding SUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding SRemoveCommand}"/>
+                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Salaries}" SelectedItem="{Binding SelectedAddSalary, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </TabItem>
 
                     <TabItem Header="Планы" Background="WhiteSmoke">
-                        <StackPanel Background="WhiteSmoke" Width="795">
+                        <StackPanel Background="WhiteSmoke" Width="795" Height="400" HorizontalAlignment="Left">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
                                     <Setter Property="Margin" Value="5"/>
@@ -144,6 +155,8 @@
                             <Button Content="Добавить" Command="{Binding PAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding PUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding PRemoveCommand}"/>
+                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Plans}" SelectedItem="{Binding SelectedAddPlan, UpdateSourceTrigger=PropertyChanged}"/>
+
                         </StackPanel>
                     </TabItem>
                 </TabControl>

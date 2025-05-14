@@ -26,8 +26,13 @@ namespace KinderApp.VIews
         public PlanEditWindow(User user, Plan plan = null!)
         {
             InitializeComponent();
-            viewModel = new(user, plan, new KinderData.Services.PlanService(new SQLServerDbContext()));
+            var dbContext = DbContextSingleton.Instance.DbContext;
+            viewModel = new(user, plan, new KinderData.Services.PlanService(dbContext));
             DataContext = viewModel;
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

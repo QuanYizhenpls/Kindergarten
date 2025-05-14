@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace KinderData.Entities
@@ -45,5 +46,9 @@ namespace KinderData.Entities
         /// </summary>
         public Employee? Employees { get; set; }
 
+        public override string ToString()
+        {
+            return $"{Pasport} - {Employees}";
+        }
     }
 }

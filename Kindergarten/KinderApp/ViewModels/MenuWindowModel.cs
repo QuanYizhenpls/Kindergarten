@@ -21,6 +21,10 @@ namespace KinderApp.ViewModels
         {
             CurrentUser = user;
 
+            _kindergartnerService = kindergartnerService;
+
+            UpdateLists();
+
             // Команды работы с Agreement
             AAddCommand = new RelayCommand(o =>
             {
@@ -218,6 +222,7 @@ namespace KinderApp.ViewModels
             KAddCommand = new RelayCommand(o =>
             {
                 OpenWindowDialog(new KindergartnerEditWindow(CurrentUser));
+                UpdateLists();
             });
 
             KUpdateCommand = new RelayCommand(o =>
@@ -227,6 +232,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         OpenWindowDialog(new KindergartnerEditWindow(CurrentUser, SelectedAddKindergartner));
+                        UpdateLists();
                     }
                     catch (Exception ex)
                     {
@@ -248,6 +254,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         _kindergartnerService.Remove(SelectedAddKindergartner);
+                        UpdateLists();
 
                     }
                     catch (Exception ex)
@@ -358,6 +365,10 @@ namespace KinderApp.ViewModels
             });
         }
 
+        void UpdateLists()
+        {
+            Kindergartners = _kindergartnerService.GetEntities().Result.ToList();
+        }
 
         //поля
         private User currentUser;
@@ -378,6 +389,8 @@ namespace KinderApp.ViewModels
         private PlanService _planService;
         private SalaryService _salaryService;
 
+        private List<Kindergartner> _kindergartners;
+
         public User CurrentUser
         {
             get => currentUser;
@@ -391,6 +404,7 @@ namespace KinderApp.ViewModels
         public Plan SelectedAddPlan { get => selectedAddPlan; set => Set(ref selectedAddPlan, value, nameof(selectedAddPlan)); }
         public Salary SelectedAddSalary { get => selectedAddSalary; set => Set(ref selectedAddSalary, value, nameof(selectedAddSalary)); }
 
+        public List<Kindergartner> Kindergartners { get => _kindergartners; set => Set(ref _kindergartners, value, nameof(Kindergartners)); }
 
         //Команды
         public RelayCommand AAddCommand { get; }

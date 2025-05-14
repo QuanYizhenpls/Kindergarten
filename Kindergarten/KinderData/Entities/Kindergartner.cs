@@ -32,5 +32,10 @@ namespace KinderData.Entities
         /// Получает или задает контактную информацию родителей воспитанника.
         /// </summary>
         public string? ParentsContactInfo { get; set; }
+
+        public override string ToString()
+        {
+            return $"{FIO}, {DateOfBirth}, {ParentsContactInfo}";
+        }
     }
 }

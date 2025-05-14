@@ -26,8 +26,13 @@ namespace KinderApp.VIews
         public AgreementsEditWindow(User user, Agreement agreement = null!)
         {
             InitializeComponent();
-            viewModel = new(user, agreement, new KinderData.Services.AgreementsService(new SQLServerDbContext()));
+            var dbContext = DbContextSingleton.Instance.DbContext;
+            viewModel = new(user, agreement, new KinderData.Services.AgreementsService(dbContext));
             DataContext = viewModel;
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

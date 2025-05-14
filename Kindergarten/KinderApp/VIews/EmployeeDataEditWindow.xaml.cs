@@ -26,8 +26,13 @@ namespace KinderApp.VIews
         public EmployeeDataEditWindow(User user, EmployeeData employeeData = null!)
         {
             InitializeComponent();
-            viewModel = new(user, employeeData, new KinderData.Services.EmployeeDataService(new SQLServerDbContext()));
+            var dbContext = DbContextSingleton.Instance.DbContext;
+            viewModel = new(user, employeeData, new KinderData.Services.EmployeeDataService(dbContext));
             DataContext = viewModel;
+        }
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
