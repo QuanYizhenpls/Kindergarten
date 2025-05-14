@@ -1,6 +1,6 @@
 ﻿using KinderApp.Commands;
 using KinderData.Entities;
-using KinderData.Services;
+using KinderDbContext.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,12 +32,12 @@ namespace KinderApp.ViewModels
             {
                 if (salary == null)
                 {
-                    _salaryService.Add(new Salary() {Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, Employees = this.SelectedEmployee});
+                    _salaryService.Add(new Salary() {Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee});
 
                 }
                 else
                 {
-                    _salaryService.Update(salary, new Salary());
+                    _salaryService.Update(salary, new Salary() { Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee });
                 }
             });
             CloseCommand = new RelayCommand(o =>

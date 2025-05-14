@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using KinderDbContext.Connections;
 
-namespace KinderData.Services
+namespace KinderDbContext.Services
 {
     public class UserService : DbEntityServiceBase<User>, IAccountManagement<User>
     {

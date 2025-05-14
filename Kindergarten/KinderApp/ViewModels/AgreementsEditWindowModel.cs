@@ -1,6 +1,6 @@
 ﻿using KinderApp.Commands;
 using KinderData.Entities;
-using KinderData.Services;
+using KinderDbContext.Services;
 using KinderDbContext.Connections;
 using System;
 using System.Collections.Generic;
@@ -31,13 +31,13 @@ namespace KinderApp.ViewModels
             {
                 if (agreement == null)
                 {
-                    _agreementService.Add(new Agreement() {Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, Employees = this.SelectedEmployee});
+                    _agreementService.Add(new Agreement() {Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee});
 
                 }
                 else
                 {
 
-                    _agreementService.Update(agreement, new Agreement());
+                    _agreementService.Update(agreement, new Agreement() { Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee });
                 }
             });
             CloseCommand = new RelayCommand(o =>

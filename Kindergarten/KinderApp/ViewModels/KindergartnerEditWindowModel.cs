@@ -1,6 +1,6 @@
 ﻿using KinderApp.Commands;
 using KinderData.Entities;
-using KinderData.Services;
+using KinderDbContext.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +35,7 @@ namespace KinderApp.ViewModels
                 }
                 else
                 {
-                    _kindergartnerService.Update(kindergartner, new Kindergartner());
+                    _kindergartnerService.Update(kindergartner, new Kindergartner() { Kindergartner_Id = Guid.NewGuid(), FIO = this.FIO, DateOfBirth = this.DateOfBirth, ParentsContactInfo = this.ParentsContactInfo });
                 }
             });
             CloseCommand = new RelayCommand(o =>

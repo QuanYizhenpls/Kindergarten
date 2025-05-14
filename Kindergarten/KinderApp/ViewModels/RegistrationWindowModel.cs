@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows;
-using KinderData.Services;
+using KinderDbContext.Services;
 
 namespace KinderApp.ViewModels
 {

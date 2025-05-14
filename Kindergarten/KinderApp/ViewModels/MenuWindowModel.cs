@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Diagnostics;
 using System.Windows;
 using System.Security.AccessControl;
-using KinderData.Services;
+using KinderDbContext.Services;
 using KinderDbContext.Connections;
 
 namespace KinderApp.ViewModels
@@ -59,7 +59,6 @@ namespace KinderApp.ViewModels
 
             ARemoveCommand = new RelayCommand(o =>
             {
-                _agreementService = agreementsService;
                 if (SelectedAddAgreement != null)
                 {
                     try
@@ -110,7 +109,6 @@ namespace KinderApp.ViewModels
 
             ERemoveCommand = new RelayCommand(o =>
             {
-                _employeeService = employeeService;
                 if (SelectedAddEmployee != null)
                 {
                     try
@@ -161,7 +159,6 @@ namespace KinderApp.ViewModels
 
             EDRemoveCommand = new RelayCommand(o =>
             {
-                _employeeDataService = employeeDataService;
                 if (SelectedAddEmployeeData != null)
                 {
                     try
@@ -213,7 +210,6 @@ namespace KinderApp.ViewModels
 
             GRemoveCommand = new RelayCommand(o =>
             {
-                _groupService = groupService;
                 if (SelectedAddGroup != null)
                 {
                     try
@@ -264,7 +260,6 @@ namespace KinderApp.ViewModels
 
             KRemoveCommand = new RelayCommand(o =>
             {
-                _kindergartnerService = kindergartnerService;
                 if (SelectedAddKindergartner != null)
                 {
                     try
@@ -314,7 +309,6 @@ namespace KinderApp.ViewModels
 
             PRemoveCommand = new RelayCommand(o =>
             {
-                _planService = planService;
                 if (SelectedAddPlan != null)
                 {
                     try
@@ -365,7 +359,6 @@ namespace KinderApp.ViewModels
 
             SRemoveCommand = new RelayCommand(o =>
             {
-                _salaryService = salaryService;
                 if (SelectedAddSalary != null)
                 {
                     try
@@ -389,7 +382,7 @@ namespace KinderApp.ViewModels
 
         void UpdateLists()
         {
-            //Agreements = _agreementService.GetEntities().Result.ToList();
+            Agreements = _agreementService.GetEntities().Result.ToList();
             Employees = _employeeService.GetEntities().Result.ToList();
             EmployeeDatas = _employeeDataService.GetEntities().Result.ToList();
             Groups = _groupService.GetEntities().Result.ToList();

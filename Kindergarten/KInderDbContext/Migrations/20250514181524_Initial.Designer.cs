@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KinderDbContext.Migrations
 {
     [DbContext(typeof(SQLServerDbContext))]
-    [Migration("20250514143717_Initial")]
+    [Migration("20250514181524_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

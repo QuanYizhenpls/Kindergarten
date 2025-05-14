@@ -31,13 +31,13 @@ namespace KinderApp
 
             viewModel = new MenuWindowModel(
                 user,
-                new KinderData.Services.AgreementsService(dbContext),
-                new KinderData.Services.EmployeeDataService(dbContext),
-                new KinderData.Services.EmployeeService(dbContext),
-                new KinderData.Services.GroupService(dbContext),
-                new KinderData.Services.KindergartnerService(dbContext),
-                new KinderData.Services.PlanService(dbContext),
-                new KinderData.Services.SalaryService(dbContext)
+                new KinderDbContext.Services.AgreementsService(dbContext),
+                new KinderDbContext.Services.EmployeeDataService(dbContext),
+                new KinderDbContext.Services.EmployeeService(dbContext),
+                new KinderDbContext.Services.GroupService(dbContext),
+                new KinderDbContext.Services.KindergartnerService(dbContext),
+                new KinderDbContext.Services.PlanService(dbContext),
+                new KinderDbContext.Services.SalaryService(dbContext)
             );
 
             DataContext = viewModel;

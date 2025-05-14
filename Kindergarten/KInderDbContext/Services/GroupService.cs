@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinderData.Services
+namespace KinderDbContext.Services
 {
     public class GroupService : BaseService<Group>
     {

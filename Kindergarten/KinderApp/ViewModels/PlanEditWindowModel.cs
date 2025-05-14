@@ -1,6 +1,6 @@
 ﻿using KinderApp.Commands;
 using KinderData.Entities;
-using KinderData.Services;
+using KinderDbContext.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +29,12 @@ namespace KinderApp.ViewModels
             {
                 if (plan == null)
                 {
-                    _planService.Add(new Plan() {Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, Groups = this.SelectedGroup, Employees = this.SelectedEmployee});
+                    _planService.Add(new Plan() {Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, GroupId = Guid.NewGuid(), Groups = this.SelectedGroup, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee});
 
                 }
                 else
                 {
-                    _planService.Update(plan, new Plan());
+                    _planService.Update(plan, new Plan() { Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, GroupId = Guid.NewGuid(), Groups = this.SelectedGroup, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee });
                 }
             });
             CloseCommand = new RelayCommand(o =>

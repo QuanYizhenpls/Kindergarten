@@ -1,6 +1,6 @@
 ﻿using KinderApp.Commands;
 using KinderData.Entities;
-using KinderData.Services;
+using KinderDbContext.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +26,12 @@ namespace KinderApp.ViewModels
             {
                 if (group == null)
                 {
-                    _groupService.Add(new Group() {Group_Id = Guid.NewGuid(), GroupName = this.GroupName, Kindergartners = this.SelectedKindergartner});
+                    _groupService.Add(new Group() {Group_Id = Guid.NewGuid(), GroupName = this.GroupName, KindergartnerId = Guid.NewGuid(), Kindergartners = this.SelectedKindergartner});
 
                 }
                 else
                 {
-                    _groupService.Update(group, new Group());
+                    _groupService.Update(group, new Group() { Group_Id = Guid.NewGuid(), GroupName = this.GroupName, KindergartnerId = Guid.NewGuid(), Kindergartners = this.SelectedKindergartner });
                 }
             });
             CloseCommand = new RelayCommand(o =>
