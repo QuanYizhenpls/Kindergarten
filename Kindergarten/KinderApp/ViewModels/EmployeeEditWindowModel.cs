@@ -16,6 +16,7 @@ namespace KinderApp.ViewModels
         public EmployeeEditWindowModel(User user, Employee employee, EmployeeService employeeService)
         {
             Employee = employee;
+            _employeeService = employeeService;
             if (employee != null)
             {
                 FIO = employee.FIO;
@@ -23,7 +24,7 @@ namespace KinderApp.ViewModels
                 Experience = employee.Experience;
                 Post = employee.Post!;
                 SelectedGroup = Employee.Groups;
-                _employeeService = employeeService;
+                
             }
             
             SaveCommand = new RelayCommand(o =>

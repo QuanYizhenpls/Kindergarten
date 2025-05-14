@@ -14,6 +14,7 @@ namespace KinderApp.ViewModels
         public EmployeeDataEditWindowModel(User user, EmployeeData employeeData, EmployeeDataService employeeDataService)
         {
             EmployeeData = employeeData;
+            _employeeDataService = employeeDataService;
             if (employeeData != null)
             {
                 Pasport = employeeData.Pasport;
@@ -21,7 +22,7 @@ namespace KinderApp.ViewModels
                 INN = employeeData.INN;
                 EmploymentRecord = employeeData.EmploymentRecord!;
                 SelectedEmployee = EmployeeData.Employees;
-                _employeeDataService = employeeDataService;
+                
             }
             
             SaveCommand = new RelayCommand(o =>

@@ -16,6 +16,7 @@ namespace KinderApp.ViewModels
         public SalaryEditWindowModel(User user, Salary salary, SalaryService salaryService)
         {
             Salary = salary;
+            _salaryService = salaryService;
             if (salary != null)
             {
                 Wage = salary.Wage;
@@ -24,7 +25,7 @@ namespace KinderApp.ViewModels
                 Prepayment = salary.Prepayment;
                 Penalty = salary.Penalty;
                 SelectedEmployee = salary.Employees;
-                _salaryService = salaryService;
+                
             }
             
             SaveCommand = new RelayCommand(o =>

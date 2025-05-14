@@ -14,12 +14,13 @@ namespace KinderApp.ViewModels
         public KindergartnerEditWindowModel(User user, Kindergartner kindergartner, KindergartnerService kindergartnerService)
         {
             Kindergartner = kindergartner;
+            _kindergartnerService = kindergartnerService;
             if (kindergartner != null)
             {
                 FIO = kindergartner.FIO;
                 DateOfBirth = kindergartner.DateOfBirth;
                 ParentsContactInfo = kindergartner.ParentsContactInfo;
-                _kindergartnerService = kindergartnerService;
+                
             }
             
             SaveCommand = new RelayCommand(o =>

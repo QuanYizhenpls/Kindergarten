@@ -15,13 +15,14 @@ namespace KinderApp.ViewModels
         public PlanEditWindowModel(User user, Plan plan, PlanService planService)
         {
             Plan = plan;
+            _planService = planService;
             if (plan != null)
             {
                 DateOfTheEvent = plan.DateOfTheEvent;
                 Development = plan.Development;
                 SelectedGroup = plan.Groups;
                 SelectedEmployee = plan.Employees;
-                _planService = planService;
+                
             }
             
             SaveCommand = new RelayCommand(o =>

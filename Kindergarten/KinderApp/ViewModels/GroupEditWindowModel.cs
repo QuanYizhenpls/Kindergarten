@@ -14,11 +14,12 @@ namespace KinderApp.ViewModels
         public GroupEditWindowModel(User user, Group group, GroupService groupService)
         {
             Group = group;
+            _groupService = groupService;
             if (group != null)
             {
                 GroupName = group.GroupName;
                 SelectedKindergartner = group.Kindergartners;
-                _groupService = groupService;
+               
             }
             
             SaveCommand = new RelayCommand(o =>

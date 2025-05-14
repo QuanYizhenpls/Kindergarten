@@ -16,6 +16,7 @@ namespace KinderApp.ViewModels
         public AgreementsEditWindowModel(User user, Agreement agreement, AgreementsService agreementsService)
         {
             Agreement = agreement;
+            _agreementService = agreementsService;
             if (agreement != null)
             {
                 Vacation = agreement.Vacation;
@@ -23,7 +24,7 @@ namespace KinderApp.ViewModels
                 Dismissal = agreement.Dismissal;
                 EmploymentContract = agreement.EmploymentContract!;
                 SelectedEmployee = agreement.Employees;
-                _agreementService = agreementsService;
+                
             }
             
             SaveCommand = new RelayCommand(o =>
