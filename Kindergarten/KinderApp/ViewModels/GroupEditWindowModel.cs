@@ -26,7 +26,7 @@ namespace KinderApp.ViewModels
             {
                 if (group == null)
                 {
-                    _groupService.Add(group);
+                    _groupService.Add(new Group() {Group_Id = Guid.NewGuid(), GroupName = this.GroupName, Kindergartners = this.SelectedKindergartner});
 
                 }
                 else

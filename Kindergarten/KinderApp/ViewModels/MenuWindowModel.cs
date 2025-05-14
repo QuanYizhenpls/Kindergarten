@@ -20,15 +20,20 @@ namespace KinderApp.ViewModels
         public MenuWindowModel(User user, AgreementsService agreementsService, EmployeeDataService employeeDataService, EmployeeService employeeService, GroupService groupService, KindergartnerService kindergartnerService, PlanService planService, SalaryService salaryService)
         {
             CurrentUser = user;
-
+            _agreementService = agreementsService;
+            _employeeDataService = employeeDataService;
+            _employeeService = employeeService;
             _kindergartnerService = kindergartnerService;
-
+            _groupService = groupService;
+            _planService = planService;
+            _salaryService = salaryService;
             UpdateLists();
 
             // Команды работы с Agreement
             AAddCommand = new RelayCommand(o =>
             {
                 OpenWindowDialog(new AgreementsEditWindow(CurrentUser));
+                UpdateLists();
             });
 
             AUpdateCommand = new RelayCommand(o =>
@@ -38,6 +43,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         OpenWindowDialog(new AgreementsEditWindow(CurrentUser, SelectedAddAgreement));
+                        UpdateLists();
                     }
                     catch (Exception ex)
                     {
@@ -59,6 +65,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         _agreementService.Remove(SelectedAddAgreement);
+                        UpdateLists();
 
                     }
                     catch (Exception ex)
@@ -77,6 +84,7 @@ namespace KinderApp.ViewModels
             EAddCommand = new RelayCommand(o =>
             {
                 OpenWindowDialog(new EmployeeEditWindow(CurrentUser));
+                UpdateLists();
             });
 
             EUpdateCommand = new RelayCommand(o =>
@@ -86,6 +94,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         OpenWindowDialog(new EmployeeEditWindow(CurrentUser, SelectedAddEmployee));
+                        UpdateLists();
                     }
                     catch (Exception ex)
                     {
@@ -107,6 +116,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         _employeeService.Remove(SelectedAddEmployee);
+                        UpdateLists();
 
                     }
                     catch (Exception ex)
@@ -125,6 +135,7 @@ namespace KinderApp.ViewModels
             EDAddCommand = new RelayCommand(o =>
             {
                 OpenWindowDialog(new EmployeeDataEditWindow(CurrentUser));
+                UpdateLists();
             });
 
             EDUpdateCommand = new RelayCommand(o =>
@@ -134,6 +145,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         OpenWindowDialog(new EmployeeDataEditWindow(CurrentUser, SelectedAddEmployeeData));
+                        UpdateLists();
                     }
                     catch (Exception ex)
                     {
@@ -156,6 +168,7 @@ namespace KinderApp.ViewModels
                     {
 
                         _employeeDataService.Remove(SelectedAddEmployeeData);
+                        UpdateLists();
 
                     }
                     catch (Exception ex)
@@ -174,6 +187,7 @@ namespace KinderApp.ViewModels
             GAddCommand = new RelayCommand(o =>
             {
                 OpenWindowDialog(new GroupEditWindow(CurrentUser));
+                UpdateLists();
             });
 
             GUpdateCommand = new RelayCommand(o =>
@@ -183,6 +197,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         OpenWindowDialog(new GroupEditWindow(CurrentUser, SelectedAddGroup));
+                        UpdateLists();
                     }
                     catch (Exception ex)
                     {
@@ -204,6 +219,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         _groupService.Remove(SelectedAddGroup);
+                        UpdateLists();
 
                     }
                     catch (Exception ex)
@@ -272,6 +288,7 @@ namespace KinderApp.ViewModels
             PAddCommand = new RelayCommand(o =>
             {
                 OpenWindowDialog(new PlanEditWindow(CurrentUser));
+                UpdateLists();
             });
 
             PUpdateCommand = new RelayCommand(o =>
@@ -281,6 +298,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         OpenWindowDialog(new PlanEditWindow(CurrentUser, SelectedAddPlan));
+                        UpdateLists();
                     }
                     catch (Exception ex)
                     {
@@ -302,6 +320,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         _planService.Remove(SelectedAddPlan);
+                        UpdateLists();
 
                     }
                     catch (Exception ex)
@@ -320,6 +339,7 @@ namespace KinderApp.ViewModels
             SAddCommand = new RelayCommand(o =>
             {
                 OpenWindowDialog(new SalaryEditWindow(CurrentUser));
+                UpdateLists();
             });
 
             SUpdateCommand = new RelayCommand(o =>
@@ -329,6 +349,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         OpenWindowDialog(new SalaryEditWindow(CurrentUser, SelectedAddSalary));
+                        UpdateLists();
                     }
                     catch (Exception ex)
                     {
@@ -350,6 +371,7 @@ namespace KinderApp.ViewModels
                     try
                     {
                         _salaryService.Remove(SelectedAddSalary);
+                        UpdateLists();
 
                     }
                     catch (Exception ex)
@@ -367,7 +389,13 @@ namespace KinderApp.ViewModels
 
         void UpdateLists()
         {
+            //Agreements = _agreementService.GetEntities().Result.ToList();
+            Employees = _employeeService.GetEntities().Result.ToList();
+            EmployeeDatas = _employeeDataService.GetEntities().Result.ToList();
+            Groups = _groupService.GetEntities().Result.ToList();
             Kindergartners = _kindergartnerService.GetEntities().Result.ToList();
+            Plans = _planService.GetEntities().Result.ToList();
+            Salaries = _salaryService.GetEntities().Result.ToList();
         }
 
         //поля
@@ -389,7 +417,13 @@ namespace KinderApp.ViewModels
         private PlanService _planService;
         private SalaryService _salaryService;
 
+        private List<Agreement> _agreements;
+        private List<Employee> _employees;
+        private List<EmployeeData> _employeeDatas;
+        private List<Group> _groups;
         private List<Kindergartner> _kindergartners;
+        private List<Plan> _plans;
+        private List<Salary> _salaries;
 
         public User CurrentUser
         {
@@ -404,6 +438,12 @@ namespace KinderApp.ViewModels
         public Plan SelectedAddPlan { get => selectedAddPlan; set => Set(ref selectedAddPlan, value, nameof(selectedAddPlan)); }
         public Salary SelectedAddSalary { get => selectedAddSalary; set => Set(ref selectedAddSalary, value, nameof(selectedAddSalary)); }
 
+        public List<Agreement> Agreements { get => _agreements; set => Set(ref _agreements, value, nameof(_agreements)); }
+        public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(_employees)); }
+        public List<EmployeeData> EmployeeDatas { get => _employeeDatas; set => Set(ref _employeeDatas, value, nameof(_employeeDatas)); }
+        public List<Group> Groups { get => _groups; set => Set(ref _groups, value, nameof(_groups)); }
+        public List<Plan> Plans { get => _plans; set => Set(ref _plans, value, nameof(_plans)); }
+        public List<Salary> Salaries { get => _salaries; set => Set(ref _salaries, value, nameof(_salaries)); }
         public List<Kindergartner> Kindergartners { get => _kindergartners; set => Set(ref _kindergartners, value, nameof(Kindergartners)); }
 
         //Команды
@@ -434,5 +474,6 @@ namespace KinderApp.ViewModels
         public RelayCommand SAddCommand { get; }
         public RelayCommand SUpdateCommand { get; }
         public RelayCommand SRemoveCommand { get; }
+       
     }
 }

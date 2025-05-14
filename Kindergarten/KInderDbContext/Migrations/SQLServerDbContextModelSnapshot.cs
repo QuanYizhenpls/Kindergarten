@@ -31,7 +31,7 @@ namespace KinderDbContext.Migrations
                     b.Property<string>("Dismissal")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("EmployeesEmployee_Id")
+                    b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("EmploymentContract")
@@ -45,7 +45,7 @@ namespace KinderDbContext.Migrations
 
                     b.HasKey("Agreement_Id");
 
-                    b.HasIndex("EmployeesEmployee_Id");
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("Agreements");
                 });
@@ -65,7 +65,7 @@ namespace KinderDbContext.Migrations
                     b.Property<string>("FIO")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("GroupsGroup_Id")
+                    b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Post")
@@ -73,7 +73,7 @@ namespace KinderDbContext.Migrations
 
                     b.HasKey("Employee_Id");
 
-                    b.HasIndex("GroupsGroup_Id");
+                    b.HasIndex("GroupId");
 
                     b.ToTable("Employees");
                 });
@@ -84,7 +84,7 @@ namespace KinderDbContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("EmployeesEmployee_Id")
+                    b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("EmploymentRecord")
@@ -101,7 +101,7 @@ namespace KinderDbContext.Migrations
 
                     b.HasKey("EmployeeData_Id");
 
-                    b.HasIndex("EmployeesEmployee_Id");
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("EmployeeDatas");
                 });
@@ -115,12 +115,12 @@ namespace KinderDbContext.Migrations
                     b.Property<string>("GroupName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("KindergartnersKindergartner_Id")
+                    b.Property<Guid>("KindergartnerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Group_Id");
 
-                    b.HasIndex("KindergartnersKindergartner_Id");
+                    b.HasIndex("KindergartnerId");
 
                     b.ToTable("Groups");
                 });
@@ -157,17 +157,17 @@ namespace KinderDbContext.Migrations
                     b.Property<string>("Development")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("EmployeesEmployee_Id")
+                    b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("GroupsGroup_Id")
+                    b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Plan_Id");
 
-                    b.HasIndex("EmployeesEmployee_Id");
+                    b.HasIndex("EmployeeId");
 
-                    b.HasIndex("GroupsGroup_Id");
+                    b.HasIndex("GroupId");
 
                     b.ToTable("Plans");
                 });
@@ -184,7 +184,7 @@ namespace KinderDbContext.Migrations
                     b.Property<decimal>("Bonus")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<Guid?>("EmployeesEmployee_Id")
+                    b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Penalty")
@@ -198,7 +198,7 @@ namespace KinderDbContext.Migrations
 
                     b.HasKey("Salary_Id");
 
-                    b.HasIndex("EmployeesEmployee_Id");
+                    b.HasIndex("EmployeeId");
 
                     b.ToTable("Salaries");
                 });
@@ -237,7 +237,9 @@ namespace KinderDbContext.Migrations
                 {
                     b.HasOne("KinderData.Entities.Employee", "Employees")
                         .WithMany()
-                        .HasForeignKey("EmployeesEmployee_Id");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employees");
                 });
@@ -246,7 +248,9 @@ namespace KinderDbContext.Migrations
                 {
                     b.HasOne("KinderData.Entities.Group", "Groups")
                         .WithMany()
-                        .HasForeignKey("GroupsGroup_Id");
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Groups");
                 });
@@ -255,7 +259,9 @@ namespace KinderDbContext.Migrations
                 {
                     b.HasOne("KinderData.Entities.Employee", "Employees")
                         .WithMany()
-                        .HasForeignKey("EmployeesEmployee_Id");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employees");
                 });
@@ -264,7 +270,9 @@ namespace KinderDbContext.Migrations
                 {
                     b.HasOne("KinderData.Entities.Kindergartner", "Kindergartners")
                         .WithMany()
-                        .HasForeignKey("KindergartnersKindergartner_Id");
+                        .HasForeignKey("KindergartnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Kindergartners");
                 });
@@ -273,11 +281,15 @@ namespace KinderDbContext.Migrations
                 {
                     b.HasOne("KinderData.Entities.Employee", "Employees")
                         .WithMany()
-                        .HasForeignKey("EmployeesEmployee_Id");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("KinderData.Entities.Group", "Groups")
                         .WithMany()
-                        .HasForeignKey("GroupsGroup_Id");
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employees");
 
@@ -288,7 +300,9 @@ namespace KinderDbContext.Migrations
                 {
                     b.HasOne("KinderData.Entities.Employee", "Employees")
                         .WithMany()
-                        .HasForeignKey("EmployeesEmployee_Id");
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Employees");
                 });

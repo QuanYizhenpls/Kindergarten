@@ -42,6 +42,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает коллекцию групп, к которым принадлежит сотрудник.
         /// </summary>
+        public Guid GroupId { get; set; }
         public Group? Groups { get; set; }
 
         public override string ToString()

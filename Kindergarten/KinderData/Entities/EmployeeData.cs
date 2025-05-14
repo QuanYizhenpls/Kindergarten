@@ -44,6 +44,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает коллекцию сотрудников, связанных с этими данными.
         /// </summary>
+        public Guid EmployeeId { get; set; }
         public Employee? Employees { get; set; }
 
         public override string ToString()

@@ -30,7 +30,7 @@ namespace KinderApp.ViewModels
                 if (employeeData == null)
                 {
 
-                    _employeeDataService.Add(employeeData);
+                    _employeeDataService.Add(new EmployeeData() {EmployeeData_Id = Guid.NewGuid(), Pasport = this.Pasport, SNILS = this.SNILS, INN = this.INN, EmploymentRecord = this.EmploymentRecord, Employees = this.SelectedEmployee});
 
                 }
                 else

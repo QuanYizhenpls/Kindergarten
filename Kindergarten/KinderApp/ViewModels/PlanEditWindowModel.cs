@@ -29,7 +29,7 @@ namespace KinderApp.ViewModels
             {
                 if (plan == null)
                 {
-                    _planService.Add(plan);
+                    _planService.Add(new Plan() {Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, Groups = this.SelectedGroup, Employees = this.SelectedEmployee});
 
                 }
                 else

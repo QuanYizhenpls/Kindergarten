@@ -31,7 +31,7 @@ namespace KinderApp.ViewModels
             {
                 if (agreement == null)
                 {
-                    _agreementService.Add(agreement);
+                    _agreementService.Add(new Agreement() {Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, Employees = this.SelectedEmployee});
 
                 }
                 else

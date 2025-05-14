@@ -31,7 +31,7 @@ namespace KinderApp.ViewModels
             {
                 if (employee == null)
                 {
-                    _employeeService.Add(employee);
+                    _employeeService.Add(new Employee() {Employee_Id = Guid.NewGuid(), FIO = this.FIO, Education = this.Education, Experience = this.Experience, Post = this.Post, Groups = this.SelectedGroup});
 
                 }
                 else

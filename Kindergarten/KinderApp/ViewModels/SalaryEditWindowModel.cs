@@ -32,7 +32,7 @@ namespace KinderApp.ViewModels
             {
                 if (salary == null)
                 {
-                    _salaryService.Add(salary);
+                    _salaryService.Add(new Salary() {Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, Employees = this.SelectedEmployee});
 
                 }
                 else

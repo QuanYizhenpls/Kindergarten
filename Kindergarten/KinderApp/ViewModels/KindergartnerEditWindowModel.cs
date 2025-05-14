@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace KinderApp.ViewModels
 {
@@ -27,8 +28,10 @@ namespace KinderApp.ViewModels
             {
                 if (kindergartner == null)
                 {
-                    _kindergartnerService.Add(new Kindergartner() { Kindergartner_Id = Guid.NewGuid() , FIO = this.FIO, DateOfBirth = this.DateOfBirth, ParentsContactInfo = this.ParentsContactInfo});
-
+                    
+                        MessageBox.Show($"{this.GetType().Name} - kindergartner создан!");
+                        _kindergartnerService.Add(new Kindergartner() { Kindergartner_Id = Guid.NewGuid(), FIO = this.FIO, DateOfBirth = this.DateOfBirth, ParentsContactInfo = this.ParentsContactInfo });
+                    
                 }
                 else
                 {

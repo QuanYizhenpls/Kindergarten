@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="450" Width="800">
+        Title="MenuWindow" Height="470" Width="820">
     <Grid>
 
-        <Border Background="Beige" Height="434" VerticalAlignment="Bottom" Margin="0,0,0,-20">
+        <Border Background="Beige" Height="434" VerticalAlignment="Bottom" Margin="0,0,0,0">
 
             <StackPanel Orientation="Horizontal">
-                
-                <TabControl TabStripPlacement="Top" Background="Beige">
+
+                <TabControl TabStripPlacement="Top" Background="Beige" VerticalAlignment="Top">
                     <TabControl.Resources>
                         <Style TargetType="TabItem">
                             <Setter Property="Margin" Value="0,0,0,0"/>
@@ -39,7 +39,7 @@
                             <Button Content="Добавить" Command="{Binding KAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding KUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding KRemoveCommand}"/>
-                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Kindergartners}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView Background="WhiteSmoke" Foreground="CadetBlue" FontStyle="Normal" FontSize="32" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Kindergartners}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </TabItem>
 

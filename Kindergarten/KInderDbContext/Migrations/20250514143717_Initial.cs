@@ -47,16 +47,17 @@ namespace KinderDbContext.Migrations
                 {
                     Group_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KindergartnersKindergartner_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    KindergartnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Groups", x => x.Group_Id);
                     table.ForeignKey(
-                        name: "FK_Groups_Kindergartners_KindergartnersKindergartner_Id",
-                        column: x => x.KindergartnersKindergartner_Id,
+                        name: "FK_Groups_Kindergartners_KindergartnerId",
+                        column: x => x.KindergartnerId,
                         principalTable: "Kindergartners",
-                        principalColumn: "Kindergartner_Id");
+                        principalColumn: "Kindergartner_Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,16 +69,17 @@ namespace KinderDbContext.Migrations
                     Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Experience = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Post = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GroupsGroup_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Employees", x => x.Employee_Id);
                     table.ForeignKey(
-                        name: "FK_Employees_Groups_GroupsGroup_Id",
-                        column: x => x.GroupsGroup_Id,
+                        name: "FK_Employees_Groups_GroupId",
+                        column: x => x.GroupId,
                         principalTable: "Groups",
-                        principalColumn: "Group_Id");
+                        principalColumn: "Group_Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -89,16 +91,17 @@ namespace KinderDbContext.Migrations
                     SickLeave = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Dismissal = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EmploymentContract = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeesEmployee_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Agreements", x => x.Agreement_Id);
                     table.ForeignKey(
-                        name: "FK_Agreements_Employees_EmployeesEmployee_Id",
-                        column: x => x.EmployeesEmployee_Id,
+                        name: "FK_Agreements_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "Employee_Id");
+                        principalColumn: "Employee_Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -110,16 +113,17 @@ namespace KinderDbContext.Migrations
                     SNILS = table.Column<int>(type: "int", nullable: false),
                     INN = table.Column<int>(type: "int", nullable: false),
                     EmploymentRecord = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeesEmployee_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EmployeeDatas", x => x.EmployeeData_Id);
                     table.ForeignKey(
-                        name: "FK_EmployeeDatas_Employees_EmployeesEmployee_Id",
-                        column: x => x.EmployeesEmployee_Id,
+                        name: "FK_EmployeeDatas_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "Employee_Id");
+                        principalColumn: "Employee_Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -129,22 +133,24 @@ namespace KinderDbContext.Migrations
                     Plan_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DateOfTheEvent = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Development = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GroupsGroup_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    EmployeesEmployee_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Plans", x => x.Plan_Id);
                     table.ForeignKey(
-                        name: "FK_Plans_Employees_EmployeesEmployee_Id",
-                        column: x => x.EmployeesEmployee_Id,
+                        name: "FK_Plans_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "Employee_Id");
+                        principalColumn: "Employee_Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Plans_Groups_GroupsGroup_Id",
-                        column: x => x.GroupsGroup_Id,
+                        name: "FK_Plans_Groups_GroupId",
+                        column: x => x.GroupId,
                         principalTable: "Groups",
-                        principalColumn: "Group_Id");
+                        principalColumn: "Group_Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -157,52 +163,53 @@ namespace KinderDbContext.Migrations
                     Allowance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Prepayment = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Penalty = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    EmployeesEmployee_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Salaries", x => x.Salary_Id);
                     table.ForeignKey(
-                        name: "FK_Salaries_Employees_EmployeesEmployee_Id",
-                        column: x => x.EmployeesEmployee_Id,
+                        name: "FK_Salaries_Employees_EmployeeId",
+                        column: x => x.EmployeeId,
                         principalTable: "Employees",
-                        principalColumn: "Employee_Id");
+                        principalColumn: "Employee_Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agreements_EmployeesEmployee_Id",
+                name: "IX_Agreements_EmployeeId",
                 table: "Agreements",
-                column: "EmployeesEmployee_Id");
+                column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EmployeeDatas_EmployeesEmployee_Id",
+                name: "IX_EmployeeDatas_EmployeeId",
                 table: "EmployeeDatas",
-                column: "EmployeesEmployee_Id");
+                column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Employees_GroupsGroup_Id",
+                name: "IX_Employees_GroupId",
                 table: "Employees",
-                column: "GroupsGroup_Id");
+                column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Groups_KindergartnersKindergartner_Id",
+                name: "IX_Groups_KindergartnerId",
                 table: "Groups",
-                column: "KindergartnersKindergartner_Id");
+                column: "KindergartnerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Plans_EmployeesEmployee_Id",
+                name: "IX_Plans_EmployeeId",
                 table: "Plans",
-                column: "EmployeesEmployee_Id");
+                column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Plans_GroupsGroup_Id",
+                name: "IX_Plans_GroupId",
                 table: "Plans",
-                column: "GroupsGroup_Id");
+                column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Salaries_EmployeesEmployee_Id",
+                name: "IX_Salaries_EmployeeId",
                 table: "Salaries",
-                column: "EmployeesEmployee_Id");
+                column: "EmployeeId");
         }
 
         /// <inheritdoc />

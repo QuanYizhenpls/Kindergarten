@@ -49,6 +49,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает сотрудника, которому начислена данная заработная плата.
         /// </summary>
+        public Guid EmployeeId { get; set; }
         public Employee? Employees { get; set; }
         public override string ToString()
         {
