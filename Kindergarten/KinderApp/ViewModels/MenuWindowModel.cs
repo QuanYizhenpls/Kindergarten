@@ -63,7 +63,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        _agreementService.Remove(SelectedAddAgreement);
+                        _agreementService.Remove(SelectedAddAgreement).GetAwaiter();
                         UpdateLists();
 
                     }
@@ -113,7 +113,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        _employeeService.Remove(SelectedAddEmployee);
+                        _employeeService.Remove(SelectedAddEmployee).GetAwaiter();
                         UpdateLists();
 
                     }
@@ -164,7 +164,7 @@ namespace KinderApp.ViewModels
                     try
                     {
 
-                        _employeeDataService.Remove(SelectedAddEmployeeData);
+                        _employeeDataService.Remove(SelectedAddEmployeeData).GetAwaiter();
                         UpdateLists();
 
                     }
@@ -214,7 +214,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        _groupService.Remove(SelectedAddGroup);
+                        _groupService.Remove(SelectedAddGroup).GetAwaiter();
                         UpdateLists();
 
                     }
@@ -313,7 +313,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        _planService.Remove(SelectedAddPlan);
+                        _planService.Remove(SelectedAddPlan).GetAwaiter();
                         UpdateLists();
 
                     }
@@ -363,7 +363,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        _salaryService.Remove(SelectedAddSalary);
+                        _salaryService.Remove(SelectedAddSalary).GetAwaiter();
                         UpdateLists();
 
                     }

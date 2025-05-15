@@ -29,13 +29,15 @@ namespace KinderApp.ViewModels
                 if (kindergartner == null)
                 {
                     
-                        MessageBox.Show($"{this.GetType().Name} - kindergartner создан!");
+                        
                         _kindergartnerService.Add(new Kindergartner() { Kindergartner_Id = Guid.NewGuid(), FIO = this.FIO, DateOfBirth = this.DateOfBirth, ParentsContactInfo = this.ParentsContactInfo });
-                    
+                    MessageBox.Show($"{this.GetType().Name} - воспитанник добавлен!");
+
                 }
                 else
                 {
                     _kindergartnerService.Update(kindergartner, new Kindergartner() { Kindergartner_Id = Guid.NewGuid(), FIO = this.FIO, DateOfBirth = this.DateOfBirth, ParentsContactInfo = this.ParentsContactInfo });
+                    MessageBox.Show($"{this.GetType().Name} - воспитанник изменён!");
                 }
             });
             CloseCommand = new RelayCommand(o =>

@@ -47,11 +47,11 @@ namespace KinderDbContext.Services
 
         public override async Task<bool> Remove(EmployeeData entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.EmployeeDatas.Remove(entity);
-            await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            ctx.SaveChanges();
+            return (true);
         }
     }
 }

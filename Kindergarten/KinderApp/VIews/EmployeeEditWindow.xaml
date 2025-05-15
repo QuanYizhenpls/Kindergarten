@@ -25,8 +25,7 @@
 
 
             <Label Content="Группа" HorizontalAlignment="Left"/>
-            <ComboBox ItemsSource="{Binding Group, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
-SelectedItem="{Binding SelectedGroup}"
+            <ComboBox ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedAddGroup, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"
         Width="200"
         Margin="5"
         Tag="Groups"

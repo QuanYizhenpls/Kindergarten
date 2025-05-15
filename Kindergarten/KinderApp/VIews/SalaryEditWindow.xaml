@@ -29,8 +29,7 @@
 
 
             <Label Content="Сотрудник" HorizontalAlignment="Left"/>
-            <ComboBox ItemsSource="{Binding Employee, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
-SelectedItem="{Binding SelectedEmployee}"
+            <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
         Width="200"
         Margin="5"
         Tag="Groups"

@@ -25,31 +25,31 @@ namespace KinderDbContext.Services
 
         public override async Task<bool> Add(Plan entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Plans.Add(entity);
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Update(Plan entity, Plan newEntity)
         {
-            if (entity == null || newEntity == null) return await Task.FromResult(false);
+            if (entity == null || newEntity == null) return (false);
 
             entity.DateOfTheEvent = newEntity.DateOfTheEvent;
             entity.Development = newEntity.Development;
             entity.Employee = newEntity.Employee;
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Remove(Plan entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Plans.Remove(entity);
-            await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            ctx.SaveChanges();
+            return (true);
         }
     }
 }

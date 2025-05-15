@@ -15,8 +15,7 @@
 
 
             <Label Content="Воспитанники" HorizontalAlignment="Left"/>
-            <ComboBox ItemsSource="{Binding Kindergartner, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
-SelectedItem="{Binding SelectedKindergartner}"
+            <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding Kindergartners}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}"
         Width="200"
         Margin="5"
         Tag="Groups"

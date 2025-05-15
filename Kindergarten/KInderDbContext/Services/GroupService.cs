@@ -24,30 +24,30 @@ namespace KinderDbContext.Services
 
         public override async Task<bool> Add(Group entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Groups.Add(entity);
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Update(Group entity, Group newEntity)
         {
-            if (entity == null || newEntity == null) return await Task.FromResult(false);
+            if (entity == null || newEntity == null) return (false);
 
             entity.GroupName = newEntity.GroupName;
             entity.Kindergartner = newEntity.Kindergartner;
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Remove(Group entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Groups.Remove(entity);
-            await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            ctx.SaveChanges();
+            return (true);
         }
     }
 }

@@ -25,8 +25,9 @@ namespace KinderApp.ViewModels
                     var newWin = new MenuWindow(user);
                     var pervWin = Application.Current.MainWindow;
                     Application.Current.MainWindow = newWin;
-                    newWin.Show();
                     pervWin.Close();
+                    newWin.Show();
+                    
                 }
                 else Debug.WriteLine($"[{GetType()}] - пользователь не найден!");
                 

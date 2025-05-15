@@ -24,16 +24,16 @@ namespace KinderDbContext.Services
 
         public override async Task<bool> Add(Agreement entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Agreements.Add(entity);
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Update(Agreement entity, Agreement newEntity)
         {
-            if (entity == null || newEntity == null) return await Task.FromResult(false);
+            if (entity == null || newEntity == null) return (false);
 
             entity.Vacation = newEntity.Vacation;
             entity.SickLeave = newEntity.SickLeave;
@@ -42,16 +42,16 @@ namespace KinderDbContext.Services
             entity.Employee = newEntity.Employee;
 
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Remove(Agreement entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Agreements.Remove(entity);
-            await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            ctx.SaveChanges();
+            return true;
         }
     }
 }

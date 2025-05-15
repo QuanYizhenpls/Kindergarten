@@ -24,16 +24,16 @@ namespace KinderDbContext.Services
 
         public override async Task<bool> Add(Salary entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Salaries.Add(entity);
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Update(Salary entity, Salary newEntity)
         {
-            if (entity == null || newEntity == null) return await Task.FromResult(false);
+            if (entity == null || newEntity == null) return (false);
 
             entity.Wage = newEntity.Wage;
             entity.Bonus = newEntity.Bonus;
@@ -42,16 +42,16 @@ namespace KinderDbContext.Services
             entity.Penalty = newEntity.Penalty;
             entity.Employee = newEntity.Employee;
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Remove(Salary entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Salaries.Remove(entity);
-            await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            ctx.SaveChanges();
+            return (true);
         }
     }
 }

@@ -18,17 +18,10 @@
             <TextBox Text="{Binding Development, UpdateSourceTrigger=PropertyChanged}"  Width="200" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="True" VerticalContentAlignment="Top" HorizontalAlignment="Left"/>
 
 
-            <Label Content="Группа" HorizontalAlignment="Left"/>
-            <ComboBox ItemsSource="{Binding Group, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
-SelectedItem="{Binding SelectedGroup}"
-        Width="200"
-        Margin="5"
-        Tag="Groups"
-        VerticalContentAlignment="Top"/>
+           
 
             <Label Content="Сотрудник" HorizontalAlignment="Left"/>
-            <ComboBox ItemsSource="{Binding Employee, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
-SelectedItem="{Binding SelectedEmployee}"
+            <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
         Width="200"
         Margin="5"
         Tag="Groups"

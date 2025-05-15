@@ -77,7 +77,7 @@
                             <Button Content="Добавить" Command="{Binding EAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding EUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding ERemoveCommand}"/>
-                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Employee}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </StackPanel>
                     </TabItem>
