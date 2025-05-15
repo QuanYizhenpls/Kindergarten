@@ -43,11 +43,11 @@ namespace KinderData.Entities
         /// Получает или задает коллекцию групп, к которым принадлежит сотрудник.
         /// </summary>
         public Guid GroupId { get; set; }
-        public Group? Groups { get; set; }
+        public Group? Group { get; set; }
 
         public override string ToString()
         {
-            return $"{FIO} - {Groups}";
+            return $"{FIO} - {Group}";
         }
     }
 }

@@ -264,7 +264,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        _kindergartnerService.Remove(SelectedAddKindergartner);
+                        _kindergartnerService.Remove(SelectedAddKindergartner).GetAwaiter();
                         UpdateLists();
 
                     }

@@ -29,11 +29,11 @@ namespace KinderData.Entities
         /// Получает или задает коллекцию детей, входящих в эту группу.
         /// </summary>
         public Guid KindergartnerId { get; set; }
-        public Kindergartner? Kindergartners { get; set; } = null!;
+        public Kindergartner? Kindergartner { get; set; } = null!;
 
         public override string ToString()
         {
-            return $"{GroupName} - {Kindergartners}";
+            return $"{GroupName} - {Kindergartner}";
         }
     }
 }

@@ -27,7 +27,7 @@ namespace KinderApp.VIews
         {
             InitializeComponent();
             var dbContext = DbContextSingleton.Instance.DbContext;
-            viewModel = new(user, employeeData, new KinderDbContext.Services.EmployeeDataService(dbContext));
+            viewModel = new(user, employeeData, new KinderDbContext.Services.EmployeeDataService());
             DataContext = viewModel;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)

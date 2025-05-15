@@ -32,17 +32,17 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает группу, для которой предназначен этот план.
         /// </summary>
-        public Guid GroupId { get; set; }
-        public Group? Groups { get; set; }
+        //public Guid GroupId { get; set; }
+        //public Group? Group { get; set; }
 
         /// <summary>
         /// Получает или задает сотрудника, ответственного за этот план.
         /// </summary>
         public Guid EmployeeId { get; set; }
-        public Employee? Employees { get; set; }
+        public Employee? Employee { get; set; }
         public override string ToString()
         {
-            return $"{Development} - {Groups}, {Employees}";
+            return $"{Development} - {Employee}";
         }
     }
 }

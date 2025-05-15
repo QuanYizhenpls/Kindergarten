@@ -133,7 +133,6 @@ namespace KinderDbContext.Migrations
                     Plan_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     DateOfTheEvent = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Development = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -144,12 +143,6 @@ namespace KinderDbContext.Migrations
                         column: x => x.EmployeeId,
                         principalTable: "Employees",
                         principalColumn: "Employee_Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Plans_Groups_GroupId",
-                        column: x => x.GroupId,
-                        principalTable: "Groups",
-                        principalColumn: "Group_Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -200,11 +193,6 @@ namespace KinderDbContext.Migrations
                 name: "IX_Plans_EmployeeId",
                 table: "Plans",
                 column: "EmployeeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Plans_GroupId",
-                table: "Plans",
-                column: "GroupId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Salaries_EmployeeId",

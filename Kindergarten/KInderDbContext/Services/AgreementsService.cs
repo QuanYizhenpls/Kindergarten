@@ -11,7 +11,6 @@ namespace KinderDbContext.Services
 {
     public class AgreementsService : BaseService<Agreement>
     {
-        public AgreementsService(AppDbContext context) : base(context) { } 
 
         public override async Task<IEnumerable<Agreement?>> GetEntities()
         {
@@ -40,7 +39,7 @@ namespace KinderDbContext.Services
             entity.SickLeave = newEntity.SickLeave;
             entity.Dismissal = newEntity.Dismissal;
             entity.EmploymentContract = newEntity.EmploymentContract;
-            entity.Employees = newEntity.Employees;
+            entity.Employee = newEntity.Employee;
 
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);

@@ -11,7 +11,6 @@ namespace KinderDbContext.Services
 {
     public class GroupService : BaseService<Group>
     {
-        public GroupService(AppDbContext context) : base(context) { }
 
         public override async Task<IEnumerable<Group?>> GetEntities()
         {
@@ -37,8 +36,7 @@ namespace KinderDbContext.Services
             if (entity == null || newEntity == null) return await Task.FromResult(false);
 
             entity.GroupName = newEntity.GroupName;
-            entity.Kindergartners = newEntity.Kindergartners;
-            entity.Kindergartners = newEntity.Kindergartners;
+            entity.Kindergartner = newEntity.Kindergartner;
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);
         }

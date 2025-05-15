@@ -21,7 +21,7 @@ namespace KinderApp.ViewModels
                 SNILS = employeeData.SNILS;
                 INN = employeeData.INN;
                 EmploymentRecord = employeeData.EmploymentRecord!;
-                SelectedEmployee = EmployeeData.Employees;
+                SelectedEmployee = EmployeeData.Employee;
                 
             }
             
@@ -30,12 +30,12 @@ namespace KinderApp.ViewModels
                 if (employeeData == null)
                 {
 
-                    _employeeDataService.Add(new EmployeeData() {EmployeeData_Id = Guid.NewGuid(), Pasport = this.Pasport, SNILS = this.SNILS, INN = this.INN, EmploymentRecord = this.EmploymentRecord, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee});
+                    _employeeDataService.Add(new EmployeeData() {EmployeeData_Id = Guid.NewGuid(), Pasport = this.Pasport, SNILS = this.SNILS, INN = this.INN, EmploymentRecord = this.EmploymentRecord, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
 
                 }
                 else
                 {
-                    _employeeDataService.Update(employeeData, new EmployeeData() { EmployeeData_Id = Guid.NewGuid(), Pasport = this.Pasport, SNILS = this.SNILS, INN = this.INN, EmploymentRecord = this.EmploymentRecord, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee });
+                    _employeeDataService.Update(employeeData, new EmployeeData() { EmployeeData_Id = Guid.NewGuid(), Pasport = this.Pasport, SNILS = this.SNILS, INN = this.INN, EmploymentRecord = this.EmploymentRecord, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee });
                 }
             });
             CloseCommand = new RelayCommand(o =>

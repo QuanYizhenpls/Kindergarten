@@ -3,6 +3,7 @@ using KinderDbContext.Abstraction;
 using KinderDbContext.Connections;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,6 @@ namespace KinderDbContext.Services
 {
     public class KindergartnerService : BaseService<Kindergartner>
     {
-        public KindergartnerService(AppDbContext context) : base(context) { }
 
         public override async Task<IEnumerable<Kindergartner?>> GetEntities()
         {
@@ -25,31 +25,33 @@ namespace KinderDbContext.Services
 
         public override async Task<bool> Add(Kindergartner entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Kindergartners.Add(entity);
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return  (true);
         }
 
         public override async Task<bool> Update(Kindergartner entity, Kindergartner newEntity)
         {
-            if (entity == null || newEntity == null) return await Task.FromResult(false);
+            if (entity == null || newEntity == null) return (false);
 
             entity.FIO = newEntity.FIO;
             entity.DateOfBirth = newEntity.DateOfBirth;
             entity.ParentsContactInfo = newEntity.ParentsContactInfo;
+            ctx.Kindergartners.Update(entity);
             await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            return (true);
         }
 
         public override async Task<bool> Remove(Kindergartner entity)
         {
-            if (entity == null) return await Task.FromResult(false);
+            if (entity == null) return (false);
 
             ctx.Kindergartners.Remove(entity);
-            await ctx.SaveChangesAsync();
-            return await Task.FromResult(true);
+            ctx.SaveChanges();
+
+            return (true);
         }
     }
 }

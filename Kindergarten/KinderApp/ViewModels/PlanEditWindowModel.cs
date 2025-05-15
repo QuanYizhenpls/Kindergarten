@@ -20,8 +20,7 @@ namespace KinderApp.ViewModels
             {
                 DateOfTheEvent = plan.DateOfTheEvent;
                 Development = plan.Development;
-                SelectedGroup = plan.Groups;
-                SelectedEmployee = plan.Employees;
+                SelectedEmployee = plan.Employee;
                 
             }
             
@@ -29,12 +28,12 @@ namespace KinderApp.ViewModels
             {
                 if (plan == null)
                 {
-                    _planService.Add(new Plan() {Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, GroupId = Guid.NewGuid(), Groups = this.SelectedGroup, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee});
+                    _planService.Add(new Plan() {Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
 
                 }
                 else
                 {
-                    _planService.Update(plan, new Plan() { Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, GroupId = Guid.NewGuid(), Groups = this.SelectedGroup, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee });
+                    _planService.Update(plan, new Plan() { Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee });
                 }
             });
             CloseCommand = new RelayCommand(o =>

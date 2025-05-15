@@ -23,7 +23,7 @@ namespace KinderApp.ViewModels
                 Education = employee.Education;
                 Experience = employee.Experience;
                 Post = employee.Post!;
-                SelectedGroup = Employee.Groups;
+                SelectedGroup = Employee.Group;
                 
             }
             
@@ -31,12 +31,12 @@ namespace KinderApp.ViewModels
             {
                 if (employee == null)
                 {
-                    _employeeService.Add(new Employee() {Employee_Id = Guid.NewGuid(), FIO = this.FIO, Education = this.Education, Experience = this.Experience, Post = this.Post, GroupId = Guid.NewGuid(), Groups = this.SelectedGroup});
+                    _employeeService.Add(new Employee() {Employee_Id = Guid.NewGuid(), FIO = this.FIO, Education = this.Education, Experience = this.Experience, Post = this.Post, GroupId = Guid.NewGuid(), Group = this.SelectedGroup});
 
                 }
                 else
                 {
-                    _employeeService.Update(employee, new Employee() { Employee_Id = Guid.NewGuid(), FIO = this.FIO, Education = this.Education, Experience = this.Experience, Post = this.Post, GroupId = Guid.NewGuid(), Groups = this.SelectedGroup });
+                    _employeeService.Update(employee, new Employee() { Employee_Id = Guid.NewGuid(), FIO = this.FIO, Education = this.Education, Experience = this.Experience, Post = this.Post, GroupId = Guid.NewGuid(), Group = this.SelectedGroup });
                 }
             });
             CloseCommand = new RelayCommand(o =>

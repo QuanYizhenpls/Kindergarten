@@ -11,9 +11,9 @@ namespace KinderDbContext.Abstraction
     {
         protected readonly AppDbContext ctx; 
 
-        public BaseService(AppDbContext context) 
+        public BaseService() 
         {
-            ctx = context;
+            ctx = DbContextSingleton.Instance.DbContext;
         }
 
         public abstract Task<IEnumerable<T?>> GetEntities();

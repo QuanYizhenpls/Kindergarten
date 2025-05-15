@@ -11,7 +11,6 @@ namespace KinderDbContext.Services
 {
     public class SalaryService : BaseService<Salary>
     {
-        public SalaryService(AppDbContext context) : base(context) { }
 
         public override async Task<IEnumerable<Salary?>> GetEntities()
         {
@@ -41,7 +40,7 @@ namespace KinderDbContext.Services
             entity.Allowance = newEntity.Allowance;
             entity.Prepayment = newEntity.Prepayment;
             entity.Penalty = newEntity.Penalty;
-            entity.Employees = newEntity.Employees;
+            entity.Employee = newEntity.Employee;
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);
         }

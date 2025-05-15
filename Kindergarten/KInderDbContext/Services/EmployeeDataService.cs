@@ -11,11 +11,10 @@ namespace KinderDbContext.Services
 {
     public class EmployeeDataService : BaseService<EmployeeData>
     {
-        public EmployeeDataService(AppDbContext context) : base(context) { }
 
         public override async Task<IEnumerable<EmployeeData?>> GetEntities()
         {
-            return await Task.FromResult(ctx.Employees.ToList() as IEnumerable<EmployeeData>);
+            return await Task.FromResult(ctx.EmployeeDatas.ToList() as IEnumerable<EmployeeData>);
         }
 
         public override async Task<EmployeeData?> GetEntity(Guid id)
@@ -40,7 +39,7 @@ namespace KinderDbContext.Services
             entity.SNILS = newEntity.SNILS;
             entity.INN = newEntity.INN;
             entity.EmploymentRecord = newEntity.EmploymentRecord;
-            entity.Employees = newEntity.Employees;
+            entity.Employee = newEntity.Employee;
 
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);

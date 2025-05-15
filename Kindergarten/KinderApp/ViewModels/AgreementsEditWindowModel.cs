@@ -23,7 +23,7 @@ namespace KinderApp.ViewModels
                 SickLeave = agreement.SickLeave;
                 Dismissal = agreement.Dismissal;
                 EmploymentContract = agreement.EmploymentContract!;
-                SelectedEmployee = agreement.Employees;
+                SelectedEmployee = agreement.Employee;
                 
             }
             
@@ -31,13 +31,13 @@ namespace KinderApp.ViewModels
             {
                 if (agreement == null)
                 {
-                    _agreementService.Add(new Agreement() {Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee});
+                    _agreementService.Add(new Agreement() {Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
 
                 }
                 else
                 {
 
-                    _agreementService.Update(agreement, new Agreement() { Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee });
+                    _agreementService.Update(agreement, new Agreement() { Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee });
                 }
             });
             CloseCommand = new RelayCommand(o =>

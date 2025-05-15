@@ -19,7 +19,7 @@ namespace KinderDbContext.Connections
         /// </summary>
         public SQLServerDbContext()
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
             Debug.WriteLine($"{this.GetType().Name} was created!");
         }
 

@@ -45,11 +45,11 @@ namespace KinderData.Entities
         /// Получает или задает коллекцию сотрудников, связанных с этими данными.
         /// </summary>
         public Guid EmployeeId { get; set; }
-        public Employee? Employees { get; set; }
+        public Employee? Employee { get; set; }
 
         public override string ToString()
         {
-            return $"{Pasport} - {Employees}";
+            return $"{Pasport} - {Employee}";
         }
     }
 }

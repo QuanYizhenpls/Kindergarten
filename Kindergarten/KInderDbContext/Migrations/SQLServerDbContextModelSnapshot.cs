@@ -160,14 +160,9 @@ namespace KinderDbContext.Migrations
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("GroupId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Plan_Id");
 
                     b.HasIndex("EmployeeId");
-
-                    b.HasIndex("GroupId");
 
                     b.ToTable("Plans");
                 });
@@ -235,76 +230,68 @@ namespace KinderDbContext.Migrations
 
             modelBuilder.Entity("KinderData.Entities.Agreement", b =>
                 {
-                    b.HasOne("KinderData.Entities.Employee", "Employees")
+                    b.HasOne("KinderData.Entities.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Employees");
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("KinderData.Entities.Employee", b =>
                 {
-                    b.HasOne("KinderData.Entities.Group", "Groups")
+                    b.HasOne("KinderData.Entities.Group", "Group")
                         .WithMany()
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Groups");
+                    b.Navigation("Group");
                 });
 
             modelBuilder.Entity("KinderData.Entities.EmployeeData", b =>
                 {
-                    b.HasOne("KinderData.Entities.Employee", "Employees")
+                    b.HasOne("KinderData.Entities.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Employees");
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("KinderData.Entities.Group", b =>
                 {
-                    b.HasOne("KinderData.Entities.Kindergartner", "Kindergartners")
+                    b.HasOne("KinderData.Entities.Kindergartner", "Kindergartner")
                         .WithMany()
                         .HasForeignKey("KindergartnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Kindergartners");
+                    b.Navigation("Kindergartner");
                 });
 
             modelBuilder.Entity("KinderData.Entities.Plan", b =>
                 {
-                    b.HasOne("KinderData.Entities.Employee", "Employees")
+                    b.HasOne("KinderData.Entities.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("KinderData.Entities.Group", "Groups")
-                        .WithMany()
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Employees");
-
-                    b.Navigation("Groups");
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("KinderData.Entities.Salary", b =>
                 {
-                    b.HasOne("KinderData.Entities.Employee", "Employees")
+                    b.HasOne("KinderData.Entities.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Employees");
+                    b.Navigation("Employee");
                 });
 #pragma warning restore 612, 618
         }

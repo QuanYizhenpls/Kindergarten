@@ -45,10 +45,10 @@ namespace KinderData.Entities
         /// Получает или задает сотрудника, с которым связан это договор.
         /// </summary>
         public Guid EmployeeId { get; set; }
-        public Employee? Employees { get; set; }
+        public Employee? Employee { get; set; }
         public override string ToString()
         {
-            return $"{EmploymentContract} - {Employees}";
+            return $"{EmploymentContract} - {Employee}";
         }
 
     }

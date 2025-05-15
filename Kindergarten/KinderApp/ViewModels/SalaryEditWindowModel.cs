@@ -24,7 +24,7 @@ namespace KinderApp.ViewModels
                 Allowance = salary.Allowance;
                 Prepayment = salary.Prepayment;
                 Penalty = salary.Penalty;
-                SelectedEmployee = salary.Employees;
+                SelectedEmployee = salary.Employee;
                 
             }
             
@@ -32,12 +32,12 @@ namespace KinderApp.ViewModels
             {
                 if (salary == null)
                 {
-                    _salaryService.Add(new Salary() {Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee});
+                    _salaryService.Add(new Salary() {Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
 
                 }
                 else
                 {
-                    _salaryService.Update(salary, new Salary() { Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, EmployeeId = Guid.NewGuid(), Employees = this.SelectedEmployee });
+                    _salaryService.Update(salary, new Salary() { Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee });
                 }
             });
             CloseCommand = new RelayCommand(o =>

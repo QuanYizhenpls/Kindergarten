@@ -11,7 +11,7 @@ namespace KinderDbContext.Connections
     public sealed class DbContextSingleton
     {
         private static DbContextSingleton instance = null;
-        private static readonly object padlock = new object();
+
 
         public SQLServerDbContext DbContext { get; private set; }
 
@@ -25,14 +25,11 @@ namespace KinderDbContext.Connections
         {
             get
             {
-                lock (padlock)
+                if (instance == null)
                 {
-                    if (instance == null)
-                    {
-                        instance = new DbContextSingleton();
-                    }
-                    return instance;
+                    instance = new DbContextSingleton();
                 }
+                return instance;
             }
         }
     }

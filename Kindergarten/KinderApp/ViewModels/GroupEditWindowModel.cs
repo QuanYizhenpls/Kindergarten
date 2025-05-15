@@ -18,7 +18,7 @@ namespace KinderApp.ViewModels
             if (group != null)
             {
                 GroupName = group.GroupName;
-                SelectedKindergartner = group.Kindergartners;
+                SelectedKindergartner = group.Kindergartner;
                
             }
             
@@ -26,12 +26,12 @@ namespace KinderApp.ViewModels
             {
                 if (group == null)
                 {
-                    _groupService.Add(new Group() {Group_Id = Guid.NewGuid(), GroupName = this.GroupName, KindergartnerId = Guid.NewGuid(), Kindergartners = this.SelectedKindergartner});
+                    _groupService.Add(new Group() {Group_Id = Guid.NewGuid(), GroupName = this.GroupName, KindergartnerId = Guid.NewGuid(), Kindergartner = this.SelectedKindergartner});
 
                 }
                 else
                 {
-                    _groupService.Update(group, new Group() { Group_Id = Guid.NewGuid(), GroupName = this.GroupName, KindergartnerId = Guid.NewGuid(), Kindergartners = this.SelectedKindergartner });
+                    _groupService.Update(group, new Group() { Group_Id = Guid.NewGuid(), GroupName = this.GroupName, KindergartnerId = Guid.NewGuid(), Kindergartner = this.SelectedKindergartner });
                 }
             });
             CloseCommand = new RelayCommand(o =>

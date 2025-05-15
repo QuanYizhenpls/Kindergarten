@@ -1,6 +1,7 @@
 ﻿using KinderData.Entities;
 using KinderDbContext.Abstraction;
 using KinderDbContext.Connections;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,16 +12,15 @@ namespace KinderDbContext.Services
 {
     public class PlanService : BaseService<Plan>
     {
-        public PlanService(AppDbContext context) : base(context) { }
 
         public override async Task<IEnumerable<Plan?>> GetEntities()
         {
-            return await Task.FromResult(ctx.Plans.ToList() as IEnumerable<Plan>);
+            return await Task.FromResult(ctx.Plans.Include(p=>p.Employee).ThenInclude(e=>e.Group).ThenInclude(g=>g.Kindergartner).ToList() as IEnumerable<Plan>);
         }
 
         public override async Task<Plan?> GetEntity(Guid id)
         {
-            return await Task.FromResult(ctx.Plans.SingleOrDefault(e => e.Plan_Id == id));
+            return await Task.FromResult(ctx.Plans.Include(p => p.Employee).ThenInclude(e => e.Group).ThenInclude(g => g.Kindergartner).SingleOrDefault(e => e.Plan_Id == id));
         }
 
         public override async Task<bool> Add(Plan entity)
@@ -38,8 +38,7 @@ namespace KinderDbContext.Services
 
             entity.DateOfTheEvent = newEntity.DateOfTheEvent;
             entity.Development = newEntity.Development;
-            entity.Groups = newEntity.Groups;
-            entity.Employees = newEntity.Employees;
+            entity.Employee = newEntity.Employee;
             await ctx.SaveChangesAsync();
             return await Task.FromResult(true);
         }

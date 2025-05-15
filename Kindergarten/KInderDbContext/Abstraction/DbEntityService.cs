@@ -13,7 +13,7 @@ namespace KinderDbContext.Abstraction
         protected readonly AppDbContext ctx;
         public DbEntityServiceBase()
         {
-            ctx = new SQLServerDbContext();
+            ctx = DbContextSingleton.Instance.DbContext;
         }
 
         public abstract Task<IEnumerable<T?>> GetEntities();
