@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace KinderApp.ViewModels
@@ -13,10 +14,11 @@ namespace KinderApp.ViewModels
     public class SalaryEditWindowModel : ViewModelBase
     {
 
-        public SalaryEditWindowModel(User user, Salary salary, SalaryService salaryService)
+        public SalaryEditWindowModel(User user, Salary salary, SalaryService salaryService, List<Employee> employees)
         {
             Salary = salary;
             _salaryService = salaryService;
+            _employees = employees;
             if (salary != null)
             {
                 Wage = salary.Wage;
@@ -33,11 +35,12 @@ namespace KinderApp.ViewModels
                 if (salary == null)
                 {
                     _salaryService.Add(new Salary() {Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
-
+                    MessageBox.Show($"{this.GetType().Name} - зарплата добавлена!");
                 }
                 else
                 {
                     _salaryService.Update(salary, new Salary() { Salary_Id = Guid.NewGuid(), Wage = this.Wage, Bonus = this.Bonus, Allowance = this.Allowance, Prepayment = this.Prepayment, Penalty = this.Penalty, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee });
+                    MessageBox.Show($"{this.GetType().Name} - зарплата изменена!");
                 }
             });
             CloseCommand = new RelayCommand(o =>
@@ -54,6 +57,7 @@ namespace KinderApp.ViewModels
         private Employee selectedEmployee;
         private SalaryService _salaryService;
         private Salary salary;
+        private List<Employee> _employees;
 
         public Salary Salary { get => salary; set => Set(ref salary, value, nameof(salary)); }
 
@@ -63,6 +67,7 @@ namespace KinderApp.ViewModels
         public decimal Prepayment { get => prepayment; set => Set(ref prepayment, value, nameof(prepayment)); }
         public decimal Penalty { get => penalty; set => Set(ref penalty, value, nameof(penalty)); }
         public Employee SelectedEmployee { get => selectedEmployee; set => Set(ref selectedEmployee, value, nameof(selectedEmployee)); }
+        public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(_employees)); }
 
         public RelayCommand SaveCommand { get; }
         public RelayCommand CloseCommand { get; }

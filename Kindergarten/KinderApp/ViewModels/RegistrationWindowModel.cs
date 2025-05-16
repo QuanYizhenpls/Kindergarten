@@ -27,9 +27,13 @@ namespace KinderApp.ViewModels
                     Application.Current.MainWindow = newWin;
                     pervWin.Close();
                     newWin.Show();
-                    
+
                 }
-                else Debug.WriteLine($"[{GetType()}] - пользователь не найден!");
+                else
+                {
+                    Debug.WriteLine($"[{GetType()}] - пользователь не найден!");
+                    MessageBox.Show($"[{GetType()}] - пользователь не найден!");
+                }
                 
             });
 

@@ -23,11 +23,11 @@ namespace KinderApp.VIews
     public partial class GroupEditWindow : Window
     {
         GroupEditWindowModel viewModel;
-        public GroupEditWindow(User user, Group group = null!)
+        public GroupEditWindow(User user, Group group = null!, List<Kindergartner> kindergartners=null!)
         {
             InitializeComponent();
             var dbContext = DbContextSingleton.Instance.DbContext;
-            viewModel = new(user, group, new KinderDbContext.Services.GroupService());
+            viewModel = new(user, group, new KinderDbContext.Services.GroupService(), kindergartners);
             DataContext = viewModel;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)

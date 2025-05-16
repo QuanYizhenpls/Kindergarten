@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace KinderApp.ViewModels
 {
@@ -32,12 +33,14 @@ namespace KinderApp.ViewModels
                 if (agreement == null)
                 {
                     _agreementService.Add(new Agreement() {Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
+                    MessageBox.Show($"{this.GetType().Name} - договор добавлен!");
 
                 }
                 else
                 {
 
                     _agreementService.Update(agreement, new Agreement() { Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee });
+                    MessageBox.Show($"{this.GetType().Name} - договор изменён!");
                 }
             });
             CloseCommand = new RelayCommand(o =>

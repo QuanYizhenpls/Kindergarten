@@ -183,7 +183,7 @@ namespace KinderApp.ViewModels
             // Команды работы с Group
             GAddCommand = new RelayCommand(o =>
             {
-                OpenWindowDialog(new GroupEditWindow(CurrentUser));
+                OpenWindowDialog(new GroupEditWindow(CurrentUser, kindergartners: Kindergartners));
                 UpdateLists();
             });
 
@@ -193,7 +193,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        OpenWindowDialog(new GroupEditWindow(CurrentUser, SelectedAddGroup));
+                        OpenWindowDialog(new GroupEditWindow(CurrentUser, SelectedAddGroup, Kindergartners));
                         UpdateLists();
                     }
                     catch (Exception ex)

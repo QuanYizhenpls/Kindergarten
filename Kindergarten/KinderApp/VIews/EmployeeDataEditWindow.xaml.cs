@@ -23,11 +23,11 @@ namespace KinderApp.VIews
     public partial class EmployeeDataEditWindow : Window
     {
         EmployeeDataEditWindowModel viewModel;
-        public EmployeeDataEditWindow(User user, EmployeeData employeeData = null!)
+        public EmployeeDataEditWindow(User user, EmployeeData employeeData = null!, List<Employee> employees= null!)
         {
             InitializeComponent();
             var dbContext = DbContextSingleton.Instance.DbContext;
-            viewModel = new(user, employeeData, new KinderDbContext.Services.EmployeeDataService());
+            viewModel = new(user, employeeData, new KinderDbContext.Services.EmployeeDataService(), employees);
             DataContext = viewModel;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)

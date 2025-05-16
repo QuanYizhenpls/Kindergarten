@@ -27,7 +27,7 @@ namespace KinderDbContext.Services
             if (entity == null) return (false);
 
             ctx.Groups.Add(entity);
-            await ctx.SaveChangesAsync();
+            ctx.SaveChanges();
             return (true);
         }
 

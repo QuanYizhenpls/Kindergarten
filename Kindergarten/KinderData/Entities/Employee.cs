@@ -22,22 +22,22 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает полное имя сотрудника.
         /// </summary>
-        public string? FIO { get; set; }
+        public string? FIO { get; set; } = null!;
 
         /// <summary>
         /// Получает или задает образование сотрудника.
         /// </summary>
-        public string? Education { get; set; }
+        public string? Education { get; set; } = null!;
 
         /// <summary>
         /// Получает или задает опыт работы сотрудника.
         /// </summary>
-        public string? Experience { get; set; }
+        public string? Experience { get; set; } = null!;
 
         /// <summary>
         /// Получает или задает должность сотрудника.
         /// </summary>
-        public string? Post { get; set; }
+        public string? Post { get; set; } = null!;
 
         /// <summary>
         /// Получает или задает коллекцию групп, к которым принадлежит сотрудник.

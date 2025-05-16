@@ -23,11 +23,11 @@ namespace KinderApp.VIews
     public partial class SalaryEditWindow : Window
     {
         SalaryEditWindowModel viewModel;
-        public SalaryEditWindow(User user, Salary salary = null!)
+        public SalaryEditWindow(User user, Salary salary = null!, List<Employee> employees = null!)
         {
             InitializeComponent();
             var dbContext = DbContextSingleton.Instance.DbContext;
-            viewModel = new(user, salary, new KinderDbContext.Services.SalaryService());
+            viewModel = new(user, salary, new KinderDbContext.Services.SalaryService(), employees);
             DataContext = viewModel;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)

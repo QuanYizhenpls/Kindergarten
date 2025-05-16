@@ -35,7 +35,7 @@ namespace KinderDbContext.Services
             {
                 await ctx.AddAsync(entity);
                 Debug.WriteLine($"{GetType().Name}: пользователь добавлен!");
-                await ctx.SaveChangesAsync();
+                ctx.SaveChanges();
                 Debug.WriteLine($"{GetType().Name}: пользователь сохранён!");
             }
             catch (Exception ex)
@@ -84,7 +84,7 @@ namespace KinderDbContext.Services
                 // Сохранение в бд
                 ctx.Update(entity);
                 Debug.WriteLine($"{GetType().Name}: пользователь обновлен!");
-                await ctx.SaveChangesAsync();
+                ctx.SaveChanges();
                 Debug.WriteLine($"{GetType().Name}: изменения сохранены!");
             }
             catch (Exception ex)

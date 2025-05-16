@@ -13,10 +13,11 @@ namespace KinderApp.ViewModels
 {
     public class EmployeeEditWindowModel : ViewModelBase
     {
-        public EmployeeEditWindowModel(User user, Employee employee, EmployeeService employeeService)
+        public EmployeeEditWindowModel(User user, Employee employee, EmployeeService employeeService, List<KinderData.Entities.Group> groups)
         {
             Employee = employee;
             _employeeService = employeeService;
+            _groups = groups;
             if (employee != null)
             {
                 FIO = employee.FIO;
@@ -32,11 +33,13 @@ namespace KinderApp.ViewModels
                 if (employee == null)
                 {
                     _employeeService.Add(new Employee() {Employee_Id = Guid.NewGuid(), FIO = this.FIO, Education = this.Education, Experience = this.Experience, Post = this.Post, GroupId = Guid.NewGuid(), Group = this.SelectedGroup});
+                    MessageBox.Show($"{this.GetType().Name} - сотрудник добавлен!");
 
                 }
                 else
                 {
                     _employeeService.Update(employee, new Employee() { Employee_Id = Guid.NewGuid(), FIO = this.FIO, Education = this.Education, Experience = this.Experience, Post = this.Post, GroupId = Guid.NewGuid(), Group = this.SelectedGroup });
+                    MessageBox.Show($"{this.GetType().Name} - сотрудник изменён!");
                 }
             });
             CloseCommand = new RelayCommand(o =>
@@ -51,6 +54,7 @@ namespace KinderApp.ViewModels
         private KinderData.Entities.Group selectedGroup;
         private EmployeeService _employeeService;
         private Employee employee;
+        private List<KinderData.Entities.Group> _groups;
 
         public Employee Employee { get => employee; set => Set(ref employee, value, nameof(employee)); }
 
@@ -59,9 +63,11 @@ namespace KinderApp.ViewModels
         public string Experience { get => experience; set => Set(ref experience, value, nameof(experience)); }
         public string Post { get => post; set => Set(ref post, value, nameof(post)); }
         public KinderData.Entities.Group SelectedGroup { get => selectedGroup; set => Set(ref selectedGroup, value, nameof(selectedGroup)); }
+        public List<KinderData.Entities.Group> Groups { get => _groups; set => Set(ref _groups, value, nameof(_groups)); }
 
         public RelayCommand SaveCommand { get; }
         public RelayCommand CloseCommand { get; }
+       
     }
 }
 
