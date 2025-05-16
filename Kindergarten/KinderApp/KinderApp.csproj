@@ -10,18 +10,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\LastochkaIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Styles\" />
+    <ProjectReference Include="..\KinderData\KinderData.csproj" />
+    <ProjectReference Include="..\KInderDbContext\KinderDbContext.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KinderData\KinderData.csproj" />
-    <ProjectReference Include="..\KInderDbContext\KinderDbContext.csproj" />
+    <Resource Include="Assets\Icons\LastochkaIcon.ico" />
   </ItemGroup>
 
 </Project>

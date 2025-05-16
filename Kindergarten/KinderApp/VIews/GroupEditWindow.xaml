@@ -7,25 +7,18 @@
         mc:Ignorable="d"
         Title="GroupEditWindow" Width="500" Height="400">
     <Grid>
-        <StackPanel Background="Aqua" HorizontalAlignment="Center" Width="500" Height="400">
+        <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Center" Width="500" Height="400">
 
-            <Label Content="Название группы"  HorizontalAlignment="Left"/>
+            <Label Content="Название группы"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding GroupName, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Left"/>
-
-
-            <Label Content="Воспитанники" HorizontalAlignment="Left"/>
-            <ComboBox HorizontalAlignment="Left" ItemsSource="{Binding Kindergartners}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}"
-        Width="200"
-        Margin="5"
-        Tag="Groups"
-        VerticalContentAlignment="Top"/>
+            <TextBox Text="{Binding GroupName, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
-      Width="140" Margin="0,20,0,10" HorizontalAlignment="Left"/>
-            <Button Content="Закрыть" Width="50" 
+      Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
+            <Button Content="Закрыть" Width="100" 
             x:Name="CloseButton"
-Click="CloseButton_Click" HorizontalAlignment="Left"/>
+Click="CloseButton_Click"
+       HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
         </StackPanel>
 
     </Grid>

@@ -34,5 +34,6 @@ namespace KinderApp.VIews
         {
             Close();
         }
+
     }
 }

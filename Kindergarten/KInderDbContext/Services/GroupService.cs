@@ -36,8 +36,7 @@ namespace KinderDbContext.Services
             if (entity == null || newEntity == null) return (false);
 
             entity.GroupName = newEntity.GroupName;
-            entity.Kindergartner = newEntity.Kindergartner;
-            await ctx.SaveChangesAsync();
+            ctx.SaveChanges();
             return (true);
         }
 

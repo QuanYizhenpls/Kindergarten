@@ -27,7 +27,6 @@ namespace KinderApp
         {
             InitializeComponent();
 
-            var dbContext = DbContextSingleton.Instance.DbContext;
 
             viewModel = new MenuWindowModel(
                 user,
@@ -43,5 +42,7 @@ namespace KinderApp
             DataContext = viewModel;
             Title = $"Окно пользователя: {user.Fullname}";
         }
+
+       
     }
 }

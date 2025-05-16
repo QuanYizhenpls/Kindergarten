@@ -7,35 +7,35 @@
         mc:Ignorable="d"
         Title="EmployeeEditWindow" Width="500" Height="400">
     <Grid>
-        <StackPanel Background="Aqua" HorizontalAlignment="Center" Width="500" Height="400">
+        <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Center" Width="500" Height="400">
 
-            <Label Content="ФИО"  HorizontalAlignment="Left"/>
+            <Label Content="ФИО"   HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding FIO, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Left"/>
+            <TextBox Text="{Binding FIO, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
 
-            <Label Content="Образование"  HorizontalAlignment="Left"/>
+            <Label Content="Образование"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding Education, UpdateSourceTrigger=PropertyChanged}"  Width="200" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="True" VerticalContentAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBox Text="{Binding Education, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
 
-            <Label Content="Опыт работы" HorizontalAlignment="Left"/>
-            <TextBox Text="{Binding Expirience, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <Label Content="Опыт работы"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <TextBox Text="{Binding Expirience, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
 
-            <Label Content="Должность" HorizontalAlignment="Left"/>
-            <TextBox Text="{Binding Post, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <Label Content="Должность"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <TextBox Text="{Binding Post, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
 
 
-            <Label Content="Группа" HorizontalAlignment="Left"/>
-            <ComboBox ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedAddGroup, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"
-        Width="200"
+            <Label Content="Группа"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <ComboBox ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedAddGroup, UpdateSourceTrigger=PropertyChanged}" Width="350" HorizontalAlignment="Center"
         Margin="5"
         Tag="Groups"
         VerticalContentAlignment="Top"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
-      Width="140" Margin="0,20,0,10" HorizontalAlignment="Left"/>
-            <Button Content="Закрыть" Width="50" 
+      Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
+            <Button Content="Закрыть" Width="100" 
             x:Name="CloseButton"
-Click="CloseButton_Click" HorizontalAlignment="Left"/>
+Click="CloseButton_Click"
+       HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
         </StackPanel>
     </Grid>
 </Window>

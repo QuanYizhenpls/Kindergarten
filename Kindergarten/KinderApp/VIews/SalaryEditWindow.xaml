@@ -5,41 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp.VIews"
         mc:Ignorable="d"
-        Title="SalaryEditWindow"  Width="500" Height="400">
+        Title="SalaryEditWindow"  Width="500" Height="420">
     <Grid>
 
-        <StackPanel Background="Aqua" HorizontalAlignment="Center" Width="500" Height="400">
+        <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Center" Width="500" Height="400">
 
-            <Label Content="Оклад"  HorizontalAlignment="Left"/>
+            <Label Content="Оклад" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding Wage, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Left"/>
+            <TextBox Text="{Binding Wage, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
 
-            <Label Content="Премия"  HorizontalAlignment="Left"/>
+            <Label Content="Премия" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <TextBox Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}"   Width="450" HorizontalAlignment="Center"/>
+            
+            <Label Content="Надбавка" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <TextBox Text="{Binding Allowance, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
 
-            <TextBox Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}"  Width="200" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="True" VerticalContentAlignment="Top" HorizontalAlignment="Left"/>
+            <Label Content="Аванс" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <TextBox Text="{Binding Prepayment, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
 
-            <Label Content="Надбавка" HorizontalAlignment="Left"/>
-            <TextBox Text="{Binding Allowance, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" TextWrapping="Wrap" AcceptsReturn="True"/>
-
-            <Label Content="Аванс" HorizontalAlignment="Left"/>
-            <TextBox Text="{Binding Prepayment, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" TextWrapping="Wrap" AcceptsReturn="True"/>
-
-            <Label Content="Штраф" HorizontalAlignment="Left"/>
-            <TextBox Text="{Binding Penalty, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <Label Content="Штраф" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <TextBox Text="{Binding Penalty, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
 
 
-            <Label Content="Сотрудник" HorizontalAlignment="Left"/>
-            <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
-        Width="200"
+            <Label Content="Сотрудник" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"   Width="350" HorizontalAlignment="Center"
         Margin="5"
         Tag="Groups"
         VerticalContentAlignment="Top"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
-      Width="140" Margin="0,20,0,10" HorizontalAlignment="Left"/>
-            <Button Content="Закрыть" Width="50" 
-      x:Name="CloseButton"
-Click="CloseButton_Click" HorizontalAlignment="Left"/>
+      Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
+            <Button Content="Закрыть" Width="100" 
+            x:Name="CloseButton"
+Click="CloseButton_Click"
+       HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
         </StackPanel>
     </Grid>
 </Window>

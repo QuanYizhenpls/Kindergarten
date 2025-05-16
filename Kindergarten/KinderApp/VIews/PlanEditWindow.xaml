@@ -7,31 +7,31 @@
         mc:Ignorable="d"
         Title="PlanEditWindow" Width="500" Height="400">
     <Grid>
-        <StackPanel Background="Aqua" HorizontalAlignment="Center" Width="500" Height="400">
+        <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Center" Width="500" Height="400">
 
-            <Label Content="Дата проведения плана"  HorizontalAlignment="Left"/>
+            <Label Content="Дата проведения плана" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding DateOfTheEvent, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Left"/>
+            <TextBox Text="{Binding DateOfTheEvent, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
 
-            <Label Content="Описание плана"  HorizontalAlignment="Left"/>
+            <Label Content="Описание плана" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding Development, UpdateSourceTrigger=PropertyChanged}"  Width="200" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="True" VerticalContentAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBox Text="{Binding Development, UpdateSourceTrigger=PropertyChanged}"   Width="450" HorizontalAlignment="Center"/>
 
 
-           
 
-            <Label Content="Сотрудник" HorizontalAlignment="Left"/>
-            <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Left"
-        Width="200"
+
+            <Label Content="Сотрудник" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"   Width="350" HorizontalAlignment="Center"
         Margin="5"
         Tag="Groups"
         VerticalContentAlignment="Top"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
-Width="140" Margin="0,20,0,10" HorizontalAlignment="Left"/>
-            <Button Content="Закрыть" Width="50" 
-      x:Name="CloseButton"
-Click="CloseButton_Click" HorizontalAlignment="Left"/>
+      Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
+            <Button Content="Закрыть" Width="100" 
+            x:Name="CloseButton"
+Click="CloseButton_Click"
+       HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
         </StackPanel>
     </Grid>
 </Window>

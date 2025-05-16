@@ -15,12 +15,12 @@ namespace KinderDbContext.Services
 
         public override async Task<IEnumerable<Plan?>> GetEntities()
         {
-            return await Task.FromResult(ctx.Plans.Include(p=>p.Employee).ThenInclude(e=>e.Group).ThenInclude(g=>g.Kindergartner).ToList() as IEnumerable<Plan>);
+            return await Task.FromResult(ctx.Plans.Include(p=>p.Employee).ThenInclude(e=>e.Group).ToList() as IEnumerable<Plan>);
         }
 
         public override async Task<Plan?> GetEntity(Guid id)
         {
-            return await Task.FromResult(ctx.Plans.Include(p => p.Employee).ThenInclude(e => e.Group).ThenInclude(g => g.Kindergartner).SingleOrDefault(e => e.Plan_Id == id));
+            return await Task.FromResult(ctx.Plans.Include(p => p.Employee).ThenInclude(e => e.Group).SingleOrDefault(e => e.Plan_Id == id));
         }
 
         public override async Task<bool> Add(Plan entity)

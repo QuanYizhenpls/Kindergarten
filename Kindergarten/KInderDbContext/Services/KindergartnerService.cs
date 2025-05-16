@@ -39,8 +39,9 @@ namespace KinderDbContext.Services
             entity.FIO = newEntity.FIO;
             entity.DateOfBirth = newEntity.DateOfBirth;
             entity.ParentsContactInfo = newEntity.ParentsContactInfo;
+            entity.Group = newEntity.Group;
             ctx.Kindergartners.Update(entity);
-            await ctx.SaveChangesAsync();
+            ctx.SaveChanges();
             return (true);
         }
 
@@ -50,7 +51,6 @@ namespace KinderDbContext.Services
 
             ctx.Kindergartners.Remove(entity);
             ctx.SaveChanges();
-
             return (true);
         }
     }

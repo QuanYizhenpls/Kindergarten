@@ -30,12 +30,6 @@ namespace KinderData.Entities
         public string? Development { get; set; }
 
         /// <summary>
-        /// Получает или задает группу, для которой предназначен этот план.
-        /// </summary>
-        //public Guid GroupId { get; set; }
-        //public Group? Group { get; set; }
-
-        /// <summary>
         /// Получает или задает сотрудника, ответственного за этот план.
         /// </summary>
         public Guid EmployeeId { get; set; }

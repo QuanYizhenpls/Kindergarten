@@ -183,7 +183,7 @@ namespace KinderApp.ViewModels
             // Команды работы с Group
             GAddCommand = new RelayCommand(o =>
             {
-                OpenWindowDialog(new GroupEditWindow(CurrentUser, kindergartners: Kindergartners));
+                OpenWindowDialog(new GroupEditWindow(CurrentUser));
                 UpdateLists();
             });
 
@@ -193,7 +193,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        OpenWindowDialog(new GroupEditWindow(CurrentUser, SelectedAddGroup, Kindergartners));
+                        OpenWindowDialog(new GroupEditWindow(CurrentUser, SelectedAddGroup));
                         UpdateLists();
                     }
                     catch (Exception ex)
@@ -431,12 +431,12 @@ namespace KinderApp.ViewModels
         public Plan SelectedAddPlan { get => selectedAddPlan; set => Set(ref selectedAddPlan, value, nameof(selectedAddPlan)); }
         public Salary SelectedAddSalary { get => selectedAddSalary; set => Set(ref selectedAddSalary, value, nameof(selectedAddSalary)); }
 
-        public List<Agreement> Agreements { get => _agreements; set => Set(ref _agreements, value, nameof(_agreements)); }
-        public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(_employees)); }
-        public List<EmployeeData> EmployeeDatas { get => _employeeDatas; set => Set(ref _employeeDatas, value, nameof(_employeeDatas)); }
-        public List<Group> Groups { get => _groups; set => Set(ref _groups, value, nameof(_groups)); }
-        public List<Plan> Plans { get => _plans; set => Set(ref _plans, value, nameof(_plans)); }
-        public List<Salary> Salaries { get => _salaries; set => Set(ref _salaries, value, nameof(_salaries)); }
+        public List<Agreement> Agreements { get => _agreements; set => Set(ref _agreements, value, nameof(Agreements)); }
+        public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(Employees)); }
+        public List<EmployeeData> EmployeeDatas { get => _employeeDatas; set => Set(ref _employeeDatas, value, nameof(EmployeeDatas)); }
+        public List<Group> Groups { get => _groups; set => Set(ref _groups, value, nameof(Groups)); }
+        public List<Plan> Plans { get => _plans; set => Set(ref _plans, value, nameof(Plans)); }
+        public List<Salary> Salaries { get => _salaries; set => Set(ref _salaries, value, nameof(Salaries)); }
         public List<Kindergartner> Kindergartners { get => _kindergartners; set => Set(ref _kindergartners, value, nameof(Kindergartners)); }
 
         //Команды

@@ -12,60 +12,60 @@
         WindowStyle="None"
         ResizeMode="NoResize">
 
-    <Border CornerRadius="5" Background="Beige">
+    <Border CornerRadius="5" Background="{StaticResource PrimaryColor}">
         <Grid>
             <TabControl HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Background="Beige"
-                        BorderThickness="0">
+                        Background="{StaticResource PrimaryColor}"
+                        BorderThickness="0" >
 
-                <TabItem Header="ВХОД" Foreground="DarkSalmon" Background="AliceBlue">
+                <TabItem Header="ВХОД" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}">
 
                     <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
 
-                        <Label Content="ЛОГИН" Foreground="DarkCyan"/>
+                        <Label Content="ЛОГИН" Foreground="{StaticResource TextPassiveColor}"/>
 
                         <TextBox Text="{Binding Login}"/>
 
-                        <Label Content="ПАРОЛЬ" Foreground="DarkCyan"/>
+                        <Label Content="ПАРОЛЬ" Foreground="{StaticResource TextPassiveColor}"/>
 
                         <TextBox Text="{Binding Password}" Width="100"/>
 
-                        <Button Content="ВОЙТИ" Command="{Binding LoginCommand}" Margin="0,20,0,10" Foreground="DarkSalmon"  Background="AliceBlue"/>
-                        <Button Content="ЗАКРЫТЬ" Command="{Binding CloseCommand}" Width="80" Foreground="DarkSalmon" Background="AliceBlue"/>
+                        <Button Content="ВОЙТИ" Command="{Binding LoginCommand}" Margin="0,20,0,10" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}"/>
+                        <Button Content="ЗАКРЫТЬ" Command="{Binding CloseCommand}" Width="80" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}"/>
 
                     </StackPanel>
 
                 </TabItem>
 
-                <TabItem Header="РЕГИСТРАЦИЯ" Foreground="DarkSalmon" Background="AliceBlue">
+                <TabItem Header="РЕГИСТРАЦИЯ"  Foreground="{StaticResource TextActiveColor}"  Background="{StaticResource AccentColor}">
 
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto">
 
-                        <Label Content="ФАМИЛИЯ" Foreground="DarkCyan"/>
+                        <Label Content="ФАМИЛИЯ" Foreground="{StaticResource TextPassiveColor}"/>
 
                         <TextBox Text="{Binding Lastname}" Width="120"/>
 
-                        <Label Content="ИМЯ" Foreground="DarkCyan"/>
+                        <Label Content="ИМЯ" Foreground="{StaticResource TextPassiveColor}"/>
 
                         <TextBox Text="{Binding Firstname}" Width="120"/>
 
-                        <Label Content="ОТЧЕСТВО" Foreground="DarkCyan"/>
+                        <Label Content="ОТЧЕСТВО" Foreground="{StaticResource TextPassiveColor}"/>
 
                         <TextBox Text="{Binding Middlename}" Width="120"/>
 
-                        <Label Content="ЛОГИН" Foreground="DarkCyan"/>
+                        <Label Content="ЛОГИН" Foreground="{StaticResource TextPassiveColor}"/>
 
                         <TextBox Text="{Binding Login}" Width="120"/>
 
-                        <Label Content="ПАРОЛЬ" Foreground="DarkCyan"/>
+                        <Label Content="ПАРОЛЬ" Foreground="{StaticResource TextPassiveColor}"/>
 
                         <TextBox Text="{Binding Password}" Width="120"/>
 
-                        <Button Command="{Binding RegisterCommand}" Content="ЗАРЕГЕСТРИРОВАТЬСЯ" Margin="0,20,0,10" Foreground="DarkSalmon" Background="AliceBlue"/>
-                        <Button Command="{Binding CloseCommand}" Content="ЗАКРЫТЬ" Width="80" Foreground="DarkSalmon" Background="AliceBlue"/>
+                        <Button Command="{Binding RegisterCommand}" Content="ЗАРЕГЕСТРИРОВАТЬСЯ" Margin="0,20,0,10" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}"/>
+                        <Button Command="{Binding CloseCommand}" Content="ЗАКРЫТЬ" Width="80" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}"/>
 
                     </StackPanel>
 

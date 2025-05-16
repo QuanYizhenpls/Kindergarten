@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--Основные цвета приложения-->
+
+    <LinearGradientBrush x:Key="PrimaryColor" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Offset="0" Color="Beige"/>
+        <GradientStop Offset="1" Color="#b3ffcc"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="AccentColor" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Offset="0" Color="LightCyan"/>
+        <GradientStop Offset="1" Color="#b4e7f0"/>
+    </LinearGradientBrush>
+
+    <!--Цвета для текста-->
+    <SolidColorBrush x:Key="TextActiveColor" Color="#660025"/>
+    <SolidColorBrush x:Key="TextPassiveColor" Color="#005d6e"/>
+
+</ResourceDictionary>

@@ -12,17 +12,15 @@ namespace KinderDbContext.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Kindergartners",
+                name: "Groups",
                 columns: table => new
                 {
-                    Kindergartner_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FIO = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateOfBirth = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ParentsContactInfo = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Group_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Kindergartners", x => x.Kindergartner_Id);
+                    table.PrimaryKey("PK_Groups", x => x.Group_Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -42,25 +40,6 @@ namespace KinderDbContext.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Groups",
-                columns: table => new
-                {
-                    Group_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    KindergartnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Groups", x => x.Group_Id);
-                    table.ForeignKey(
-                        name: "FK_Groups_Kindergartners_KindergartnerId",
-                        column: x => x.KindergartnerId,
-                        principalTable: "Kindergartners",
-                        principalColumn: "Kindergartner_Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Employees",
                 columns: table => new
                 {
@@ -76,6 +55,27 @@ namespace KinderDbContext.Migrations
                     table.PrimaryKey("PK_Employees", x => x.Employee_Id);
                     table.ForeignKey(
                         name: "FK_Employees_Groups_GroupId",
+                        column: x => x.GroupId,
+                        principalTable: "Groups",
+                        principalColumn: "Group_Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Kindergartners",
+                columns: table => new
+                {
+                    Kindergartner_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FIO = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateOfBirth = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ParentsContactInfo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kindergartners", x => x.Kindergartner_Id);
+                    table.ForeignKey(
+                        name: "FK_Kindergartners_Groups_GroupId",
                         column: x => x.GroupId,
                         principalTable: "Groups",
                         principalColumn: "Group_Id",
@@ -185,9 +185,9 @@ namespace KinderDbContext.Migrations
                 column: "GroupId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Groups_KindergartnerId",
-                table: "Groups",
-                column: "KindergartnerId");
+                name: "IX_Kindergartners_GroupId",
+                table: "Kindergartners",
+                column: "GroupId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Plans_EmployeeId",
@@ -210,6 +210,9 @@ namespace KinderDbContext.Migrations
                 name: "EmployeeDatas");
 
             migrationBuilder.DropTable(
+                name: "Kindergartners");
+
+            migrationBuilder.DropTable(
                 name: "Plans");
 
             migrationBuilder.DropTable(
@@ -223,9 +226,6 @@ namespace KinderDbContext.Migrations
 
             migrationBuilder.DropTable(
                 name: "Groups");
-
-            migrationBuilder.DropTable(
-                name: "Kindergartners");
         }
     }
 }

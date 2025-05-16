@@ -33,9 +33,12 @@ namespace KinderData.Entities
         /// </summary>
         public string? ParentsContactInfo { get; set; }
 
+        public Guid GroupId { get; set; }
+        public Group? Group { get; set; }
+
         public override string ToString()
         {
-            return $"{FIO}, {DateOfBirth}, {ParentsContactInfo}";
+            return $"{FIO}, {DateOfBirth}, {ParentsContactInfo} - {Group}";
         }
     }
 }
