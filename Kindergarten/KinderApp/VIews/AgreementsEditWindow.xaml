@@ -25,11 +25,11 @@
 
 
             <Label Content="Сотрудник" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center"
+            <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center"
         Width="350"
         Margin="5"
         Tag="Groups"
-        VerticalContentAlignment="Top" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
+        VerticalContentAlignment="Top" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}" />
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
       Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>

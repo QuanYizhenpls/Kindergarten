@@ -23,16 +23,17 @@ namespace KinderApp.VIews
     public partial class AgreementsEditWindow : Window
     {
         AgreementsEditWindowModel viewModel;
-        public AgreementsEditWindow(User user, Agreement agreement = null!)
+        public AgreementsEditWindow(User user, Agreement agreement = null!, List<Employee> employees = null!)
         {
             InitializeComponent();
-            var dbContext = DbContextSingleton.Instance.DbContext;
-            viewModel = new(user, agreement, new KinderDbContext.Services.AgreementsService());
+            viewModel = new(user, agreement, new KinderDbContext.Services.AgreementsService(), employees);
             DataContext = viewModel;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
+
+       
     }
 }

@@ -32,7 +32,7 @@ namespace KinderApp.ViewModels
             // Команды работы с Agreement
             AAddCommand = new RelayCommand(o =>
             {
-                OpenWindowDialog(new AgreementsEditWindow(CurrentUser));
+                OpenWindowDialog(new AgreementsEditWindow(CurrentUser, employees: Employees));
                 UpdateLists();
             });
 
@@ -42,7 +42,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        OpenWindowDialog(new AgreementsEditWindow(CurrentUser, SelectedAddAgreement));
+                        OpenWindowDialog(new AgreementsEditWindow(CurrentUser, SelectedAddAgreement, employees: Employees));
                         UpdateLists();
                     }
                     catch (Exception ex)
@@ -82,7 +82,7 @@ namespace KinderApp.ViewModels
             // Команды работы с Employee
             EAddCommand = new RelayCommand(o =>
             {
-                OpenWindowDialog(new EmployeeEditWindow(CurrentUser));
+                OpenWindowDialog(new EmployeeEditWindow(CurrentUser, groups: Groups));
                 UpdateLists();
             });
 
@@ -92,7 +92,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        OpenWindowDialog(new EmployeeEditWindow(CurrentUser, SelectedAddEmployee));
+                        OpenWindowDialog(new EmployeeEditWindow(CurrentUser, SelectedAddEmployee, groups: Groups));
                         UpdateLists();
                     }
                     catch (Exception ex)
@@ -132,7 +132,7 @@ namespace KinderApp.ViewModels
             // Команды работы с EmployeeData
             EDAddCommand = new RelayCommand(o =>
             {
-                OpenWindowDialog(new EmployeeDataEditWindow(CurrentUser));
+                OpenWindowDialog(new EmployeeDataEditWindow(CurrentUser, employees: Employees));
                 UpdateLists();
             });
 
@@ -142,7 +142,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        OpenWindowDialog(new EmployeeDataEditWindow(CurrentUser, SelectedAddEmployeeData));
+                        OpenWindowDialog(new EmployeeDataEditWindow(CurrentUser, SelectedAddEmployeeData, employees: Employees));
                         UpdateLists();
                     }
                     catch (Exception ex)
@@ -233,7 +233,7 @@ namespace KinderApp.ViewModels
             // Команды работы с Kindergartner
             KAddCommand = new RelayCommand(o =>
             {
-                OpenWindowDialog(new KindergartnerEditWindow(CurrentUser));
+                OpenWindowDialog(new KindergartnerEditWindow(CurrentUser, groups: Groups));
                 UpdateLists();
             });
 
@@ -243,7 +243,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        OpenWindowDialog(new KindergartnerEditWindow(CurrentUser, SelectedAddKindergartner));
+                        OpenWindowDialog(new KindergartnerEditWindow(CurrentUser, SelectedAddKindergartner, groups: Groups));
                         UpdateLists();
                     }
                     catch (Exception ex)
@@ -282,7 +282,7 @@ namespace KinderApp.ViewModels
             // Команды работы с Plan
             PAddCommand = new RelayCommand(o =>
             {
-                OpenWindowDialog(new PlanEditWindow(CurrentUser));
+                OpenWindowDialog(new PlanEditWindow(CurrentUser, employees: Employees));
                 UpdateLists();
             });
 
@@ -292,7 +292,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        OpenWindowDialog(new PlanEditWindow(CurrentUser, SelectedAddPlan));
+                        OpenWindowDialog(new PlanEditWindow(CurrentUser, SelectedAddPlan, employees: Employees));
                         UpdateLists();
                     }
                     catch (Exception ex)
@@ -332,7 +332,7 @@ namespace KinderApp.ViewModels
             // Команды работы с Salary
             SAddCommand = new RelayCommand(o =>
             {
-                OpenWindowDialog(new SalaryEditWindow(CurrentUser));
+                OpenWindowDialog(new SalaryEditWindow(CurrentUser, employees: Employees));
                 UpdateLists();
             });
 
@@ -342,7 +342,7 @@ namespace KinderApp.ViewModels
                 {
                     try
                     {
-                        OpenWindowDialog(new SalaryEditWindow(CurrentUser, SelectedAddSalary));
+                        OpenWindowDialog(new SalaryEditWindow(CurrentUser, SelectedAddSalary, employees: Employees));
                         UpdateLists();
                     }
                     catch (Exception ex)

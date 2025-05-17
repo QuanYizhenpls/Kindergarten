@@ -14,10 +14,11 @@ namespace KinderApp.ViewModels
 {
     public class AgreementsEditWindowModel : ViewModelBase
     {
-        public AgreementsEditWindowModel(User user, Agreement agreement, AgreementsService agreementsService)
+        public AgreementsEditWindowModel(User user, Agreement agreement, AgreementsService agreementsService, List<Employee> employees)
         {
             Agreement = agreement;
             _agreementService = agreementsService;
+            _employees = employees;
             if (agreement != null)
             {
                 Vacation = agreement.Vacation;
@@ -53,7 +54,7 @@ namespace KinderApp.ViewModels
         private string dismissal = string.Empty;
         private string employmentContract = string.Empty;
         private Employee selectedEmployee;
-
+        private List<Employee> _employees;
         private Agreement agreement;
         private AgreementsService _agreementService;
 
@@ -64,8 +65,9 @@ namespace KinderApp.ViewModels
         public string Dismissal { get => dismissal; set => Set(ref dismissal, value, nameof(dismissal)); }
         public string EmploymentContract { get => employmentContract; set => Set(ref employmentContract, value, nameof(employmentContract)); }
         public Employee SelectedEmployee { get => selectedEmployee; set => Set(ref selectedEmployee, value, nameof(selectedEmployee)); }
-
+        public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(_employees)); }
         public RelayCommand SaveCommand { get; }
         public RelayCommand CloseCommand { get; }
+        
     }
 }

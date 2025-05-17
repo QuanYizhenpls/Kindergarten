@@ -21,7 +21,7 @@
             <TextBox Text="{Binding ParentsContactInfo, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="450" TextWrapping="Wrap" AcceptsReturn="True"/>
 
             <Label Content="Группа"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <ComboBox ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedAddGroup, UpdateSourceTrigger=PropertyChanged}" Width="350" HorizontalAlignment="Center"
+            <ComboBox ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedGroup, UpdateSourceTrigger=PropertyChanged}" Width="350" HorizontalAlignment="Center"
 Margin="5"
 Tag="Groups"
 VerticalContentAlignment="Top"/>
