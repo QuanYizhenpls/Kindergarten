@@ -109,9 +109,9 @@ namespace KinderDbContext.Migrations
                 columns: table => new
                 {
                     EmployeeData_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Pasport = table.Column<int>(type: "int", nullable: false),
-                    SNILS = table.Column<int>(type: "int", nullable: false),
-                    INN = table.Column<int>(type: "int", nullable: false),
+                    Pasport = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SNILS = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    INN = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EmploymentRecord = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },

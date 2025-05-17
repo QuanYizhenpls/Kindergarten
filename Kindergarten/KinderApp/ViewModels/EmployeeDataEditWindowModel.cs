@@ -47,9 +47,9 @@ namespace KinderApp.ViewModels
                 AppClose();
             });
         }
-        private int pasport = 0;
-        private int snils = 0;
-        private int inn = 0;
+        private string? pasport = string.Empty;
+        private string? snils = string.Empty;
+        private string? inn = string.Empty;
         private string employmentRecord = string.Empty;
         private Employee selectedEmployee;
 
@@ -58,9 +58,9 @@ namespace KinderApp.ViewModels
         private List<Employee> _employees;
         public EmployeeData EmployeeData { get => employeeData; set => Set(ref employeeData, value, nameof(employeeData)); }
 
-        public int Pasport { get => pasport; set => Set(ref pasport, value, nameof(pasport)); }
-        public int SNILS { get => snils; set => Set(ref snils, value, nameof(snils)); }
-        public int INN { get => inn; set => Set(ref inn, value, nameof(inn)); }
+        public string? Pasport { get => pasport; set => Set(ref pasport, value, nameof(pasport)); }
+        public string? SNILS { get => snils; set => Set(ref snils, value, nameof(snils)); }
+        public string? INN { get => inn; set => Set(ref inn, value, nameof(inn)); }
         public string EmploymentRecord { get => employmentRecord; set => Set(ref employmentRecord, value, nameof(employmentRecord)); }
         public Employee SelectedEmployee { get => selectedEmployee; set => Set(ref selectedEmployee, value, nameof(selectedEmployee)); }
         public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(_employees)); }

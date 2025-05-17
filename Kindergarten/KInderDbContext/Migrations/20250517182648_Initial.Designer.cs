@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KinderDbContext.Migrations
 {
     [DbContext(typeof(SQLServerDbContext))]
-    [Migration("20250516132930_Initial")]
+    [Migration("20250517182648_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -93,14 +93,14 @@ namespace KinderDbContext.Migrations
                     b.Property<string>("EmploymentRecord")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("INN")
-                        .HasColumnType("int");
+                    b.Property<string>("INN")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Pasport")
-                        .HasColumnType("int");
+                    b.Property<string>("Pasport")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SNILS")
-                        .HasColumnType("int");
+                    b.Property<string>("SNILS")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EmployeeData_Id");
 

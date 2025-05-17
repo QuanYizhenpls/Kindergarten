@@ -23,17 +23,17 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает номер паспорта сотрудника.
         /// </summary>
-        public int Pasport { get; set; } 
+        public string? Pasport { get; set; } 
 
         /// <summary>
         /// Получает или задает СНИЛС сотрудника.
         /// </summary>
-        public int SNILS { get; set; }
+        public string? SNILS { get; set; }
 
         /// <summary>
         /// Получает или задает ИНН сотрудника.
         /// </summary>
-        public int INN { get; set; }
+        public string? INN { get; set; }
 
         /// <summary>
         /// Получает или задает информацию о трудовой книжке сотрудника.
