@@ -31,6 +31,7 @@ namespace KinderApp.ViewModels
             
             SaveCommand = new RelayCommand(o =>
             {
+                if (!ValidateData()) return;
                 if (agreement == null)
                 {
                     _agreementService.Add(new Agreement() {Agreement_Id = Guid.NewGuid(), Vacation = this.Vacation, SickLeave = this.SickLeave, Dismissal = this.Dismissal, EmploymentContract = this.EmploymentContract, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
@@ -63,11 +64,44 @@ namespace KinderApp.ViewModels
         public string Vacation { get => vacation; set => Set(ref vacation, value, nameof(vacation)); }
         public string SickLeave { get => sickLeave; set => Set(ref sickLeave, value, nameof(sickLeave)); }
         public string Dismissal { get => dismissal; set => Set(ref dismissal, value, nameof(dismissal)); }
-        public string EmploymentContract { get => employmentContract; set => Set(ref employmentContract, value, nameof(employmentContract)); }
-        public Employee SelectedEmployee { get => selectedEmployee; set => Set(ref selectedEmployee, value, nameof(selectedEmployee)); }
+        public string EmploymentContract { get => employmentContract; set
+        {
+                if (string.IsNullOrEmpty(value))
+                {
+                    MessageBox.Show("Поле 'Трудовой договор' не может быть пустым.");
+                    return;
+                }
+                Set(ref employmentContract, value, nameof(employmentContract)); } 
+        }
+        public Employee SelectedEmployee
+        {
+            get => selectedEmployee; set
+            {
+                if (value == null)
+                {
+                    MessageBox.Show("Необходимо выбрать сотрудника.");
+                    return;
+                }
+                Set(ref selectedEmployee, value, nameof(selectedEmployee));
+            }
+        }
         public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(_employees)); }
         public RelayCommand SaveCommand { get; }
         public RelayCommand CloseCommand { get; }
-        
+        private bool ValidateData()
+        {
+            if (string.IsNullOrEmpty(EmploymentContract))
+            {
+                MessageBox.Show("Поле 'Трудовой договор' не может быть пустым.");
+                return false;
+            }
+            if (SelectedEmployee == null)
+            {
+                MessageBox.Show("Необходимо выбрать сотрудника.");
+                return false;
+            }
+            return true;
+        }
+
     }
 }

@@ -35,6 +35,7 @@ namespace KinderDbContext.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("EmploymentContract")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SickLeave")
@@ -57,18 +58,22 @@ namespace KinderDbContext.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Education")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Experience")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FIO")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Post")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Employee_Id");
@@ -88,15 +93,19 @@ namespace KinderDbContext.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("EmploymentRecord")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("INN")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pasport")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SNILS")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EmployeeData_Id");
@@ -113,6 +122,7 @@ namespace KinderDbContext.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("GroupName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Group_Id");
@@ -127,15 +137,18 @@ namespace KinderDbContext.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DateOfBirth")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FIO")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("GroupId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ParentsContactInfo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Kindergartner_Id");
@@ -152,9 +165,11 @@ namespace KinderDbContext.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DateOfTheEvent")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Development")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("EmployeeId")

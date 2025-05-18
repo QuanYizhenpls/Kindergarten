@@ -39,7 +39,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает информацию по трудовому договору.
         /// </summary>
-        public string? EmploymentContract { get; set; } = null!;
+        public string EmploymentContract { get; set; }
 
         /// <summary>
         /// Получает или задает сотрудника, с которым связан это договор.

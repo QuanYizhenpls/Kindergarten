@@ -16,7 +16,7 @@ namespace KinderDbContext.Migrations
                 columns: table => new
                 {
                     Group_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -44,10 +44,10 @@ namespace KinderDbContext.Migrations
                 columns: table => new
                 {
                     Employee_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FIO = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Education = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Experience = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Post = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FIO = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Education = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Experience = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Post = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -66,9 +66,9 @@ namespace KinderDbContext.Migrations
                 columns: table => new
                 {
                     Kindergartner_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FIO = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateOfBirth = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ParentsContactInfo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FIO = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfBirth = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ParentsContactInfo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -90,7 +90,7 @@ namespace KinderDbContext.Migrations
                     Vacation = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SickLeave = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Dismissal = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmploymentContract = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EmploymentContract = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -109,10 +109,10 @@ namespace KinderDbContext.Migrations
                 columns: table => new
                 {
                     EmployeeData_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Pasport = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SNILS = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    INN = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmploymentRecord = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Pasport = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SNILS = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    INN = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EmploymentRecord = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -131,8 +131,8 @@ namespace KinderDbContext.Migrations
                 columns: table => new
                 {
                     Plan_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DateOfTheEvent = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Development = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateOfTheEvent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Development = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>

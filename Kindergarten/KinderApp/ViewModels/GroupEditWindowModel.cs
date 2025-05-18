@@ -19,20 +19,21 @@ namespace KinderApp.ViewModels
             if (group != null)
             {
                 GroupName = group.GroupName;
-               
+
             }
-            
+
             SaveCommand = new RelayCommand(o =>
             {
+                if (!ValidateData()) return;
                 if (group == null)
                 {
-                    _groupService.Add(new Group() {Group_Id = Guid.NewGuid(), GroupName = this.GroupName});
+                    _groupService.Add(new Group() { Group_Id = Guid.NewGuid(), GroupName = this.GroupName });
                     MessageBox.Show($"{this.GetType().Name} - группа добавлена!");
 
                 }
                 else
                 {
-                    _groupService.Update(group, new Group() { Group_Id = Guid.NewGuid(), GroupName = this.GroupName});
+                    _groupService.Update(group, new Group() { Group_Id = Guid.NewGuid(), GroupName = this.GroupName });
                     MessageBox.Show($"{this.GetType().Name} - группа изменена!");
                 }
             });
@@ -49,10 +50,25 @@ namespace KinderApp.ViewModels
 
         public Group Group { get => group; set => Set(ref group, value, nameof(group)); }
 
-        public string GroupName { get => groupName; set => Set(ref groupName, value, nameof(groupName)); }
+        public string GroupName { get => groupName; set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    MessageBox.Show("Поле 'Название группы' не может быть пустым.");
+                    return;
+                }
+                Set(ref groupName, value, nameof(groupName)); }}
 
         public RelayCommand SaveCommand { get; }
         public RelayCommand CloseCommand { get; }
-       
+        private bool ValidateData()
+        {
+            if (string.IsNullOrEmpty(GroupName))
+            {
+                MessageBox.Show("Поле 'Название группы' не может быть пустым.");
+                return false;
+            }
+            return true;
+        }
     }
 }

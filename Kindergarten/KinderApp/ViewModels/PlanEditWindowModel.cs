@@ -28,6 +28,7 @@ namespace KinderApp.ViewModels
             
             SaveCommand = new RelayCommand(o =>
             {
+                if (!ValidateData()) return;
                 if (plan == null)
                 {
                     _planService.Add(new Plan() {Plan_Id = Guid.NewGuid(), DateOfTheEvent = this.DateOfTheEvent, Development = this.Development, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
@@ -47,20 +48,58 @@ namespace KinderApp.ViewModels
         }
         private string dateOfTheEvent = string.Empty;
         private string development = string.Empty;
-        private KinderData.Entities.Group selectedGroup;
         private Employee selectedEmployee;
         private PlanService _planService;
         private Plan plan;
         private List<Employee> _employees;
         public Plan Plan { get => plan; set => Set(ref plan, value, nameof(plan)); }
 
-        public string DateOfTheEvent { get => dateOfTheEvent; set => Set(ref dateOfTheEvent, value, nameof(dateOfTheEvent)); }
-        public string Development { get => development; set => Set(ref development, value, nameof(development)); }
-        public KinderData.Entities.Group SelectedGroup { get => selectedGroup; set => Set(ref selectedGroup, value, nameof(selectedGroup)); }
-        public Employee SelectedEmployee { get => selectedEmployee; set => Set(ref selectedEmployee, value, nameof(selectedEmployee)); }
-        public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(_employees)); }
+        public string DateOfTheEvent { get => dateOfTheEvent; set {
+                if (string.IsNullOrEmpty(value))
+                {
+                    MessageBox.Show("Поле 'Дата проведения плана' не может быть пустым.");
+                    return;
+                }
+                Set(ref dateOfTheEvent, value, nameof(dateOfTheEvent)); } }
+        public string Development { get => development; set {
+                if (string.IsNullOrEmpty(value))
+                {
+                    MessageBox.Show("Поле 'Описание плана' не может быть пустым.");
+                    return;
+                }
+                Set(ref development, value, nameof(development)); } }
+        public Employee SelectedEmployee { get => selectedEmployee; set
+            {
+                if (value == null)
+                {
+                    MessageBox.Show("Необходимо выбрать сотрудника.");
+                    return;
+                }
+                Set(ref selectedEmployee, value, nameof(selectedEmployee));
+            }
+        }
+        public List<Employee> Employees { get => _employees; set { Set(ref _employees, value, nameof(_employees)); } }
 
         public RelayCommand SaveCommand { get; }
         public RelayCommand CloseCommand { get; }
+        private bool ValidateData()
+        {
+            if (string.IsNullOrEmpty(DateOfTheEvent))
+            {
+                MessageBox.Show("Поле 'Дата проведения плана' не может быть пустым.");
+                return false;
+            }
+            if (string.IsNullOrEmpty(Development))
+            {
+                MessageBox.Show("Поле 'Описание плана' не может быть пустым.");
+                return false;
+            }
+            if (SelectedEmployee == null)
+            {
+                MessageBox.Show("Необходимо выбрать сотрудника.");
+                return false;
+            }
+            return true;
+        }
     }
 }

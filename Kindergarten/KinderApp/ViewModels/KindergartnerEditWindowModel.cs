@@ -27,9 +27,9 @@ namespace KinderApp.ViewModels
             
             SaveCommand = new RelayCommand(o =>
             {
+                if (!ValidateData()) return;
                 if (kindergartner == null)
                 {
-                    
                         
                         _kindergartnerService.Add(new Kindergartner() { Kindergartner_Id = Guid.NewGuid(), FIO = this.FIO, DateOfBirth = this.DateOfBirth, ParentsContactInfo = this.ParentsContactInfo, GroupId = Guid.NewGuid(), Group = this.SelectedGroup});
                     MessageBox.Show($"{this.GetType().Name} - воспитанник добавлен!");
@@ -56,14 +56,71 @@ namespace KinderApp.ViewModels
         private Group selectedGroup;
 
         public Kindergartner Kindergartner { get => kindergartner; set => Set(ref kindergartner, value, nameof(kindergartner)); }
-        public string FIO { get => fio; set => Set(ref fio, value, nameof(fio)); }
-        public string DateOfBirth { get => dateOfBirth; set => Set(ref dateOfBirth, value, nameof(dateOfBirth)); }
-        public string ParentsContactInfo { get => parentsContactInfo; set => Set(ref parentsContactInfo, value, nameof(parentsContactInfo)); }
+        public string FIO
+        {
+            get => fio; set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    MessageBox.Show("Поле 'ФИО' не может быть пустым.");
+                    return;
+                }
+                Set(ref fio, value, nameof(fio));
+            }
+        }
+        public string DateOfBirth { get => dateOfBirth; set {
+                if (string.IsNullOrEmpty(value))
+                {
+                    MessageBox.Show("Поле 'Дата рождения' не может быть пустым.");
+                    return;
+                }
+                Set(ref dateOfBirth, value, nameof(dateOfBirth)); } }
+        public string ParentsContactInfo { get => parentsContactInfo; set {
+                if (string.IsNullOrEmpty(value))
+                {
+                    MessageBox.Show("Поле 'Контакты родителей' не может быть пустым.");
+                    return;
+                }
+                Set(ref parentsContactInfo, value, nameof(parentsContactInfo)); } }
         public List<Group> Groups { get => _groups; set => Set(ref _groups, value, nameof(Groups)); }
-        public Group SelectedGroup { get => selectedGroup; set => Set(ref selectedGroup, value, nameof(selectedGroup)); }
+        public Group SelectedGroup
+        {
+            get => selectedGroup; set
+            {
+                if (value == null)
+                {
+                    MessageBox.Show("Необходимо выбрать группу.");
+                    return;
+                }
+                Set(ref selectedGroup, value, nameof(selectedGroup));
+            }
+        }
 
         public RelayCommand SaveCommand { get; }
         public RelayCommand CloseCommand { get; }
-        
+        private bool ValidateData()
+        {
+            if (string.IsNullOrEmpty(FIO))
+            {
+                MessageBox.Show("Поле 'ФИО' не может быть пустым.");
+                return false;
+            }
+            if (string.IsNullOrEmpty(DateOfBirth))
+            {
+                MessageBox.Show("Поле 'Дата рождения' не может быть пустым.");
+                return false;
+            }
+            if (string.IsNullOrEmpty(ParentsContactInfo))
+            {
+                MessageBox.Show("Поле 'Контакты родителей' не может быть пустым.");
+                return false;
+            }
+            if (SelectedGroup == null)
+            {
+                MessageBox.Show("Необходимо выбрать группу.");
+                return false;
+            }
+            return true;
+        }
     }
 }

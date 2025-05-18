@@ -21,17 +21,17 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает полное имя воспитанника.
         /// </summary>
-        public string? FIO { get; set; } 
+        public string FIO { get; set; } 
 
         /// <summary>
         /// Получает или задает дату рождения воспитанника.
         /// </summary>
-        public string? DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
 
         /// <summary>
         /// Получает или задает контактную информацию родителей воспитанника.
         /// </summary>
-        public string? ParentsContactInfo { get; set; }
+        public string ParentsContactInfo { get; set; }
 
         public Guid GroupId { get; set; }
         public Group? Group { get; set; }

@@ -22,12 +22,12 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает дату проведения мероприятия.
         /// </summary>
-        public string? DateOfTheEvent { get; set; }
+        public string DateOfTheEvent { get; set; }
 
         /// <summary>
         /// Получает или задает описание мероприятия.
         /// </summary>
-        public string? Development { get; set; }
+        public string Development { get; set; }
 
         /// <summary>
         /// Получает или задает сотрудника, ответственного за этот план.

@@ -22,7 +22,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает наименование группы.
         /// </summary>
-        public string? GroupName { get; set; }
+        public string GroupName { get; set; }
 
 
         public override string ToString()
