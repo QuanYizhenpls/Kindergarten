@@ -53,7 +53,7 @@ namespace KinderData.Entities
         public Employee? Employee { get; set; }
         public override string ToString()
         {
-            return $"{Wage - Penalty} - {Employee}";
+            return $"{Wage + Bonus + Allowance + Prepayment - Penalty} - {Employee}";
         }
     }
 }
