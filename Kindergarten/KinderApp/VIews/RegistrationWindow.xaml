@@ -20,52 +20,126 @@
                         BorderThickness="0" >
 
                 <TabItem Header="ВХОД" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}">
-
+                    <TabItem.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TabItem.Resources>
                     <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
 
                         <Label Content="ЛОГИН" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Login}"/>
+                        <TextBox Text="{Binding Login}">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
 
                         <Label Content="ПАРОЛЬ" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Password}" Width="100"/>
+                        <TextBox Text="{Binding Password}" Width="100">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
 
-                        <Button Content="ВОЙТИ" Command="{Binding LoginCommand}" Margin="0,20,0,10" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}"/>
-                        <Button Content="ЗАКРЫТЬ" Command="{Binding CloseCommand}" Width="80" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}"/>
+                        <Button Content="ВОЙТИ" Command="{Binding LoginCommand}" Margin="0,20,0,10" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button Content="ЗАКРЫТЬ" Command="{Binding CloseCommand}" Width="80" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
 
                     </StackPanel>
 
                 </TabItem>
 
                 <TabItem Header="РЕГИСТРАЦИЯ"  Foreground="{StaticResource TextActiveColor}"  Background="{StaticResource AccentColor}">
-
+                    <TabItem.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TabItem.Resources>
                     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="auto">
 
                         <Label Content="ФАМИЛИЯ" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Lastname}" Width="120"/>
+                        <TextBox Text="{Binding Lastname}" Width="120">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
 
                         <Label Content="ИМЯ" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Firstname}" Width="120"/>
+                        <TextBox Text="{Binding Firstname}" Width="120">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
 
                         <Label Content="ОТЧЕСТВО" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Middlename}" Width="120"/>
+                        <TextBox Text="{Binding Middlename}" Width="120">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
 
                         <Label Content="ЛОГИН" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Login}" Width="120"/>
+                        <TextBox Text="{Binding Login}" Width="120">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
 
                         <Label Content="ПАРОЛЬ" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Password}" Width="120"/>
+                        <TextBox Text="{Binding Password}" Width="120">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
 
-                        <Button Command="{Binding RegisterCommand}" Content="ЗАРЕГЕСТРИРОВАТЬСЯ" Margin="0,20,0,10" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}"/>
-                        <Button Command="{Binding CloseCommand}" Content="ЗАКРЫТЬ" Width="80" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}"/>
+                        <Button Command="{Binding RegisterCommand}" Content="ЗАРЕГЕСТРИРОВАТЬСЯ" Margin="0,20,0,10" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button Command="{Binding CloseCommand}" Content="ЗАКРЫТЬ" Width="80" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}">
+                            <Button.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="3"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
 
                     </StackPanel>
 

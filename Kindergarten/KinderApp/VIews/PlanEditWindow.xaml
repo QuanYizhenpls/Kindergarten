@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp.VIews"
         mc:Ignorable="d"
-        Title="PlanEditWindow" Width="500" Height="400">
+        Title="PlanEditWindow" Width="500" Height="275"
+        ResizeMode="NoResize">
     <Grid>
         <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Center" Width="500" Height="400">
 

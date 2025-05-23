@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp.VIews"
         mc:Ignorable="d"
-        Title="SalaryEditWindow"  Width="500" Height="420">
+        Title="SalaryEditWindow"  Width="500" Height="420"
+        ResizeMode="NoResize">
     <Grid>
 
         <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Center" Width="500" Height="400">
