@@ -12,19 +12,15 @@
         WindowStyle="None"
         ResizeMode="NoResize">
 
-    <Border CornerRadius="5" Background="{StaticResource PrimaryColor}">
+    <Border CornerRadius="5" Background="{StaticResource BackgroundColor}">
         <Grid>
             <TabControl HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{StaticResource PrimaryColor}"
                         BorderThickness="0" >
 
-                <TabItem Header="ВХОД" Foreground="{StaticResource TextActiveColor}" Background="{StaticResource AccentColor}">
-                    <TabItem.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="6"/>
-                        </Style>
-                    </TabItem.Resources>
+                <TabItem Header="ВХОД" Foreground="{StaticResource TextActiveColor}">
+
                     <StackPanel Orientation="Vertical"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
@@ -68,7 +64,7 @@
 
                 </TabItem>
 
-                <TabItem Header="РЕГИСТРАЦИЯ"  Foreground="{StaticResource TextActiveColor}"  Background="{StaticResource AccentColor}">
+                <TabItem Header="РЕГИСТРАЦИЯ"  Foreground="{StaticResource TextActiveColor}">
                     <TabItem.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="6"/>

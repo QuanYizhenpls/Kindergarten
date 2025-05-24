@@ -16,5 +16,6 @@
     <!--Цвета для текста-->
     <SolidColorBrush x:Key="TextActiveColor" Color="#EEF3FB"/>
     <SolidColorBrush x:Key="TextPassiveColor" Color="#C45572"/>
-
+    <SolidColorBrush x:Key="BackgroundColor" Color="#CACFE9"/>
+    <SolidColorBrush x:Key="AccentBackColor" Color="#E99AAC"/>
 </ResourceDictionary>
