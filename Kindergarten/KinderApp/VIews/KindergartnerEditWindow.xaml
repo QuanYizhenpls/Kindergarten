@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp.VIews"
         mc:Ignorable="d"
-        Title="KindergartnerEditWindow" Width="500" Height="325"
-        ResizeMode="NoResize">
+        Title="KindergartnerEditWindow" Width="500" Height="350"
+        ResizeMode="NoResize"
+        Icon= "/Assets/Icons/LastochkaIcon.ico">
     <Grid>
         <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Center" Width="500" Height="400">
 

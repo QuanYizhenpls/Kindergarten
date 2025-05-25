@@ -10,7 +10,8 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Icon= "/Assets/Icons/LastochkaIcon.ico">
 
     <Border CornerRadius="5" Background="{StaticResource BackgroundColor}">
         <Grid>

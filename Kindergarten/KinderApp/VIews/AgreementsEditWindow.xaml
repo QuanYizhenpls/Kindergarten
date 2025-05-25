@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KinderApp.VIews"
         mc:Ignorable="d"
-        Title="AgreementsEditWindow" Width="500" Height="370"
+        Title="AgreementsEditWindow" Width="500" Height="400"
+        Icon= "/Assets/Icons/LastochkaIcon.ico"
         ResizeMode="NoResize">
     <Grid>
         <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Center" Width="500" Height="400">
