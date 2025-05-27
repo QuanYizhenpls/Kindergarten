@@ -6,11 +6,19 @@
     <members>
         <member name="T:KinderApp.App">
             <summary>
-            Interaction logic for App.xaml
+            Класс приложения, управляющий жизненным циклом и запуском WPF-приложения.
+            Наследует встроенный класс Application.
             </summary>
             <summary>
             App
             </summary>
+        </member>
+        <member name="M:KinderApp.App.OnStartup(System.Windows.StartupEventArgs)">
+            <summary>
+            Переопределяет метод запуска приложения, вызываемый при инициализации.
+            Выполняет настройку и запуск начальных компонентов приложения.
+            </summary>
+            <param name="e">Аргументы запуска, переданные при старте приложения.</param>
         </member>
         <member name="M:KinderApp.App.InitializeComponent">
             <summary>
@@ -22,13 +30,1186 @@
             Application Entry Point.
             </summary>
         </member>
+        <member name="T:KinderApp.Commands.RelayCommand">
+            <summary>
+            Реализация ICommand для упрощенного связывания команд с пользовательским интерфейсом.
+            </summary>
+        </member>
+        <member name="F:KinderApp.Commands.RelayCommand._execute">
+            <summary>
+            Делегат для выполнения команды.
+            </summary>
+        </member>
+        <member name="F:KinderApp.Commands.RelayCommand._canExecute">
+            <summary>
+            Делегат для определения возможности выполнения команды.
+            </summary>
+        </member>
+        <member name="E:KinderApp.Commands.RelayCommand.CanExecuteChanged">
+            <summary>
+            Событие, сигнализирующее о возможности выполнения команды.
+            </summary>
+        </member>
+        <member name="M:KinderApp.Commands.RelayCommand.#ctor(System.Action{System.Object},System.Func{System.Object,System.Boolean})">
+            <summary>
+            Конструктор команды.
+            </summary>
+            <param name="execute">Делегат для выполнения команды.</param>
+            <param name="canExecute">Делегат для проверки возможности выполнения.</param>
+        </member>
+        <member name="M:KinderApp.Commands.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            Проверяет, может ли команда выполниться в текущем состоянии.
+            </summary>
+            <param name="parameter">Параметр команды.</param>
+            <returns>True, если команда может выполниться; иначе, False.</returns>
+        </member>
+        <member name="M:KinderApp.Commands.RelayCommand.Execute(System.Object)">
+            <summary>
+            Выполняет команду.
+            </summary>
+            <param name="parameter">Параметр команды.</param>
+        </member>
+        <member name="T:KinderApp.Commands.ViewModelBase">
+            <summary>
+            Базовая реализация модели представления, реализующая интерфейс INotifyPropertyChanged.
+            Позволяет уведомлять о изменениях свойств и управлять окнами приложения.
+            </summary>
+        </member>
+        <member name="E:KinderApp.Commands.ViewModelBase.PropertyChanged">
+            <summary>
+            Событие, вызываемое при изменении свойства.
+            </summary>
+        </member>
+        <member name="M:KinderApp.Commands.ViewModelBase.Set``1(``0@,``0,System.String)">
+            <summary>
+            Устанавливает значение поля и вызывает уведомление об изменении свойства.
+            </summary>
+            <typeparam name="T">Тип свойства.</typeparam>
+            <param name="field">Ссылающееся поле свойства.</param>
+            <param name="value">Новое значение.</param>
+            <param name="propertyName">Имя свойства (обычно указывается с помощью [CallerMemberName]).</param>
+            <returns>True, если значение было изменено; иначе, False.</returns>
+        </member>
+        <member name="M:KinderApp.Commands.ViewModelBase.OnPropertyChanged(System.String)">
+            <summary>
+            Вызывает событие PropertyChanged для уведомления об изменении свойства.
+            </summary>
+            <param name="propertyName">Имя измененного свойства.</param>
+        </member>
+        <member name="M:KinderApp.Commands.ViewModelBase.OpenWindow(System.Windows.Window)">
+            <summary>
+            Открывает новое окно, закрывая текущее.
+            </summary>
+            <param name="window">Новое окно для отображения.</param>
+            <returns>Открытое окно.</returns>
+        </member>
+        <member name="M:KinderApp.Commands.ViewModelBase.OpenWindowDialog(System.Windows.Window)">
+            <summary>
+            Открывает модальное диалоговое окно с эффектом размытия заднего плана.
+            </summary>
+            <param name="window">Диалоговое окно для отображения.</param>
+            <returns>Диалоговое окно.</returns>
+        </member>
+        <member name="M:KinderApp.Commands.ViewModelBase.AppClose">
+            <summary>
+            Завершает работу приложения.
+            </summary>
+        </member>
+        <member name="T:KinderApp.ViewModels.AgreementsEditWindowModel">
+            <summary>
+            Модель представления для редактирования договоров.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.AgreementsEditWindowModel.#ctor(KinderData.Entities.User,KinderData.Entities.Agreement,KinderDbContext.Services.AgreementsService,System.Collections.Generic.List{KinderData.Entities.Employee})">
+            <summary>
+            Инициализирует новый экземпляр <see cref="T:KinderApp.ViewModels.AgreementsEditWindowModel"/> с указанными параметрами.
+            </summary>
+            <param name="user">Текущий пользователь (не используется в коде, возможно, для дальнейшего расширения).</param>
+            <param name="agreement">Редактируемый договор.</param>
+            <param name="agreementsService">Сервис для работы с договорами.</param>
+            <param name="employees">Список сотрудников.</param>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.Agreement">
+            <summary>
+            Редактируемый договор.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.Vacation">
+            <summary>
+            Отпуск по договору.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.SickLeave">
+            <summary>
+            Больничный по договору.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.Dismissal">
+            <summary>
+            Увольнение по договору.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.EmploymentContract">
+            <summary>
+            Трудовой договор.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.SelectedEmployee">
+            <summary>
+            Выбранный сотрудник.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.Employees">
+            <summary>
+            Список сотрудников.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.SaveCommand">
+            <summary>
+            Команда сохранения изменений.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.AgreementsEditWindowModel.CloseCommand">
+            <summary>
+            Команда закрытия окна.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.AgreementsEditWindowModel.ValidateData">
+            <summary>
+            Проверяет валидность данных перед сохранением.
+            </summary>
+            <returns>True, если данные валидны; иначе, False.</returns>
+        </member>
+        <member name="T:KinderApp.ViewModels.EmployeeDataEditWindowModel">
+            <summary>
+            Модель представления для редактирования данных сотрудника.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.EmployeeDataEditWindowModel.#ctor(KinderData.Entities.User,KinderData.Entities.EmployeeData,KinderDbContext.Services.EmployeeDataService,System.Collections.Generic.List{KinderData.Entities.Employee})">
+            <summary>
+            Инициализирует новую модель с заданными параметрами.
+            </summary>
+            <param name="user">Текущий пользователь (не используется в коде, возможно, для расширения).</param>
+            <param name="employeeData">Редактируемые данные сотрудника.</param>
+            <param name="employeeDataService">Сервис для работы с данными сотрудника.</param>
+            <param name="employees">Список сотрудников.</param>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.EmployeeData">
+            <summary>
+            Данные сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.Pasport">
+            <summary>
+            Паспортные данные.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.SNILS">
+            <summary>
+            СНИЛС.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.INN">
+            <summary>
+            ИНН.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.EmploymentRecord">
+            <summary>
+            Трудовая книжка/запись.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.SelectedEmployee">
+            <summary>
+            Выбранный сотрудник.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.Employees">
+            <summary>
+            Список всех сотрудников.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.SaveCommand">
+            <summary>
+            Команда сохранить изменения.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeDataEditWindowModel.CloseCommand">
+            <summary>
+            Команда закрытия окна.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.EmployeeDataEditWindowModel.ValidateData">
+            <summary>
+            Валидация данных перед сохранением.
+            </summary>
+            <returns>Истина, если все поля корректны; иначе, ложь.</returns>
+        </member>
+        <member name="T:KinderApp.ViewModels.EmployeeEditWindowModel">
+            <summary>
+            Модель представления для редактирования данных сотрудника. 
+            Предоставляет свойства для отображения и редактирования информации о сотруднике, а также команды для сохранения и закрытия.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.EmployeeEditWindowModel.#ctor(KinderData.Entities.User,KinderData.Entities.Employee,KinderDbContext.Services.EmployeeService,System.Collections.Generic.List{KinderData.Entities.Group})">
+            <summary>
+            Инициализирует новую модель с указанными параметрами, заполняя свойства текущими данными сотрудника при необходимости.
+            </summary>
+            <param name="user">Пользователь, вызывающий редактирование (по умолчанию не используется, предназначен для расширения).</param>
+            <param name="employee">Данные сотрудника для редактирования; если null, создается новая запись.</param>
+            <param name="employeeService">Сервис для работы с данными сотрудников, обеспечивает добавление и обновление.</param>
+            <param name="groups">Список групп, в которых может находиться сотрудник.</param>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.Employee">
+            <summary>
+            Данные сотрудника (модель).
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.FIO">
+            <summary>
+            Поле для ввода ФИО сотрудника.
+            Обязательное поле, отключает сохранение и показывает сообщение, если пустое.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.Education">
+            <summary>
+            Поле для ввода уровня образования сотрудника.
+            Не обязательное, может быть пустым.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.Experience">
+            <summary>
+            Поле для ввода опыта работы.
+            Не обязательное, может быть пустым.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.Post">
+            <summary>
+            Поле для ввода должности сотрудника.
+            Обязательное, сообщение о необходимости заполнения, если пустое.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.SelectedGroup">
+            <summary>
+            Выбранная группа, к которой принадлежит сотрудник.
+            Обязательное поле, сообщение о необходимости выбора.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.Groups">
+            <summary>
+            Список групп, доступных для выбора.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.SaveCommand">
+            <summary>
+            Команда для сохранения изменений и добавления/обновления сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.EmployeeEditWindowModel.CloseCommand">
+            <summary>
+            Команда для закрытия окна редактирования.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.EmployeeEditWindowModel.ValidateData">
+            <summary>
+            Валидирует все обязательные поля, показывает сообщения, если есть ошибки.
+            </summary>
+            <returns><c>true</c>, если все поля заполнены корректно; иначе <c>false</c>.</returns>
+        </member>
+        <member name="T:KinderApp.ViewModels.GroupEditWindowModel">
+            <summary>
+            Модель представления для окна редактирования данных группы.
+            Обеспечивает взаимодействие с данными группы, включая редактирование названия, 
+            а также команды для сохранения изменений и закрытия окна.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.GroupEditWindowModel.#ctor(KinderData.Entities.User,KinderData.Entities.Group,KinderDbContext.Services.GroupService)">
+            <summary>
+            Инициализирует новый экземпляр <see cref="T:KinderApp.ViewModels.GroupEditWindowModel"/> с указанными параметрами.
+            При наличии существующей группы предварительно заполняет свойства текущими значениями.
+            </summary>
+            <param name="user">Текущий пользователь (не используется, но может быть применен для расширения).</param>
+            <param name="group">Редактируемая группа; если null, создается новая группа.</param>
+            <param name="groupService">Сервис для управления группами (добавление, обновление).</param>
+        </member>
+        <member name="P:KinderApp.ViewModels.GroupEditWindowModel.Group">
+            <summary>
+            Текущая группа, которая редактируется.
+            Обеспечивает связь с моделью данных и уведомление об изменениях.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.GroupEditWindowModel.GroupName">
+            <summary>
+            Название группы.
+            Обязательное поле: при попытке установить пустое значение выводится сообщение об ошибке.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.GroupEditWindowModel.SaveCommand">
+            <summary>
+            Команда сохранения группы — добавляет новую группу или обновляет существующую.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.GroupEditWindowModel.CloseCommand">
+            <summary>
+            Команда закрытия окна редактирования группы.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.GroupEditWindowModel.ValidateData">
+            <summary>
+            /// Выполняет проверку валидности данных перед сохранением.
+            Проверяет, что поле <see cref="P:KinderApp.ViewModels.GroupEditWindowModel.GroupName"/> заполнено.
+            </summary>
+            <returns>True, если данные корректны, иначе false.</returns>
+        </member>
+        <member name="T:KinderApp.ViewModels.KindergartnerEditWindowModel">
+            <summary>
+            Модель представления для окна редактирования данных воспитанника детского сада.
+            Обеспечивает отображение и изменение информации о воспитаннике, а также команды для сохранения и закрытия окна.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.KindergartnerEditWindowModel.#ctor(KinderData.Entities.User,KinderData.Entities.Kindergartner,KinderDbContext.Services.KindergartnerService,System.Collections.Generic.List{KinderData.Entities.Group})">
+            <summary>
+            Инициализирует новый экземпляр модели с указанными параметрами.
+            При наличии существующего воспитанника заполняет свойства текущими значениями.
+            </summary>
+            <param name="user">Пользователь, инициирующий редактирование (может использоваться для расширения).</param>
+            <param name="kindergartner">Объект воспитанника для редактирования; если null, создается новый.</param>
+            <param name="kindergartnerService">Сервис для работы с данными воспитанников (добавление, обновление).</param>
+            <param name="groups">Список групп, в которых может находиться воспитанник.</param>
+        </member>
+        <member name="P:KinderApp.ViewModels.KindergartnerEditWindowModel.Kindergartner">
+            <summary>
+            Объект воспитанника для редактирования/создания.
+            Свойство оповещает об изменениях.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.KindergartnerEditWindowModel.FIO">
+            <summary>
+            Поле для ввода ФИО воспитанника.
+            Обязательное: показывает сообщение, если пустое.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.KindergartnerEditWindowModel.DateOfBirth">
+            <summary>
+            Поле для даты рождения воспитанника.
+            Обязательное: показывает сообщение, если пустое.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.KindergartnerEditWindowModel.ParentsContactInfo">
+            <summary>
+            Контактная информация родителей воспитанника.
+            Обязательное поле, при пустой строке выводится сообщение.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.KindergartnerEditWindowModel.Groups">
+            <summary>
+            Список групп для выбора воспитанником.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.KindergartnerEditWindowModel.SelectedGroup">
+            <summary>
+            В выбранной группе воспитанник учится.
+            Обязательное поле: показывает сообщение, если не выбрана группа.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.KindergartnerEditWindowModel.SaveCommand">
+            <summary>
+            Команда сохранения изменений воспитанника (добавление или обновление).
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.KindergartnerEditWindowModel.CloseCommand">
+            <summary>
+            Команда закрытия окна редактирования.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.KindergartnerEditWindowModel.ValidateData">
+            <summary>
+            Выполняет проверку корректности введённых данных.
+            Показано сообщение, если какое-либо обязательное поле не заполнено.
+            </summary>
+            <returns>True, если все поля корректны, иначе False.</returns>
+        </member>
+        <member name="T:KinderApp.ViewModels.MenuWindowModel">
+            <summary>
+            Модель представления для главного меню приложения.
+            Обеспечивает управление командами и данными, отображаемыми в главном окне.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.MenuWindowModel.#ctor(KinderData.Entities.User,KinderDbContext.Services.AgreementsService,KinderDbContext.Services.EmployeeDataService,KinderDbContext.Services.EmployeeService,KinderDbContext.Services.GroupService,KinderDbContext.Services.KindergartnerService,KinderDbContext.Services.PlanService,KinderDbContext.Services.SalaryService)">
+            <summary>
+            Инициализация новой модели представления с передачей необходимых сервисов и текущего пользователя.
+            Загружает первоначальные данные и устанавливает команды для работы.
+            </summary>
+            <param name="user">Объект текущего пользователя, использующего приложение.</param>
+            <param name="agreementsService">Сервис для работы с договорами (agreements).</param>
+            <param name="employeeDataService">Сервис для работы с данными сотрудников.</param>
+            <param name="employeeService">Сервис для работы с сотрудниками.</param>
+            <param name="groupService">Сервис для работы с группами.</param>
+            <param name="kindergartnerService">Сервис для работы с воспитанниками детского сада.</param>
+            <param name="planService">Сервис для работы с учебными планами.</param>
+            <param name="salaryService">Сервис для работы с начислением заработной платы.</param>
+        </member>
+        <member name="M:KinderApp.ViewModels.MenuWindowModel.UpdateLists">
+            <summary>
+            Метод обновления данных списков всех основных сущностей.
+            Запрашивает данные с помощью сервисов для каждой сущности и обновляет соответствующие списки,
+            используемые в интерфейсе и логике приложения.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel.currentUser">
+            <summary>
+            Текущий пользователь, под которым работает приложение или система.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel.selectedAddAgreement">
+            <summary>
+            Выбранный договор для операций редактирования, удаления и т.д.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel.selectedAddEmployee">
+            <summary>
+            Выбранный сотрудник для операций редактирования, удаления и т.д.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel.selectedAddEmployeeData">
+            <summary>
+            Выбранные дополнительные данные сотрудника.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel.selectedAddGroup">
+            <summary>
+            Выбранная группа.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel.selectedAddKindergartner">
+            <summary>
+            Выбранный воспитанник.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel.selectedAddPlan">
+            <summary>
+            Выбранный план.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel.selectedAddSalary">
+            <summary>
+            Выбранная запись о зарплате.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._agreementService">
+            <summary>
+            Сервис для работы с договорами.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._employeeService">
+            <summary>
+            Сервис для работы с сотрудниками.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._employeeDataService">
+            <summary>
+            Сервис для работы с дополнительными данными сотрудников.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._groupService">
+            <summary>
+            Сервис для работы с группами.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._kindergartnerService">
+            <summary>
+            Сервис для работы с воспитанниками.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._planService">
+            <summary>
+            Сервис для работы с планами.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._salaryService">
+            <summary>
+            Сервис для работы с зарплатами.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._agreements">
+            <summary>
+            Список договоров, загруженных из базы или другого хранилища.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._employees">
+            <summary>
+            Список сотрудников.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._employeeDatas">
+            <summary>
+            Список дополнительных данных о сотрудниках.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._groups">
+            <summary>
+            Список групп.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._kindergartners">
+            <summary>
+            Список воспитанников.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._plans">
+            <summary>
+            Список планов.
+            </summary>
+        </member>
+        <member name="F:KinderApp.ViewModels.MenuWindowModel._salaries">
+            <summary>
+            Список записей о зарплатах.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.CurrentUser">
+            <summary>
+            Текущий пользователь с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SelectedAddAgreement">
+            <summary>
+            Выбранный договор с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SelectedAddEmployee">
+            <summary>
+            Выбранный сотрудник с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SelectedAddEmployeeData">
+            <summary>
+            Выбранные дополнительные данные сотрудника с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SelectedAddGroup">
+            <summary>
+            Выбранная группа с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SelectedAddKindergartner">
+            <summary>
+            Выбранный воспитанник с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SelectedAddPlan">
+            <summary>
+            Выбранный план с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SelectedAddSalary">
+            <summary>
+            Выбранная запись о зарплате с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.Agreements">
+            <summary>
+            Список договоров с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.Employees">
+            <summary>
+            Список сотрудников с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.EmployeeDatas">
+            <summary>
+            Список дополнительных данных сотрудников с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.Groups">
+            <summary>
+            Список групп с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.Plans">
+            <summary>
+            Список планов с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.Salaries">
+            <summary>
+            Список зарплат с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.Kindergartners">
+            <summary>
+            Список воспитанников с уведомлением об изменении.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.AAddCommand">
+            <summary>
+            Команда на добавление нового договора (Agreement).
+            Используется для создания и открытия интерфейса добавления договора.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.AUpdateCommand">
+            <summary>
+            Команда на обновление (редактирование) выбранного договора.
+            Позволяет открыть интерфейс редактирования и сохранить изменения.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.ARemoveCommand">
+            <summary>
+            Команда на удаление выбранного договора.
+            Отвечает за удаление данных договора из системы.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.EAddCommand">
+            <summary>
+            Команда на добавление нового сотрудника (Employee).
+            Используется для создания записи сотрудника через UI.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.EUpdateCommand">
+            <summary>
+            Команда на обновление (редактирование) выбранного сотрудника.
+            Позволяет изменить данные сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.ERemoveCommand">
+            <summary>
+            Команда на удаление выбранного сотрудника.
+            Отвечает за удаление данных сотрудника из базы.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.EDAddCommand">
+            <summary>
+            Команда на добавление новых данных сотрудника (EmployeeData).
+            Используется для ввода и сохранения дополнительных данных сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.EDUpdateCommand">
+            <summary>
+            Команда на обновление выбранных данных сотрудника.
+            Позволяет редактировать дополнительную информацию о сотруднике.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.EDRemoveCommand">
+            <summary>
+            Команда на удаление выбранных данных сотрудника.
+            Отвечает за удаление дополнительных данных сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.GAddCommand">
+            <summary>
+            Команда на добавление новой группы (Group).
+            Открывает интерфейс для создания группы.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.GUpdateCommand">
+            <summary>
+            Команда на обновление выбранной группы.
+            Позволяет изменить информацию о группе.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.GRemoveCommand">
+            <summary>
+            Команда на удаление выбранной группы.
+            Удаляет группу из системы.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.KAddCommand">
+            <summary>
+            Команда на добавление нового воспитанника (Kindergartner).
+            Используется для создания записи о воспитаннике.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.KUpdateCommand">
+            <summary>
+            Команда на обновление информации о выбранном воспитаннике.
+            Позволяет редактировать данные воспитанника.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.KRemoveCommand">
+            <summary>
+            Команда на удаление выбранного воспитанника.
+            Удаляет запись воспитанника из системы.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.PAddCommand">
+            <summary>
+            Команда на добавление нового плана (Plan).
+            Открывает окно для создания новой записи плана.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.PUpdateCommand">
+            <summary>
+            Команда на обновление выбранного плана.
+            Позволяет редактировать данные выбранного плана.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.PRemoveCommand">
+            <summary>
+            Команда на удаление выбранного плана.
+            Удаляет план из базы данных.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SAddCommand">
+            <summary>
+            Команда на добавление новой записи зарплаты (Salary).
+            Используется для создания информации по зарплате сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SUpdateCommand">
+            <summary>
+            Команда на обновление выбранной записи зарплаты.
+            Позволяет редактировать данные о зарплате.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.MenuWindowModel.SRemoveCommand">
+            <summary>
+            Команда на удаление выбранной записи зарплаты.
+            </summary>
+        </member>
+        <member name="T:KinderApp.ViewModels.PlanEditWindowModel">
+            <summary>
+            Модель представления для окна редактирования/добавления плана.
+            Предоставляет свойства и команды для взаимодействия с интерфейсом.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.PlanEditWindowModel.#ctor(KinderData.Entities.User,KinderData.Entities.Plan,KinderDbContext.Services.PlanService,System.Collections.Generic.List{KinderData.Entities.Employee})">
+            <summary>
+            Конструктор модели с параметрами пользователя, плана, сервиса планов и списка сотрудников.
+            Инициализирует свойства и команды для работы в интерфейсе.
+            </summary>
+            <param name="user">Текущий пользователь системы.</param>
+            <param name="plan">Объект плана, если редактирование существующего. При добавлении может быть null.</param>
+            <param name="planService">Сервис для операций с планами (добавление, обновление).</param>
+            <param name="employees">Список сотрудников, доступных для выбора при редактировании плана.</param>
+        </member>
+        <member name="P:KinderApp.ViewModels.PlanEditWindowModel.Plan">
+            <summary>
+            Свойство для хранения объекта плана. Используется для привязки и отображения.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.PlanEditWindowModel.DateOfTheEvent">
+            <summary>
+            Дата проведения плана. Свойство с проверкой входных данных.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.PlanEditWindowModel.Development">
+            <summary>
+            Описание плана. Свойство с проверкой на пустое значение.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.PlanEditWindowModel.SelectedEmployee">
+            <summary>
+            Выбранный сотрудник, связанный с планом. Проверка на null.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.PlanEditWindowModel.Employees">
+            <summary>
+            Список сотрудников для выбора. Связь с UI для отображения и выбора.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.PlanEditWindowModel.SaveCommand">
+            <summary>
+            Команда для сохранения данных (добавление или обновление).
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.PlanEditWindowModel.CloseCommand">
+            <summary>
+            Команда для закрытия окна.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.PlanEditWindowModel.ValidateData">
+            <summary>
+            Валидация данных перед сохранением.
+            Проверяет заполненность обязательных полей.
+            </summary>
+            <returns>Истина, если все данные корректны; иначе - ложь.</returns>
+        </member>
+        <member name="T:KinderApp.ViewModels.RegistrationWindowModel">
+            <summary>
+            Модель представления для окна регистрации.
+            Обеспечивает свойства и команды для авторизации, регистрации и закрытия окна.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.RegistrationWindowModel.#ctor">
+            <summary>
+            Конструктор модели, инициализирует команды для входа, регистрации и закрытия окна.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.RegistrationWindowModel.Firstname">
+            <summary>
+            Имя пользователя.
+            При установке проверяет, чтобы оно не было пустым.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.RegistrationWindowModel.Lastname">
+            <summary>
+            Фамилия пользователя.
+            Проверяет, чтобы поле не было пустым.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.RegistrationWindowModel.Middlename">
+            <summary>
+            Отчество пользователя.
+            Можно установить без дополнительных ограничений.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.RegistrationWindowModel.Login">
+            <summary>
+            Логин пользователя.
+            Проверка на пустое значение.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.RegistrationWindowModel.Password">
+            <summary>
+            Пароль пользователя.
+            Проверка на пустое значение.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.RegistrationWindowModel.LoginCommand">
+            <summary>
+            Команда для выполнения входа пользователя.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.RegistrationWindowModel.RegisterCommand">
+            <summary>
+            Команда для выполнения регистрации нового пользователя.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.RegistrationWindowModel.CloseCommand">
+            <summary>
+            Команда для закрытия окна регистрации.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.RegistrationWindowModel.ValidateData">
+            <summary>
+            Валидация данных перед сохранением.
+            Проверяет заполненность обязательных полей.
+            </summary>
+            <returns>Истина, если все данные корректны; иначе - ложь.</returns>
+        </member>
+        <member name="T:KinderApp.ViewModels.SalaryEditWindowModel">
+            <summary>
+            Модель представления для окна редактирования или добавления информации о зарплате сотрудника.
+            Обеспечивает свойства и команды для взаимодействия с пользователем и управления данными зарплаты.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.SalaryEditWindowModel.#ctor(KinderData.Entities.User,KinderData.Entities.Salary,KinderDbContext.Services.SalaryService,System.Collections.Generic.List{KinderData.Entities.Employee})">
+            <summary>
+            Конструктор модели представления.
+            Инициализирует свойства модели исходя из переданных параметров.
+            Настраивает команды сохранения и закрытия окна.
+            </summary>
+            <param name="user">Текущий пользователь системы (не используется явно в данном классе, но может быть расширен).</param>
+            <param name="salary">Объект зарплаты для редактирования. Если null, создается новый объект.</param>
+            <param name="salaryService">Сервис для работы с зарплатами, предоставляющий методы добавления и обновления.</param>
+            <param name="employees">Список сотрудников для выбора в интерфейсе.</param>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.Salary">
+            <summary>
+            Свойство текущей зарплаты (объект модели).
+            Используется для двунаправленной привязки в UI.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.Wage">
+            <summary>
+            Оклад сотрудника.
+            Значение не может быть отрицательным. При попытке выставить отрицательное
+            значение выдаётся сообщение об ошибке и значение игнорируется.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.Bonus">
+            <summary>
+            Премия сотрудника.
+            Не должна быть отрицательной. В случае ошибки выводится сообщение.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.Allowance">
+            <summary>
+            Надбавка сотрудника.
+            Значение не может быть отрицательным. Контролируется с выводом предупреждения.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.Prepayment">
+            <summary>
+            Аванс по зарплате.
+            Не допускается отрицательное значение, при попытке - показывается предупреждение.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.Penalty">
+            <summary>
+            Штраф, который не может быть отрицательным числом.
+            Предполагается ввод в виде положительного значения.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.SelectedEmployee">
+            <summary>
+            Выбранный сотрудник, к которому привязана зарплата.
+            Обязательное поле, не допускает null.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.Employees">
+            <summary>
+            Список сотрудников для выбора в UI.
+            Используется для заполнения элементов управления выбора сотрудника.
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.SaveCommand">
+            <summary>
+            Команда для сохранения изменений в объекте зарплаты (создание или обновление).
+            </summary>
+        </member>
+        <member name="P:KinderApp.ViewModels.SalaryEditWindowModel.CloseCommand">
+            <summary>
+            Команда для закрытия окна редактирования без сохранения.
+            </summary>
+        </member>
+        <member name="M:KinderApp.ViewModels.SalaryEditWindowModel.ValidateData">
+            <summary>
+            Валидация данных перед сохранением.
+            Проверяет заполненность обязательных полей.
+            </summary>
+            <returns>Истина, если все данные корректны; иначе - ложь.</returns>
+        </member>
+        <member name="T:KinderApp.VIews.AgreementsEditWindow">
+            <summary>
+            Окно для редактирования или создания соглашений (Agreements).
+            </summary>
+            <summary>
+            AgreementsEditWindow
+            </summary>
+        </member>
+        <member name="F:KinderApp.VIews.AgreementsEditWindow.viewModel">
+            <summary>
+            Модель представления для данного окна, реализующая логику взаимодействия с данными соглашения.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.AgreementsEditWindow.#ctor(KinderData.Entities.User,KinderData.Entities.Agreement,System.Collections.Generic.List{KinderData.Entities.Employee})">
+            <summary>
+            Конструктор окна соглашений.
+            Инициализирует компоненты интерфейса, модель представления с необходимыми параметрами и устанавливает DataContext.
+            </summary>
+            <param name="user">Текущий пользователь системы.</param>
+            <param name="agreement">Соглашение для редактирования, если null — создаётся новое.</param>
+            <param name="employees">Список сотрудников для выбора.</param>
+        </member>
+        <member name="M:KinderApp.VIews.AgreementsEditWindow.CloseButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Обработчик нажатия кнопки закрытия окна.
+            Закрывает текущее окно.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.AgreementsEditWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:KinderApp.VIews.EmployeeDataEditWindow">
+            <summary>
+            Окно для редактирования или создания данных сотрудника (EmployeeData).
+            </summary>
+            <summary>
+            EmployeeDataEditWindow
+            </summary>
+        </member>
+        <member name="F:KinderApp.VIews.EmployeeDataEditWindow.viewModel">
+            <summary>
+            Модель представления для данного окна, обеспечивающая логику работы с данными сотрудника.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.EmployeeDataEditWindow.#ctor(KinderData.Entities.User,KinderData.Entities.EmployeeData,System.Collections.Generic.List{KinderData.Entities.Employee})">
+            <summary>
+            Конструктор окна редактирования данных сотрудника.
+            Загружает сервис, инициализирует модель представления и устанавливает DataContext.
+            </summary>
+            <param name="user">Текущий пользователь системы.</param>
+            <param name="employeeData">Данные сотрудника для редактирования, может быть null для создания новых данных.</param>
+            <param name="employees">Список сотрудников для выбора.</param>
+        </member>
+        <member name="M:KinderApp.VIews.EmployeeDataEditWindow.CloseButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Обработчик нажатия кнопки Закрыть.
+            Закрывает текущее окно.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.EmployeeDataEditWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:KinderApp.VIews.EmployeeEditWindow">
+            <summary>
+            Окно для редактирования или создания сотрудника (Employee).
+            </summary>
+            <summary>
+            EmployeeEditWindow
+            </summary>
+        </member>
+        <member name="F:KinderApp.VIews.EmployeeEditWindow.viewModel">
+            <summary>
+            Модель представления для данной формы, отвечающая за логику редактирования сотрудника.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.EmployeeEditWindow.#ctor(KinderData.Entities.User,KinderData.Entities.Employee,System.Collections.Generic.List{KinderData.Entities.Group})">
+            <summary>
+            Конструктор окна редактирования сотрудника.
+            Загружает необходимые данные и инициализирует модель представления.
+            </summary>
+            <param name="user">Текущий пользователь системы.</param>
+            <param name="employee">Сотрудник для редактирования, если null — создаётся новый.</param>
+            <param name="groups">Список групп для выбора сотрудника.</param>
+        </member>
+        <member name="M:KinderApp.VIews.EmployeeEditWindow.CloseButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Обработчик кнопки закрытия окна.
+            Закрывает окно.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.EmployeeEditWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:KinderApp.VIews.GroupEditWindow" -->
+        <member name="F:KinderApp.VIews.GroupEditWindow.viewModel">
+            <summary>
+            Модель представления, обеспечивающая работу с группами.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.GroupEditWindow.#ctor(KinderData.Entities.User,KinderData.Entities.Group)">
+            <summary>
+            Конструктор окна редактирования группы.
+            Инициализирует UI-компоненты, модель представления и устанавливает DataContext.
+            </summary>
+            <param name="user">Текущий пользователь.</param>
+            <param name="group">Группа для редактирования. Если null — создаётся новая.</param>
+        </member>
+        <member name="M:KinderApp.VIews.GroupEditWindow.CloseButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Обработчик кнопки закрытия окна.
+            Закрывает текущее окно.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.GroupEditWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:KinderApp.VIews.KindergartnerEditWindow" -->
+        <member name="F:KinderApp.VIews.KindergartnerEditWindow.viewModel">
+            <summary>
+            Модель представления, управляющая логикой редактирования дошкольника.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.KindergartnerEditWindow.#ctor(KinderData.Entities.User,KinderData.Entities.Kindergartner,System.Collections.Generic.List{KinderData.Entities.Group})">
+            <summary>
+            Конструктор окна редактирования дошкольника.
+            Инициализирует компоненты интерфейса и модель представления.
+            </summary>
+            <param name="user">Текущий пользователь.</param>
+            <param name="kindergartner">Объект дошкольника для редактирования, null при создании нового.</param>
+            <param name="groups">Список групп для выбора.</param>
+        </member>
+        <member name="M:KinderApp.VIews.KindergartnerEditWindow.CloseButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Обработчик события нажатия кнопки закрытия окна.
+            Закрывает окно.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.KindergartnerEditWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:KinderApp.VIews.PlanEditWindow">
+            <summary>
+            Логика взаимодействия для PlanEditWindow.xaml.
+            Окно для редактирования или добавления плана учреждения.
+            </summary>
+            <summary>
+            PlanEditWindow
+            </summary>
+        </member>
+        <member name="F:KinderApp.VIews.PlanEditWindow.viewModel">
+            <summary>
+            Модель представления для этого окна, реализующая логику редактирования плана.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.PlanEditWindow.#ctor(KinderData.Entities.User,KinderData.Entities.Plan,System.Collections.Generic.List{KinderData.Entities.Employee})">
+            <summary>
+            Конструктор окна редактирования плана.
+            Инициализирует компоненты, создает модель с нужными сервисами и устанавливает DataContext.
+            </summary>
+            <param name="user">Текущий пользователь системы.</param>
+            <param name="plan">Объект плана для редактирования, null при создании нового.</param>
+            <param name="employees">Список сотрудников, участвующих в плане.</param>
+        </member>
+        <member name="M:KinderApp.VIews.PlanEditWindow.CloseButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Обработчик события нажатия кнопки закрытия окна.
+            Закрывает текущее окно.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.PlanEditWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:KinderApp.VIews.SalaryEditWindow">
+            <summary>
+            Логика взаимодействия для SalaryEditWindow.xaml.
+            Окно для редактирования или создания данных о зарплате сотрудника.
+            </summary>
+            <summary>
+            SalaryEditWindow
+            </summary>
+        </member>
+        <member name="F:KinderApp.VIews.SalaryEditWindow.viewModel">
+            <summary>
+            Модель представления для этого окна, занимающаяся логикой изменения зарплаты.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.SalaryEditWindow.#ctor(KinderData.Entities.User,KinderData.Entities.Salary,System.Collections.Generic.List{KinderData.Entities.Employee})">
+            <summary>
+            Конструктор окна редактирования зарплаты.
+            Инициализирует компоненты, создает модель с сервисом зарплат и устанавливает DataContext.
+            </summary>
+            <param name="user">Текущий пользователь системы.</param>
+            <param name="salary">Объект зарплаты для редактирования, null при создании новой записи.</param>
+            <param name="employees">Список сотрудников для выбора.</param>
+        </member>
+        <member name="M:KinderApp.VIews.SalaryEditWindow.CloseButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Обработчик события нажатия кнопки закрытия окна.
+            Закрывает текущее окно.
+            </summary>
+        </member>
+        <member name="M:KinderApp.VIews.SalaryEditWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:KinderApp.MenuWindow">
             <summary>
-            Логика взаимодействия для MenuWindow.xaml
+            Логика взаимодействия для MenuWindow.xaml.
+            Представляет окно меню, отображающее информацию о текущем пользователе и предоставляющее доступ к различным функциям системы.
             </summary>
             <summary>
             MenuWindow
             </summary>
+        </member>
+        <member name="F:KinderApp.MenuWindow.viewModel">
+            <summary>
+            Модель представления, реализующая логику работы окна меню.
+            </summary>
+        </member>
+        <member name="M:KinderApp.MenuWindow.#ctor(KinderData.Entities.User)">
+            <summary>
+            Конструктор окна меню.
+            Инициализирует компоненты окна, создает модель представления с необходимыми сервисами и устанавливает DataContext.
+            Устанавливает заголовок окна с именем пользователя.
+            </summary>
+            <param name="user">Текущий авторизованный пользователь.</param>
         </member>
         <member name="M:KinderApp.MenuWindow.InitializeComponent">
             <summary>
@@ -37,10 +1218,23 @@
         </member>
         <member name="T:KinderApp.RegistrationWindow">
             <summary>
-            Логика взаимодействия для RegistrationWindow.xaml
+            Логика взаимодействия для RegistrationWindow.xaml.
+            Окно для регистрации нового пользователя.
             </summary>
             <summary>
             RegistrationWindow
+            </summary>
+        </member>
+        <member name="F:KinderApp.RegistrationWindow._viewModel">
+            <summary>
+            Модель представления, реализующая логику регистрации пользователя.
+            </summary>
+        </member>
+        <member name="M:KinderApp.RegistrationWindow.#ctor">
+            <summary>
+            Конструктор окна регистрации.
+            Инициализирует компоненты интерфейса и создает экземпляр модели представления.
+            Устанавливает DataContext.
             </summary>
         </member>
         <member name="M:KinderApp.RegistrationWindow.InitializeComponent">

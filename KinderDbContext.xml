@@ -4,6 +4,255 @@
         <name>KinderDbContext</name>
     </assembly>
     <members>
+        <member name="T:KinderDbContext.Abstraction.BaseService`1">
+            <summary>
+            Абстрактный базовый класс сервиса, предназначенный для реализации операций над сущностями T.
+            Реализует интерфейс <see cref="T:KinderDbContext.Abstraction.IService`1"/> и служит базой для конкретных сервисов.
+            </summary>
+            <typeparam name="T">Тип сущности, с которой работает сервис.</typeparam>
+        </member>
+        <member name="F:KinderDbContext.Abstraction.BaseService`1.ctx">
+            <summary>
+            Контекст базы данных для операций с данными.
+            Используется для взаимодействия с базой данных через Entity Framework.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.BaseService`1.#ctor">
+            <summary>
+            Конструктор базового сервиса.
+            Инициализирует контекст базы данных singleton'ом.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.BaseService`1.GetEntities">
+            <summary>
+            Абстрактный метод для получения всех сущностей T.
+            Реализация должна возвращать перечисление сущностей асинхронно.
+            </summary>
+            <returns>Асинхронная задача, содержащая перечисление сущностей T или null.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.BaseService`1.GetEntity(System.Guid)">
+            <summary>
+            Абстрактный метод для получения конкретной сущности по её уникальному идентификатору.
+            </summary>
+            <param name="id">Уникальный идентификатор сущности.</param>
+            <returns>Асинхронная задача, содержащая объект сущности T или null, если не найдено.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.BaseService`1.Add(`0)">
+            <summary>
+            Абстрактный метод для добавления новой сущности T.
+            Реализация должна сохранять новую сущность в базу.
+            </summary>
+            <param name="entity">Объект сущности для добавления.</param>
+            <returns>Асинхронная задача, являющаяся результатом операции добавления (успех или неудача).</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.BaseService`1.Update(`0,`0)">
+            <summary>
+            Абстрактный метод для обновления существующей сущности.
+            </summary>
+            <param name="entity">Старый объект-сущность, которую нужно обновить.</param>
+            <param name="newEntity">Новый объект-сущность с измененными данными.</param>
+            <returns>Асинхронная задача, содержащая результат операции обновления (успех или неудача).</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.BaseService`1.Remove(`0)">
+            <summary>
+            Абстрактный метод для удаления сущности.
+            </summary>
+            <param name="entity">Объект-сущность для удаления.</param>
+            <returns>Асинхронная задача, являющаяся результатом операции удаления (успех или неудача).</returns>
+        </member>
+        <member name="T:KinderDbContext.Abstraction.DbEntityServiceBase`1">
+            <summary>
+            Абстрактный базовый класс для управления сущностями T с реализацией базовых методов по работе с Entity Framework.
+            Реализует интерфейс <see cref="T:KinderDbContext.Abstraction.IBaseManagement`1"/> и включает базовую логику удаления.
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+        </member>
+        <member name="F:KinderDbContext.Abstraction.DbEntityServiceBase`1.ctx">
+            <summary>
+            Контекст базы данных для всех операций.
+            Используется для взаимодействия с базой данных.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.DbEntityServiceBase`1.#ctor">
+            <summary>
+            Конструктор сервиса.
+            Инициализирует контекст базы данных через синглтон.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.DbEntityServiceBase`1.GetEntities">
+            <summary>
+            Абстрактный метод для получения всех сущностей T.
+            Должна быть реализована в наследуемом классе.
+            </summary>
+            <returns>Асинхронное перечисление сущностей.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.DbEntityServiceBase`1.GetEntity(System.Guid)">
+            <summary>
+            Абстрактный метод для получения конкретной сущности по GUID.
+            </summary>
+            <param name="id">Уникальный идентификатор сущности.</param>
+            <returns>Асинхронная задача, содержащая объект T или null.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.DbEntityServiceBase`1.Add(`0)">
+            <summary>
+            Абстрактный метод для добавления новой сущности в базу.
+            </summary>
+            <param name="entity">Объект-сущность для добавления.</param>
+            <returns>Результат операции в виде задачи с булевым значением успеха.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.DbEntityServiceBase`1.Update(`0,`0)">
+            <summary>
+            Абстрактный метод для обновления существующей сущности.
+            </summary>
+            <param name="entity">Объект, который нужно обновить.</param>
+            <param name="newEntity">Объект с обновленными данными.</param>
+            <returns>Результат операции в виде задачи с булевым значением.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.DbEntityServiceBase`1.Remove(`0)">
+            <summary>
+            Виртуальный метод для удаления сущности.
+            Может быть переопределен в наследуемых классах.
+            В базовой реализации осуществляется удаление из базы с обработкой исключений.
+            </summary>
+            <param name="entity">Объект для удаления.</param>
+            <returns>Асинхронная задача, содержащая результат операции (успех или неудача).</returns>
+        </member>
+        <member name="T:KinderDbContext.Abstraction.IAccountManagement`1">
+            <summary>
+            Интерфейс для управления учетными записями пользователя.
+            Определяет контракт для получения аккаунта по логину и паролю.
+            </summary>
+            <typeparam name="T">Тип сущности учетной записи (например, пользователь).</typeparam>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IAccountManagement`1.GetAccount(System.String,System.String)">
+            <summary>
+            Асинхронно получает учетную запись пользователя по логину и паролю.
+            Обычно используется для аутентификации.
+            </summary>
+            <param name="login">Логин пользователя.</param>
+            <param name="password">Пароль пользователя.</param>
+            <returns>Объект учетной записи типа T, если найден; иначе null.</returns>
+        </member>
+        <member name="T:KinderDbContext.Abstraction.IBaseManagement`1">
+            <summary>
+            Интерфейс базового управления сущностями типа T.
+            Обеспечивает стандартные операции CRUD.
+            </summary>
+            <typeparam name="T">Тип управляемой сущности.</typeparam>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IBaseManagement`1.GetEntities">
+            <summary>
+            Асинхронно получает все сущности типа T.
+            </summary>
+            <returns>Коллекция всех сущностей типа T или пустая коллекция.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IBaseManagement`1.GetEntity(System.Guid)">
+            <summary>
+            Асинхронно получает конкретную сущность по уникальному идентификатору.
+            </summary>
+            <param name="id">Уникальный идентификатор сущности.</param>
+            <returns>Объект сущности типа T или null, если сущность не найдена.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IBaseManagement`1.Add(`0)">
+            <summary>
+            Асинхронно добавляет новую сущность.
+            </summary>
+            <param name="entity">Добавляемая сущность.</param>
+            <returns>True, если добавление прошло успешно; иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IBaseManagement`1.Update(`0,`0)">
+            <summary>
+            Асинхронно обновляет существующую сущность на новую.
+            </summary>
+            <param name="entity">Существующая сущность, которая будет обновлена.</param>
+            <param name="newEntity">Новая сущность с обновленными данными.</param>
+            <returns>True, если обновление прошло успешно; иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IBaseManagement`1.Remove(`0)">
+            <summary>
+            Асинхронно удаляет сущность.
+            </summary>
+            <param name="entity">Удаляемая сущность.</param>
+            <returns>True, если удаление прошло успешно; иначе false.</returns>
+        </member>
+        <member name="T:KinderDbContext.Abstraction.IService`1">
+            <summary>
+            Интерфейс сервиса работы с сущностями типа T.
+            Определяет базовый набор CRUD операций.
+            Может повторять контракт <see cref="T:KinderDbContext.Abstraction.IBaseManagement`1"/>, но применяется в другом контексте.
+            </summary>
+            <typeparam name="T">Тип сущности.</typeparam>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IService`1.GetEntities">
+            <summary>
+            Асинхронно получает все сущности типа T.
+            </summary>
+            <returns>Перечисление сущностей или пустая коллекция.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IService`1.GetEntity(System.Guid)">
+            <summary>
+            Асинхронно получает сущность по уникальному идентификатору.
+            </summary>
+            <param name="id">GUID сущности.</param>
+            <returns>Объект сущности или null.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IService`1.Add(`0)">
+            <summary>
+            Асинхронно добавляет сущность.
+            </summary>
+            <param name="entity">Сущность для добавления.</param>
+            <returns>True в случае успеха, иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IService`1.Update(`0,`0)">
+            <summary>
+            Асинхронно обновляет сущность.
+            </summary>
+            <param name="entity">Старая сущность.</param>
+            <param name="newEntity">Новая сущность с обновлёнными данными.</param>
+            <returns>True при успешном обновлении, иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.IService`1.Remove(`0)">
+            <summary>
+            Асинхронно удаляет сущность.
+            </summary>
+            <param name="entity">Сущность для удаления.</param>
+            <returns>True в случае успешного удаления, иначе false.</returns>
+        </member>
+        <member name="T:KinderDbContext.Abstraction.ISupplyManagment`1">
+            <summary>
+            Интерфейс для управления поставками и их статусами.
+            Предоставляет методы для установки различных статусов для сущности.
+            </summary>
+            <typeparam name="T">Тип сущности поставки.</typeparam>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.ISupplyManagment`1.SetStatusWaiting(`0)">
+            <summary>
+            Устанавливает статус сущности как "Ожидание" (Waiting).
+            </summary>
+            <param name="entity">Сущность, для которой устанавливается статус.</param>
+            <returns>True, если статус успешно установлен; иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.ISupplyManagment`1.SetStatusInProgress(`0)">
+            <summary>
+            Устанавливает статус сущности как "В процессе" (In Progress).
+            </summary>
+            <param name="entity">Сущность, для которой устанавливается статус.</param>
+            <returns>True, если статус успешно установлен; иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.ISupplyManagment`1.SetStatusCompleted(`0)">
+            <summary>
+            Устанавливает статус сущности как "Завершено" (Completed).
+            </summary>
+            <param name="entity">Сущность, для которой устанавливается статус.</param>
+            <returns>True, если статус успешно установлен; иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Abstraction.ISupplyManagment`1.SetStatusCanceled(`0)">
+            <summary>
+            Устанавливает статус сущности как "Отменено" (Canceled).
+            </summary>
+            <param name="entity">Сущность, для которой устанавливается статус.</param>
+            <returns>True, если статус успешно установлен; иначе false.</returns>
+        </member>
         <member name="T:KinderDbContext.Connections.AppDbContext">
             <summary>
             Абстрактный класс, представляющий контекст приложения для работы с базами данных.
@@ -45,68 +294,42 @@
              Представляет набор данных (таблицу) "Salaries" в базе данных.
             </summary>
         </member>
-        <member name="T:KinderDbContext.Connections.DbController">
+        <member name="P:KinderDbContext.Connections.AppDbContext.Users">
             <summary>
-            Контроллер для управления контекстами базы данных. Использует паттерн Singleton.
+             Представляет набор данных (таблицу) "Users" в базе данных.
             </summary>
         </member>
-        <member name="M:KinderDbContext.Connections.DbController.#ctor">
+        <member name="T:KinderDbContext.Connections.DbContextSingleton">
             <summary>
-            Приватный конструктор, предотвращающий создание экземпляров класса извне.
+            Синглтон-класс для управления единственным экземпляром базы данных.
+            Обеспечивает глобальную точку доступа к контексту базы данных, чтобы избежать создания множества экземпляров.
             </summary>
         </member>
-        <member name="F:KinderDbContext.Connections.DbController._appDbContext">
+        <member name="F:KinderDbContext.Connections.DbContextSingleton.instance">
             <summary>
-            Приватное поле для хранения экземпляра контекста базы данных.
+            Статическая переменная для хранения единственного экземпляра класса.
+            Изначально установлена в null.
             </summary>
         </member>
-        <member name="F:KinderDbContext.Connections.DbController._instance">
+        <member name="P:KinderDbContext.Connections.DbContextSingleton.DbContext">
             <summary>
-            Приватное статическое поле для хранения единственного экземпляра DbController 
+            Свойство, которое хранит экземпляр контекста базы данных.
+            Получает публичный доступ, но устанавливать его можно только внутри класса.
+            Использует тип <see cref="T:KinderDbContext.Connections.SQLServerDbContext"/>, представляющий контекст подключения к базе данных.
             </summary>
         </member>
-        <member name="M:KinderDbContext.Connections.DbController.GetContext">
+        <member name="M:KinderDbContext.Connections.DbContextSingleton.#ctor">
             <summary>
-            Возвращает текущий контекст базы данных.
-            </summary>
-            <returns>Экземпляр AppDbContext.</returns>
-        </member>
-        <member name="M:KinderDbContext.Connections.DbController.GetInstance">
-            <summary>
-            Возвращает единственный экземпляр класса DbController .
-            </summary>
-            <returns>Единственный экземпляр DbController.</returns>
-        </member>
-        <member name="M:KinderDbContext.Connections.DbController.SetSqliteConnection">
-            <summary>
-            Устанавливает соединение с базой данных SQLite.
+            Приватный конструктор класса.
+            Создает новый экземпляр <see cref="T:KinderDbContext.Connections.SQLServerDbContext"/>, то есть подключение к базе данных.
+            Выводит сообщение в отладочный вывод для информирования о создании экземпляра.
             </summary>
         </member>
-        <member name="M:KinderDbContext.Connections.DbController.SetSqlServerConnection">
+        <member name="P:KinderDbContext.Connections.DbContextSingleton.Instance">
             <summary>
-            Устанавливает соединение с базой данных SQL Server.
+            Статический свойство, предоставляющее доступ к единственному экземпляру класса.
+            Реализует ленивую и потокобезопасную инициализацию.
             </summary>
-        </member>
-        <member name="T:KinderDbContext.Connections.SQLiteDbContext">
-            <summary>
-            Класс, представляющий контекст для работы с базой данных SQLite.
-            </summary>
-        </member>
-        <member name="M:KinderDbContext.Connections.SQLiteDbContext.#ctor">
-            <summary>
-            Конструктор класса SQLiteDbContext.
-            </summary>
-        </member>
-        <member name="F:KinderDbContext.Connections.SQLiteDbContext._connectionString">
-            <summary>
-            Строка подключения к базе данных SQLite.
-            </summary>
-        </member>
-        <member name="M:KinderDbContext.Connections.SQLiteDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
-            <summary>
-            Настраивает параметры подключения к базе данных.
-            </summary>
-            <param name="optionsBuilder">Объект, позволяющий настроить параметры контекста базы данных.</param>
         </member>
         <member name="T:KinderDbContext.Connections.SQLServerDbContext">
             <summary>
@@ -128,6 +351,417 @@
             Настраивает параметры подключения к базе данных.
             </summary>
             <param name="optionsBuilder">Объект, позволяющий настроить параметры контекста базы данных.</param>
+        </member>
+        <member name="T:KinderDbContext.Migrations.Initial">
+            <inheritdoc />
+        </member>
+        <member name="M:KinderDbContext.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:KinderDbContext.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:KinderDbContext.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:KinderDbContext.Services.AgreementsService">
+            <summary>
+            Сервис для выполнения операций с сущностью <see cref="T:KinderData.Entities.Agreement"/>.
+            Наследует базовый класс <see cref="T:KinderDbContext.Abstraction.BaseService`1"/> и реализует конкретные методы.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Services.AgreementsService.GetEntities">
+            <summary>
+            Получает все сущности <see cref="T:KinderData.Entities.Agreement"/> из базы данных.
+            Асинхронно возвращает список договоров.
+            </summary>
+            <returns>Задача, содержащая перечисление всех договоров типа <see cref="T:KinderData.Entities.Agreement"/> или пустую коллекцию.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.AgreementsService.GetEntity(System.Guid)">
+            <summary>
+            Получает конкретный договор по его уникальному идентификатору <see cref="T:System.Guid"/>.
+            </summary>
+            <param name="id">Уникальный идентификатор договора.</param>
+            <returns>Задача, содержащая договор <see cref="T:KinderData.Entities.Agreement"/>, или null, если не найдено.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.AgreementsService.Add(KinderData.Entities.Agreement)">
+            <summary>
+            Добавляет новый договор <see cref="T:KinderData.Entities.Agreement"/> в базу данных.
+            </summary>
+            <param name="entity">Объект договора для добавления.</param>
+            <returns>Задача, содержащая true, если добавление прошло успешно, иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.AgreementsService.Update(KinderData.Entities.Agreement,KinderData.Entities.Agreement)">
+            <summary>
+            Обновляет существующий договор <see cref="T:KinderData.Entities.Agreement"/> на новую версию.
+            </summary>
+            <param name="entity">Существующий договор, который нужно обновить.</param>
+            <param name="newEntity">Объект с обновленными данными.</param>
+            <returns>Задача, содержащая true, если обновление прошло успешно, иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.AgreementsService.Remove(KinderData.Entities.Agreement)">
+            <summary>
+            Удаляет договор <see cref="T:KinderData.Entities.Agreement"/> из базы данных.
+            </summary>
+            <param name="entity">Объект договора для удаления.</param>
+            <returns>Задача, содержащая true, если удаление прошло успешно, иначе false.</returns>
+        </member>
+        <member name="T:KinderDbContext.Services.EmployeeDataService">
+            <summary>
+            Сервис для выполнения операций с сущностью <see cref="T:KinderData.Entities.EmployeeData"/>.
+            Наследует базовый класс <see cref="T:KinderDbContext.Abstraction.BaseService`1"/> и реализует конкретные методы для работы с данными работников.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeDataService.GetEntities">
+            <summary>
+            Получает все сущности <see cref="T:KinderData.Entities.EmployeeData"/> из базы данных.
+            Асинхронно возвращает список данных работников.
+            </summary>
+            <returns>Задача, содержащая перечисление всех объектов <see cref="T:KinderData.Entities.EmployeeData"/> или пустую коллекцию.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeDataService.GetEntity(System.Guid)">
+            <summary>
+            Получает конкретный объект <see cref="T:KinderData.Entities.EmployeeData"/> по его уникальному идентификатору <see cref="T:System.Guid"/>.
+            </summary>
+            <param name="id">Уникальный идентификатор данных работника.</param>
+            <returns>Задача, содержащая соответствующий объект <see cref="T:KinderData.Entities.EmployeeData"/>, или null, если не найдено.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeDataService.Add(KinderData.Entities.EmployeeData)">
+            <summary>
+            Добавляет новый объект <see cref="T:KinderData.Entities.EmployeeData"/> в базу данных.
+            </summary>
+            <param name="entity">Объект данных работника для добавления.</param>
+            <returns>Задача, содержащая true, если добавление успешно, иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeDataService.Update(KinderData.Entities.EmployeeData,KinderData.Entities.EmployeeData)">
+            <summary>
+            Обновляет существующий <see cref="T:KinderData.Entities.EmployeeData"/> на новую версию.
+            </summary>
+            <param name="entity">Объект, который нужно обновить.</param>
+            <param name="newEntity">Объект с обновленными данными.</param>
+            <returns>Задача, содержащая true, если обновление прошло успешно, иначе false.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeDataService.Remove(KinderData.Entities.EmployeeData)">
+            <summary>
+            Удаляет объект <see cref="T:KinderData.Entities.EmployeeData"/> из базы данных.
+            </summary>
+            <param name="entity">Объект данных работника для удаления.</param>
+            <returns>Задача, содержащая true, если удаление прошло успешно, иначе false.</returns>
+        </member>
+        <member name="T:KinderDbContext.Services.EmployeeService">
+            <summary>
+            Сервис для управления сущностями <see cref="T:KinderData.Entities.Employee"/>.
+            Наследуется от базового класса <see cref="T:KinderDbContext.Abstraction.BaseService`1"/> и реализует основные CRUD операции:
+            получение списка, получение по ID, добавление, обновление и удаление сотрудников.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeService.GetEntities">
+            <summary>
+            Асинхронно получает все объекты <see cref="T:KinderData.Entities.Employee"/> из базы данных.
+            </summary>
+            <returns>Задача, возвращающая перечисление всех сотрудников (<see cref="T:KinderData.Entities.Employee"/>). Может быть пустым.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeService.GetEntity(System.Guid)">
+            <summary>
+            Асинхронно получает одного сотрудника по уникальному идентификатору <see cref="T:System.Guid"/>.
+            </summary>
+            <param name="id">Уникальный идентификатор сотрудника.</param>
+            <returns>Задача с объектом <see cref="T:KinderData.Entities.Employee"/> если найден, или null, если такого сотрудника нет.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeService.Add(KinderData.Entities.Employee)">
+            <summary>
+            Асинхронно добавляет нового сотрудника в базу данных.
+            </summary>
+            <param name="entity">Объект <see cref="T:KinderData.Entities.Employee"/>, который необходимо добавить.</param>
+            <returns>Задача, возвращающая true, если объект успешно добавлен, иначе false (например, при null аргументе).</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeService.Update(KinderData.Entities.Employee,KinderData.Entities.Employee)">
+            <summary>
+            Асинхронно обновляет существующего сотрудника новыми данными.
+            </summary>
+            <param name="entity">Существующий сотрудник, данные которого нужно обновить.</param>
+            <param name="newEntity">Объект, содержащий новые данные для обновления.</param>
+            <returns>Задача, возвращающая true при успешном обновлении, иначе false (если один из объектов null).</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.EmployeeService.Remove(KinderData.Entities.Employee)">
+            <summary>
+            Асинхронно удаляет сотрудника из базы данных.
+            </summary>
+            <param name="entity">Объект сотрудника, который необходимо удалить.</param>
+            <returns>Задача, возвращающая true, если удаление прошло успешно, иначе false (например, при null объекте).</returns>
+        </member>
+        <member name="T:KinderDbContext.Services.GroupService">
+            <summary>
+            Сервис для работы с сущностью <see cref="T:KinderData.Entities.Group"/>.
+            Наследует базовый класс <see cref="T:KinderDbContext.Abstraction.BaseService`1"/> и реализует CRUD-операции (создание, чтение, обновление, удаление)
+            для управления группами в базе данных.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Services.GroupService.GetEntities">
+            <summary>
+            Асинхронно получает все объекты <see cref="T:KinderData.Entities.Group"/> из контекста базы данных.
+            </summary>
+            <returns>
+            Задача, возвращающая перечисление всех групп из базы данных.
+            Может содержать пустую коллекцию, если групп нет.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.GroupService.GetEntity(System.Guid)">
+            <summary>
+            Асинхронно ищет и возвращает объект <see cref="T:KinderData.Entities.Group"/> по уникальному идентификатору.
+            </summary>
+            <param name="id">Уникальный идентификатор группы типа <see cref="T:System.Guid"/>.</param>
+            <returns>Задача, возвращающая найденный объект группы или null, если группа не найдена.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.GroupService.Add(KinderData.Entities.Group)">
+            <summary>
+            Добавляет новый объект <see cref="T:KinderData.Entities.Group"/> в базу данных.
+            </summary>
+            <param name="entity">Объект группы, который нужно добавить.</param>
+            <returns>Задача, возвращающая true, если группа добавлена успешно, иначе false при null входном значении.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.GroupService.Update(KinderData.Entities.Group,KinderData.Entities.Group)">
+            <summary>
+            Обновляет данные существующей группы <see cref="T:KinderData.Entities.Group"/>.
+            </summary>
+            <param name="entity">Существующая группа, которую необходимо обновить.</param>
+            <param name="newEntity">Объект с новыми значениями свойств группы.</param>
+            <returns>Задача, возвращающая true при успешном обновлении, иначе false, если один из объектов null.</returns>
+        </member>
+        <member name="M:KinderDbContext.Services.GroupService.Remove(KinderData.Entities.Group)">
+            <summary>
+            Удаляет существующую группу <see cref="T:KinderData.Entities.Group"/> из базы данных.
+            </summary>
+            <param name="entity">Объект группы для удаления.</param>
+            <returns>Задача, возвращающая true, если удаление прошло успешно, иначе false, если входной объект null.</returns>
+        </member>
+        <member name="T:KinderDbContext.Services.KindergartnerService">
+            <summary>
+            Сервис для управления сущностями <see cref="T:KinderData.Entities.Kindergartner"/>.
+            Наследуется от базового класса <see cref="T:KinderDbContext.Abstraction.BaseService`1"/> и реализует основные операции для работы
+            с базой данных: получение всех сущностей, получение по ID, добавление, обновление и удаление.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Services.KindergartnerService.GetEntities">
+            <summary>
+            Асинхронно получает список всех объектов <see cref="T:KinderData.Entities.Kindergartner"/> из базы данных.
+            </summary>
+            <returns>
+            Задача, возвращающая перечисление всех объектов <see cref="T:KinderData.Entities.Kindergartner"/>.
+            Может быть пустым, если в базе данных нет ни одного ребёнка.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.KindergartnerService.GetEntity(System.Guid)">
+            <summary>
+            Асинхронно получает одного ребёнка из базы данных по уникальному идентификатору <see cref="T:System.Guid"/>.
+            </summary>
+            <param name="id">Уникальный идентификатор ребёнка.</param>
+            <returns>
+            Задача с объектом <see cref="T:KinderData.Entities.Kindergartner"/>, если объект с заданным идентификатором найден;
+            иначе возвращает null.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.KindergartnerService.Add(KinderData.Entities.Kindergartner)">
+            <summary>
+            Асинхронно добавляет нового ребёнка в базу данных.
+            </summary>
+            <param name="entity">Объект <see cref="T:KinderData.Entities.Kindergartner"/> для добавления.</param>
+            <returns>
+            Задача, возвращающая true, если добавление прошло успешно;
+            false, если входящий объект null и добавление не может быть выполнено.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.KindergartnerService.Update(KinderData.Entities.Kindergartner,KinderData.Entities.Kindergartner)">
+            <summary>
+            Асинхронно обновляет существующую запись ребёнка новыми данными.
+            </summary>
+            <param name="entity">Старый объект <see cref="T:KinderData.Entities.Kindergartner"/>, который необходимо обновить.</param>
+            <param name="newEntity">Новый объект с обновлёнными данными.</param>
+            <returns>
+            Задача, возвращающая true, если обновление прошло успешно;
+            false, если один из объектов null и обновление невозможно выполнить.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.KindergartnerService.Remove(KinderData.Entities.Kindergartner)">
+            <summary>
+            Асинхронно удаляет объект <see cref="T:KinderData.Entities.Kindergartner"/> из базы данных.
+            </summary>
+            <param name="entity">Объект ребёнка для удаления.</param>
+            <returns>
+            Задача, возвращающая true, если удаление прошло успешно;
+            false, если входящий объект null и удаление невозможно выполнить.
+            </returns>
+        </member>
+        <member name="T:KinderDbContext.Services.PlanService">
+            <summary>
+            Сервис для управления сущностями <see cref="T:KinderData.Entities.Plan"/>.
+            Наследуется от базового класса <see cref="T:KinderDbContext.Abstraction.BaseService`1"/> и реализует основные операции:
+            получение списка, получение по идентификатору, добавление, обновление и удаление плана.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Services.PlanService.GetEntities">
+            <summary>
+            Асинхронно получает все объекты <see cref="T:KinderData.Entities.Plan"/> из базы данных,
+            включая связанные сущности <see cref="T:KinderData.Entities.Employee"/> и <see cref="T:KinderData.Entities.Group"/> через навигационные свойства.
+            </summary>
+            <returns>
+            Задача, возвращающая перечисление всех планов с их сотрудниками и группами.
+            Может вернуть пустую коллекцию, если объектов нет.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.PlanService.GetEntity(System.Guid)">
+            <summary>
+            Асинхронно получает один план по уникальному идентификатору <see cref="T:System.Guid"/>,
+            включая связанные объекты сотрудника и группы.
+            </summary>
+            <param name="id">Уникальный идентификатор плана.</param>
+            <returns>
+            Задача, возвращающая объект <see cref="T:KinderData.Entities.Plan"/> с навигационными свойствами,
+            или null, если план с таким идентификатором не найден.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.PlanService.Add(KinderData.Entities.Plan)">
+            <summary>
+            Асинхронно добавляет новый объект <see cref="T:KinderData.Entities.Plan"/> в базу данных.
+            </summary>
+            <param name="entity">Объект плана для добавления.</param>
+            <returns>
+            Задача, возвращающая true, если объект успешно добавлен;
+            false, если переданный объект null и добавление невозможно.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.PlanService.Update(KinderData.Entities.Plan,KinderData.Entities.Plan)">
+            <summary>
+            Асинхронно обновляет существующий объект плана новыми данными.
+            </summary>
+            <param name="entity">Существующий объект плана, подлежащий обновлению.</param>
+            <param name="newEntity">Объект с новыми значениями полей.</param>
+            <returns>
+            Задача, возвращающая true при успешном обновлении;
+            false, если один из аргументов null.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.PlanService.Remove(KinderData.Entities.Plan)">
+            <summary>
+            Асинхронно удаляет существующий объект плана из базы данных.
+            </summary>
+            <param name="entity">Объект плана для удаления.</param>
+            <returns>
+            Задача, возвращающая true, если удаление прошло успешно;
+            false, если переданный объект null и удаление невозможно выполнить.
+            </returns>
+        </member>
+        <member name="T:KinderDbContext.Services.SalaryService">
+            <summary>
+            Сервис для управления сущностями <see cref="T:KinderData.Entities.Salary"/>.
+            Наследуется от базового класса <see cref="T:KinderDbContext.Abstraction.BaseService`1"/> и реализует асинхронные операции:
+            получение списка зарплат, получение по идентификатору, добавление, обновление и удаление записи зарплаты.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Services.SalaryService.GetEntities">
+            <summary>
+            Асинхронно получает все объекты <see cref="T:KinderData.Entities.Salary"/> из базы данных.
+            </summary>
+            <returns>
+            Задача, возвращающая перечисление всех зарплат
+            (может содержать null-элементы, если в уточнении метода предусмотрено Nullable).
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.SalaryService.GetEntity(System.Guid)">
+            <summary>
+            Асинхронно получает один объект <see cref="T:KinderData.Entities.Salary"/> по уникальному идентификатору.
+            </summary>
+            <param name="id">Уникальный идентификатор зарплаты.</param>
+            <returns>
+            Задача, возвращающая объект зарплаты с заданным идентификатором или null,
+            если запись не найденa.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.SalaryService.Add(KinderData.Entities.Salary)">
+            <summary>
+            Асинхронно добавляет новую запись <see cref="T:KinderData.Entities.Salary"/> в базу данных.
+            </summary>
+            <param name="entity">Экземпляр зарплаты, который необходимо добавить.</param>
+            <returns>
+            Задача, возвращающая true при успешном добавлении;
+            false при передаче null объекта для добавления.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.SalaryService.Update(KinderData.Entities.Salary,KinderData.Entities.Salary)">
+            <summary>
+            Асинхронно обновляет существующую запись <see cref="T:KinderData.Entities.Salary"/> новыми значениями.
+            </summary>
+            <param name="entity">Существующая запись для обновления.</param>
+            <param name="newEntity">Объект с новыми значениями свойств.</param>
+            <returns>
+            Задача, возвращающая true при успешном обновлении;
+            false если один из объектов null и обновление невозможно.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.SalaryService.Remove(KinderData.Entities.Salary)">
+            <summary>
+            Асинхронно удаляет запись <see cref="T:KinderData.Entities.Salary"/> из базы данных.
+            </summary>
+            <param name="entity">Объект зарплаты для удаления.</param>
+            <returns>
+            Задача, возвращающая true при успешном удалении;
+            false если переданный объект null и удаление невозможно.
+            </returns>
+        </member>
+        <member name="T:KinderDbContext.Services.UserService">
+            <summary>
+            Сервис управления пользователями, реализующий операции добавления, получения и обновления пользователя.
+            Наследует от базового <see cref="T:KinderDbContext.Abstraction.DbEntityServiceBase`1"/> и реализует интерфейс <see cref="T:KinderDbContext.Abstraction.IAccountManagement`1"/>.
+            </summary>
+        </member>
+        <member name="M:KinderDbContext.Services.UserService.Add(KinderData.Entities.User)">
+            <summary>
+            Асинхронно добавляет нового пользователя в базу данных после проверки данных.
+            Выполняет проверки на null, корректность Guid, заполненность ФИО и логина с паролем.
+            </summary>
+            <param name="entity">Экземпляр <see cref="T:KinderData.Entities.User"/>, который необходимо добавить.</param>
+            <returns>
+            Задача, возвращающая true, если пользователь успешно добавлен;
+            false в случае ошибок, например, если входной объект null или содержит некорректные данные.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.UserService.GetEntities">
+            <summary>
+            Асинхронно получает всех пользователей из базы данных.
+            </summary>
+            <returns>
+            Задача, возвращающая перечисление всех объектов <see cref="T:KinderData.Entities.User"/>, или пустой список.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.UserService.GetAccount(System.String,System.String)">
+            <summary>
+            Асинхронно ищет пользователя по логину и паролю.
+            </summary>
+            <param name="login">Логин пользователя.</param>
+            <param name="password">Пароль пользователя.</param>
+            <returns>
+            Задача, возвращающая объект <see cref="T:KinderData.Entities.User"/>, соответствующий логину и паролю, или null, если не найден.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.UserService.GetEntity(System.Guid)">
+            <summary>
+            Асинхронно получает пользователя по его уникальному идентификатору.
+            </summary>
+            <param name="id">Уникальный идентификатор <see cref="T:System.Guid"/>.</param>/// <returns>
+            Задача, возвращающая объект <see cref="T:KinderData.Entities.User"/> с заданным id или null, если пользователь не найден.
+            </returns>
+        </member>
+        <member name="M:KinderDbContext.Services.UserService.Update(KinderData.Entities.User,KinderData.Entities.User)">
+            <summary>
+            Асинхронно обновляет существующего пользователя новыми данными.
+            Выполняет проверки на null, корректность Guid, заполненность ФИО, логина и пароля.
+            </summary>
+            <param name="entity">Объект существующего пользователя, подлежащий обновлению.</param>
+            <param name="newEntity">Объект с новыми данными для обновления.</param>
+            <returns>
+            Задача, возвращающая true, если обновление прошло успешно; 
+            иначе - false при ошибках.
+            </returns>
         </member>
     </members>
 </doc>

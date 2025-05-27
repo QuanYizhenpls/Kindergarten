@@ -4,40 +4,47 @@
         <name>KinderData</name>
     </assembly>
     <members>
-        <member name="T:KinderData.Entities.Agreements">
+        <member name="T:KinderData.Entities.Agreement">
             <summary>
             Представляет собой договоры, связанные с сотрудником.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Agreements.Agreements_Id">
+        <member name="P:KinderData.Entities.Agreement.Agreement_Id">
             <summary>
             Получает или задает уникальный идентификатор договора.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Agreements.Vacation">
+        <member name="P:KinderData.Entities.Agreement.Vacation">
             <summary>
             Получает или задает информацию о договоре по отпуску.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Agreements.SickLeave">
+        <member name="P:KinderData.Entities.Agreement.SickLeave">
             <summary>
             Получает или задает информацию о договоре по больничному.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Agreements.Dismissal">
+        <member name="P:KinderData.Entities.Agreement.Dismissal">
             <summary>
             Получает или задает информацию о договоре при увольнении.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Agreements.EmploymentContract">
+        <member name="P:KinderData.Entities.Agreement.EmploymentContract">
             <summary>
             Получает или задает информацию по трудовому договору.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Agreements.Employee">
+        <member name="P:KinderData.Entities.Agreement.EmployeeId">
             <summary>
             Получает или задает сотрудника, с которым связан это договор.
             </summary>
+        </member>
+        <member name="M:KinderData.Entities.Agreement.ToString">
+            <summary>
+            Переопределение метода ToString для удобного представления договоров в виде текста.
+            Возвращает трудовой договор и сотрудника.
+            </summary>
+            <returns>Строковое представление договора —  трудовой договор и сотрудник.</returns>
         </member>
         <member name="T:KinderData.Entities.Employee">
             <summary>
@@ -69,22 +76,24 @@
             Получает или задает должность сотрудника.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Employee.Groups">
+        <member name="P:KinderData.Entities.Employee.GroupId">
             <summary>
             Получает или задает коллекцию групп, к которым принадлежит сотрудник.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Employee.Group">
+        <member name="M:KinderData.Entities.Employee.ToString">
             <summary>
-            Получает или задает группу, к которой принадлежит сотрудник.
+            Переопределение метода ToString для удобного представления сотрудников в виде текста.
+            Возвращает ФИО и группу.
             </summary>
+            <returns>Строковое представление сотрудника —  ФИО и группа.</returns>
         </member>
         <member name="T:KinderData.Entities.EmployeeData">
             <summary>
             Представляет данные о сотруднике.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.EmployeeData.Employee_Id">
+        <member name="P:KinderData.Entities.EmployeeData.EmployeeData_Id">
             <summary>
             Получает или задает идентификатор сотрудника.
             </summary>
@@ -109,40 +118,39 @@
             Получает или задает информацию о трудовой книжке сотрудника.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.EmployeeData.Employees">
+        <member name="P:KinderData.Entities.EmployeeData.EmployeeId">
             <summary>
             Получает или задает коллекцию сотрудников, связанных с этими данными.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.EmployeeData.Employee">
+        <member name="M:KinderData.Entities.EmployeeData.ToString">
             <summary>
-            Получает или задает сотрудника, связанного с этими данными.
+            Переопределение метода ToString для удобного представления данных сотрудников в виде текста.
+            Возвращает паспорт и сотрудника.
             </summary>
+            <returns>Строковое представление данных сотрудника — паспорт и сотрудник.</returns>
         </member>
         <member name="T:KinderData.Entities.Group">
             <summary>
             Представляет группу.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Group.Groups_Id">
+        <member name="P:KinderData.Entities.Group.Group_Id">
             <summary>
             Получает или задает уникальный идентификатор группы.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Group.GroupsName">
+        <member name="P:KinderData.Entities.Group.GroupName">
             <summary>
             Получает или задает наименование группы.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Group.Kindergartners">
+        <member name="M:KinderData.Entities.Group.ToString">
             <summary>
-            Получает или задает коллекцию детей, входящих в эту группу.
+            Переопределение метода ToString для удобного представления групп в виде текста.
+            Возвращает название группы.
             </summary>
-        </member>
-        <member name="P:KinderData.Entities.Group.Kindergartner">
-            <summary>
-            Получает или задает воспитанника, связанного с группой.
-            </summary>
+            <returns>Строковое представление группы — название группы.</returns>
         </member>
         <member name="T:KinderData.Entities.Kindergartner">
             <summary>
@@ -169,6 +177,18 @@
             Получает или задает контактную информацию родителей воспитанника.
             </summary>
         </member>
+        <member name="P:KinderData.Entities.Kindergartner.GroupId">
+            <summary>
+            Получает или задает коллекцию групп, к которым принадлежит сотрудник.
+            </summary>
+        </member>
+        <member name="M:KinderData.Entities.Kindergartner.ToString">
+            <summary>
+            Переопределение метода ToString для удобного представления воспитанников в виде текста.
+            Возвращает ФИО, дату рождения и группу.
+            </summary>
+            <returns>Строковое представление воспитанника — ФИО, дата рождения и группа.</returns>
+        </member>
         <member name="T:KinderData.Entities.Plan">
             <summary>
             Представляет план или мероприятие.
@@ -189,15 +209,17 @@
             Получает или задает описание мероприятия.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Plan.Group">
-            <summary>
-            Получает или задает группу, для которой предназначен этот план.
-            </summary>
-        </member>
-        <member name="P:KinderData.Entities.Plan.Employee">
+        <member name="P:KinderData.Entities.Plan.EmployeeId">
             <summary>
             Получает или задает сотрудника, ответственного за этот план.
             </summary>
+        </member>
+        <member name="M:KinderData.Entities.Plan.ToString">
+            <summary>
+            Переопределение метода ToString для удобного представления планов в виде текста.
+            Возвращает описание мероприятия и сотрудника.
+            </summary>
+            <returns>Строковое представление плана — описание мероприятия и сотрудник.</returns>
         </member>
         <member name="T:KinderData.Entities.Salary">
             <summary>
@@ -234,10 +256,75 @@
             Получает или задает размер штрафа сотрудника.
             </summary>
         </member>
-        <member name="P:KinderData.Entities.Salary.Employee">
+        <member name="P:KinderData.Entities.Salary.EmployeeId">
             <summary>
             Получает или задает сотрудника, которому начислена данная заработная плата.
             </summary>
+        </member>
+        <member name="M:KinderData.Entities.Salary.ToString">
+            <summary>
+            Переопределение метода ToString для удобного представления заработной платы в виде текста.
+            Возвращает описание мероприятия и сотрудника.
+            </summary>
+            <returns>Строковое представление зарплаты — заработная плата и сотрудник.</returns>
+        </member>
+        <member name="T:KinderData.Entities.User">
+            <summary>
+            Класс, представляющий пользователя системы.
+            Содержит свойства для хранения личных данных и учетных данных пользователя.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.User.Id">
+            <summary>
+            Уникальный идентификатор пользователя.
+            Используется для однозначной идентификации записи в базе данных.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.User.Firstname">
+            <summary>
+            Имя пользователя.
+            Строка не может быть null (указывается с помощью оператора null-forgiving '!').
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.User.Lastname">
+            <summary>
+            Фамилия пользователя.
+            Строка не может быть null.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.User.Middlename">
+            <summary>
+            Отчество пользователя.
+            Может быть null, если отчество отсутствует.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.User.Login">
+            <summary>
+            Логин пользователя для аутентификации.
+            Не может быть null.
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.User.Password">
+            <summary>
+            Пароль пользователя.
+            Не может быть null.
+            Хранится в виде строки (желательно хранить в защищённом виде, например, хешировть).
+            </summary>
+        </member>
+        <member name="P:KinderData.Entities.User.Fullname">
+            <summary>
+            Полное имя пользователя, вычисляемое свойство.
+            Формируется как "Фамилия Имя Отчество", если есть отчество,
+            либо просто "Фамилия Имя", если отчество отсутствует.
+            Атрибут <see cref="!:NotMapped"/> указывает на то, что это свойство не сохраняется в базе данных.
+            </summary>
+        </member>
+        <member name="M:KinderData.Entities.User.ToString">
+            <summary>
+            Переопределение метода ToString для удобного представления пользователя в виде текста.
+            Возвращает полное имя пользователя.
+            </summary>
+            <returns>Строковое представление пользователя — полное имя.</returns>
         </member>
     </members>
 </doc>
