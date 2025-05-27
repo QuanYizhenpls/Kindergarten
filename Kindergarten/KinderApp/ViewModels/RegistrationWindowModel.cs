@@ -27,9 +27,6 @@ namespace KinderApp.ViewModels
             {
                 // Получение аккаунта пользователя по логину и паролю
                 var user = new UserService().GetAccount(Login, Password).Result;
-                // Проверка валидности введенных данных
-                if (!ValidateData()) return;
-
                 if (user != null)
                 {
                     // Пользователь найден. выводим сообщение и переключаем окно
@@ -58,6 +55,8 @@ namespace KinderApp.ViewModels
             // Команда для регистрации нового пользователя
             RegisterCommand = new RelayCommand(o =>
             {
+                // Проверка валидности введенных данных
+                if (!ValidateData()) return;
                 // Создаём нового пользователя и вызываем метод добавления через сервис
                 if (new UserService().Add(new User()
                 {
