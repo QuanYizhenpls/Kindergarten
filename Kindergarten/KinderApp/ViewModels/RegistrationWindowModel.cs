@@ -11,36 +11,54 @@ using KinderDbContext.Services;
 
 namespace KinderApp.ViewModels
 {
+    /// <summary>
+    /// Модель представления для окна регистрации.
+    /// Обеспечивает свойства и команды для авторизации, регистрации и закрытия окна.
+    /// </summary>
     public class RegistrationWindowModel : ViewModelBase
     {
+        /// <summary>
+        /// Конструктор модели, инициализирует команды для входа, регистрации и закрытия окна.
+        /// </summary>
         public RegistrationWindowModel()
         {
+            // Команда для входа пользователя в систему по логину и паролю
             LoginCommand = new RelayCommand(o =>
             {
+                // Получение аккаунта пользователя по логину и паролю
                 var user = new UserService().GetAccount(Login, Password).Result;
+                // Проверка валидности введенных данных
+                if (!ValidateData()) return;
+
                 if (user != null)
                 {
+                    // Пользователь найден. выводим сообщение и переключаем окно
                     Debug.WriteLine($"[{GetType()}] - пользователь найден!");
                     MessageBox.Show($"[{GetType()}] - пользователь найден!");
-                    var newWin = new MenuWindow(user);
-                    var pervWin = Application.Current.MainWindow;
-                    Application.Current.MainWindow = newWin;
-                    pervWin.Close();
-                    newWin.Show();
 
+                    // Создаем новое окно меню для пользователя
+                    var newWin = new MenuWindow(user);
+                    // Запоминаем текущее главное окно
+                    var pervWin = Application.Current.MainWindow;
+                    // Устанавливаем новое окно как главное
+                    Application.Current.MainWindow = newWin;
+                    // Закрываем предыдущее окно
+                    pervWin.Close();
+                    // Открываем новое окно
+                    newWin.Show();
                 }
                 else
                 {
+                    // Пользователь не найден. выводим сообщение
                     Debug.WriteLine($"[{GetType()}] - пользователь не найден!");
                     MessageBox.Show($"[{GetType()}] - пользователь не найден!");
                 }
-                
             });
 
-
-
+            // Команда для регистрации нового пользователя
             RegisterCommand = new RelayCommand(o =>
             {
+                // Создаём нового пользователя и вызываем метод добавления через сервис
                 if (new UserService().Add(new User()
                 {
                     Id = Guid.NewGuid(),
@@ -51,31 +69,40 @@ namespace KinderApp.ViewModels
                     Password = password
                 }).Result)
                 {
+                    // Регистрация прошла успешно
                     Debug.WriteLine($"[{GetType()}] - пользователь создан!");
                     MessageBox.Show($"[{GetType()}] - пользователь создан!");
                 }
                 else
                 {
+                    // Не удалось создать пользователя
                     Debug.WriteLine($"[{GetType()}] - пользователь не был создан!!");
                     MessageBox.Show($"[{GetType()}] - пользователь не был создан!");
                 }
             });
 
+            // Команда для закрытия окна
             CloseCommand = new RelayCommand(o =>
             {
                 AppClose();
             });
         }
 
-        private string firstname = string.Empty;
-        private string lastname = string.Empty;
-        private string middlename = string.Empty;
-        private string login = string.Empty;
-        private string password = string.Empty;
+        // Приватные поля для хранения данных пользователя
+        private string firstname = string.Empty;    // Имя
+        private string lastname = string.Empty;     // Фамилия
+        private string middlename = string.Empty;   // Отчество
+        private string login = string.Empty;        // Логин
+        private string password = string.Empty;     // Пароль
 
+        /// <summary>
+        /// Имя пользователя.
+        /// При установке проверяет, чтобы оно не было пустым.
+        /// </summary>
         public string Firstname
         {
-            get => firstname; set
+            get => firstname;
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -85,7 +112,14 @@ namespace KinderApp.ViewModels
                 Set(ref firstname, value, nameof(Firstname));
             }
         }
-        public string Lastname { get => lastname; set
+        /// <summary>
+        /// Фамилия пользователя.
+        /// Проверяет, чтобы поле не было пустым.
+        /// </summary>
+        public string Lastname
+        {
+            get => lastname;
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -95,8 +129,25 @@ namespace KinderApp.ViewModels
                 Set(ref lastname, value, nameof(Lastname));
             }
         }
-        public string Middlename { get => middlename; set => Set(ref middlename, value, nameof(Middlename)); }
-        public string Login { get => login; set
+
+        /// <summary>
+        /// Отчество пользователя.
+        /// Можно установить без дополнительных ограничений.
+        /// </summary>
+        public string Middlename
+        {
+            get => middlename;
+            set => Set(ref middlename, value, nameof(Middlename));
+        }
+
+        /// <summary>
+        /// Логин пользователя.
+        /// Проверка на пустое значение.
+        /// </summary>
+        public string Login
+        {
+            get => login;
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -106,7 +157,15 @@ namespace KinderApp.ViewModels
                 Set(ref login, value, nameof(Login));
             }
         }
-        public string Password { get => password; set
+
+        /// <summary>
+        /// Пароль пользователя.
+        /// Проверка на пустое значение.
+        /// </summary>
+        public string Password
+        {
+            get => password;
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -117,10 +176,26 @@ namespace KinderApp.ViewModels
             }
         }
 
+        /// <summary>
+        /// Команда для выполнения входа пользователя.
+        /// </summary>
         public RelayCommand LoginCommand { get; }
+
+        /// <summary>
+        /// Команда для выполнения регистрации нового пользователя.
+        /// </summary>
         public RelayCommand RegisterCommand { get; }
+
+        /// <summary>
+        /// Команда для закрытия окна регистрации.
+        /// </summary>
         public RelayCommand CloseCommand { get; }
 
+        /// <summary>
+        /// Валидация данных перед сохранением.
+        /// Проверяет заполненность обязательных полей.
+        /// </summary>
+        /// <returns>Истина, если все данные корректны; иначе - ложь.</returns>
         private bool ValidateData()
         {
             if (string.IsNullOrEmpty(Firstname))

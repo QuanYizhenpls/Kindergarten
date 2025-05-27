@@ -34,6 +34,12 @@ namespace KinderData.Entities
         /// </summary>
         public Guid EmployeeId { get; set; }
         public Employee? Employee { get; set; }
+
+        /// <summary>
+        /// Переопределение метода ToString для удобного представления планов в виде текста.
+        /// Возвращает описание мероприятия и сотрудника.
+        /// </summary>
+        /// <returns>Строковое представление плана — описание мероприятия и сотрудник.</returns>
         public override string ToString()
         {
             return $"{Development} - {Employee}";

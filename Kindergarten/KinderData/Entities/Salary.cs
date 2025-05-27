@@ -51,9 +51,15 @@ namespace KinderData.Entities
         /// </summary>
         public Guid EmployeeId { get; set; }
         public Employee? Employee { get; set; }
+
+        /// <summary>
+        /// Переопределение метода ToString для удобного представления заработной платы в виде текста.
+        /// Возвращает описание мероприятия и сотрудника.
+        /// </summary>
+        /// <returns>Строковое представление зарплаты — заработная плата и сотрудник.</returns>
         public override string ToString()
         {
-            return $"{Wage + Bonus + Allowance + Prepayment - Penalty} - {Employee}";
+            return $"Заработная плата: {Wage + Bonus + Allowance + Prepayment - Penalty} - {Employee}";
         }
     }
 }

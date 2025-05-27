@@ -47,6 +47,11 @@ namespace KinderData.Entities
         public Guid EmployeeId { get; set; }
         public Employee? Employee { get; set; }
 
+        /// <summary>
+        /// Переопределение метода ToString для удобного представления данных сотрудников в виде текста.
+        /// Возвращает паспорт и сотрудника.
+        /// </summary>
+        /// <returns>Строковое представление данных сотрудника — паспорт и сотрудник.</returns>
         public override string ToString()
         {
             return $"{Pasport} - {Employee}";

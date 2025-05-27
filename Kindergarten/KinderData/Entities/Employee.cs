@@ -45,6 +45,11 @@ namespace KinderData.Entities
         public Guid GroupId { get; set; }
         public Group? Group { get; set; }
 
+        /// <summary>
+        /// Переопределение метода ToString для удобного представления сотрудников в виде текста.
+        /// Возвращает ФИО и группу.
+        /// </summary>
+        /// <returns>Строковое представление сотрудника —  ФИО и группа.</returns>
         public override string ToString()
         {
             return $"{FIO} - {Group}";

@@ -24,7 +24,11 @@ namespace KinderData.Entities
         /// </summary>
         public string GroupName { get; set; }
 
-
+        /// <summary>
+        /// Переопределение метода ToString для удобного представления групп в виде текста.
+        /// Возвращает название группы.
+        /// </summary>
+        /// <returns>Строковое представление группы — название группы.</returns>
         public override string ToString()
         {
             return $"{GroupName} ";

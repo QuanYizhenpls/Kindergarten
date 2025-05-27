@@ -33,9 +33,17 @@ namespace KinderData.Entities
         /// </summary>
         public string ParentsContactInfo { get; set; }
 
+        /// <summary>
+        /// Получает или задает коллекцию групп, к которым принадлежит сотрудник.
+        /// </summary>
         public Guid GroupId { get; set; }
         public Group? Group { get; set; }
 
+        /// <summary>
+        /// Переопределение метода ToString для удобного представления воспитанников в виде текста.
+        /// Возвращает ФИО, дату рождения и группу.
+        /// </summary>
+        /// <returns>Строковое представление воспитанника — ФИО, дата рождения и группа.</returns>
         public override string ToString()
         {
             return $"{FIO}, {DateOfBirth}, {ParentsContactInfo} - {Group}";

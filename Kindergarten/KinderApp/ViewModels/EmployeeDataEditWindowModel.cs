@@ -10,8 +10,18 @@ using System.Windows;
 
 namespace KinderApp.ViewModels
 {
-    internal class EmployeeDataEditWindowModel : ViewModelBase
+    /// <summary>
+    /// Модель представления для редактирования данных сотрудника.
+    /// </summary>
+    public class EmployeeDataEditWindowModel : ViewModelBase
     {
+        /// <summary>
+        /// Инициализирует новую модель с заданными параметрами.
+        /// </summary>
+        /// <param name="user">Текущий пользователь (не используется в коде, возможно, для расширения).</param>
+        /// <param name="employeeData">Редактируемые данные сотрудника.</param>
+        /// <param name="employeeDataService">Сервис для работы с данными сотрудника.</param>
+        /// <param name="employees">Список сотрудников.</param>
         public EmployeeDataEditWindowModel(User user, EmployeeData employeeData, EmployeeDataService employeeDataService, List<Employee> employees)
         {
             EmployeeData = employeeData;
@@ -24,22 +34,37 @@ namespace KinderApp.ViewModels
                 INN = employeeData.INN;
                 EmploymentRecord = employeeData.EmploymentRecord;
                 SelectedEmployee = employeeData.Employee;
-                
             }
-            
+
             SaveCommand = new RelayCommand(o =>
             {
                 if (!ValidateData()) return;
                 if (employeeData == null)
                 {
-
-                    _employeeDataService.Add(new EmployeeData() {EmployeeData_Id = Guid.NewGuid(), Pasport = this.Pasport, SNILS = this.SNILS, INN = this.INN, EmploymentRecord = this.EmploymentRecord, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee});
+                    _employeeDataService.Add(new EmployeeData()
+                    {
+                        EmployeeData_Id = Guid.NewGuid(),
+                        Pasport = this.Pasport,
+                        SNILS = this.SNILS,
+                        INN = this.INN,
+                        EmploymentRecord = this.EmploymentRecord,
+                        EmployeeId = Guid.NewGuid(),
+                        Employee = this.SelectedEmployee
+                    });
                     MessageBox.Show($"{this.GetType().Name} - данные сотрудника добавлены!");
-
                 }
                 else
                 {
-                    _employeeDataService.Update(employeeData, new EmployeeData() { EmployeeData_Id = Guid.NewGuid(), Pasport = this.Pasport, SNILS = this.SNILS, INN = this.INN, EmploymentRecord = this.EmploymentRecord, EmployeeId = Guid.NewGuid(), Employee = this.SelectedEmployee });
+                    _employeeDataService.Update(employeeData, new EmployeeData()
+                    {
+                        EmployeeData_Id = Guid.NewGuid(),
+                        Pasport = this.Pasport,
+                        SNILS = this.SNILS,
+                        INN = this.INN,
+                        EmploymentRecord = this.EmploymentRecord,
+                        EmployeeId = Guid.NewGuid(),
+                        Employee = this.SelectedEmployee
+                    });
                     MessageBox.Show($"{this.GetType().Name} - данные сотрудника изменены!");
                 }
             });
@@ -48,6 +73,7 @@ namespace KinderApp.ViewModels
                 AppClose();
             });
         }
+
         private string? pasport = string.Empty;
         private string? snils = string.Empty;
         private string? inn = string.Empty;
@@ -57,9 +83,19 @@ namespace KinderApp.ViewModels
         private EmployeeData employeeData;
         private EmployeeDataService _employeeDataService;
         private List<Employee> _employees;
+
+        /// <summary>
+        /// Данные сотрудника.
+        /// </summary>
         public EmployeeData EmployeeData { get => employeeData; set => Set(ref employeeData, value, nameof(employeeData)); }
 
-        public string? Pasport { get => pasport; set
+        /// <summary>
+        /// Паспортные данные.
+        /// </summary>
+        public string? Pasport
+        {
+            get => pasport;
+            set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -67,8 +103,12 @@ namespace KinderApp.ViewModels
                     return;
                 }
                 Set(ref pasport, value, nameof(pasport));
-            } 
+            }
         }
+
+        /// <summary>
+        /// СНИЛС.
+        /// </summary>
         public string? SNILS { get => snils; set
         {
                 if (string.IsNullOrEmpty(value))
@@ -78,32 +118,76 @@ namespace KinderApp.ViewModels
                 }
                 Set(ref snils, value, nameof(snils)); } 
         }
-        public string? INN { get => inn; set {
+        /// <summary>
+        /// ИНН.
+        /// </summary>
+        public string? INN
+        {
+            get => inn;
+            set
+            {
                 if (string.IsNullOrEmpty(value))
                 {
                     MessageBox.Show("Поле 'ИНН' не может быть пустым.");
                     return;
                 }
-                Set(ref inn, value, nameof(inn)); } }
-        public string EmploymentRecord { get => employmentRecord; set {
+                Set(ref inn, value, nameof(inn));
+            }
+        }
+
+        /// <summary>
+        /// Трудовая книжка/запись.
+        /// </summary>
+        public string EmploymentRecord
+        {
+            get => employmentRecord;
+            set
+            {
                 if (string.IsNullOrEmpty(value))
                 {
-                    MessageBox.Show("Поле 'ИНН' не может быть пустым.");
+                    MessageBox.Show("Поле 'Трудовая запись' не может быть пустым.");
                     return;
                 }
-                Set(ref employmentRecord, value, nameof(employmentRecord)); } }
-        public Employee SelectedEmployee { get => selectedEmployee; set
+                Set(ref employmentRecord, value, nameof(employmentRecord));
+            }
+        }
+
+        /// <summary>
+        /// Выбранный сотрудник.
+        /// </summary>
+        public Employee SelectedEmployee
+        {
+            get => selectedEmployee;
+            set
             {
                 if (value == null)
                 {
                     MessageBox.Show("Необходимо выбрать сотрудника.");
                     return;
                 }
-                Set(ref selectedEmployee, value, nameof(selectedEmployee)); }}
+                Set(ref selectedEmployee, value, nameof(selectedEmployee));
+            }
+        }
+
+        /// <summary>
+        /// Список всех сотрудников.
+        /// </summary>
         public List<Employee> Employees { get => _employees; set => Set(ref _employees, value, nameof(_employees)); }
 
+        /// <summary>
+        /// Команда сохранить изменения.
+        /// </summary>
         public RelayCommand SaveCommand { get; }
+
+        /// <summary>
+        /// Команда закрытия окна.
+        /// </summary>
         public RelayCommand CloseCommand { get; }
+
+        /// <summary>
+        /// Валидация данных перед сохранением.
+        /// </summary>
+        /// <returns>Истина, если все поля корректны; иначе, ложь.</returns>
         private bool ValidateData()
         {
             if (string.IsNullOrEmpty(Pasport))
@@ -135,5 +219,4 @@ namespace KinderApp.ViewModels
             return true;
         }
     }
-    
 }

@@ -46,6 +46,12 @@ namespace KinderData.Entities
         /// </summary>
         public Guid EmployeeId { get; set; }
         public Employee? Employee { get; set; }
+
+        /// <summary>
+        /// Переопределение метода ToString для удобного представления договоров в виде текста.
+        /// Возвращает трудовой договор и сотрудника.
+        /// </summary>
+        /// <returns>Строковое представление договора —  трудовой договор и сотрудник.</returns>
         public override string ToString()
         {
             return $"{EmploymentContract} - {Employee}";

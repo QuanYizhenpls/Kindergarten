@@ -17,11 +17,21 @@ using System.Windows.Shapes;
 namespace KinderApp
 {
     /// <summary>
-    /// Логика взаимодействия для RegistrationWindow.xaml
+    /// Логика взаимодействия для RegistrationWindow.xaml.
+    /// Окно для регистрации нового пользователя.
     /// </summary>
     public partial class RegistrationWindow : Window
     {
+        /// <summary>
+        /// Модель представления, реализующая логику регистрации пользователя.
+        /// </summary>
         private RegistrationWindowModel _viewModel;
+
+        /// <summary>
+        /// Конструктор окна регистрации.
+        /// Инициализирует компоненты интерфейса и создает экземпляр модели представления.
+        /// Устанавливает DataContext.
+        /// </summary>
         public RegistrationWindow()
         {
             InitializeComponent();
