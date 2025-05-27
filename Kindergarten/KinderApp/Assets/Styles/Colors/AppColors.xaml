@@ -18,4 +18,5 @@
     <SolidColorBrush x:Key="TextPassiveColor" Color="#C45572"/>
     <SolidColorBrush x:Key="BackgroundColor" Color="#CACFE9"/>
     <SolidColorBrush x:Key="AccentBackColor" Color="#E99AAC"/>
+    <SolidColorBrush x:Key="TextDarkColor" Color="#081272"/>
 </ResourceDictionary>

@@ -26,7 +26,7 @@
 
 
 
-                    <TabItem Header="Группы" Background="#c45572" Margin="0,0,0,0" Foreground="{StaticResource TextActiveColor}">
+                    <TabItem Header="Группы" Background="#c45572" Margin="0,0,0,0" Foreground="{StaticResource TextDarkColor}">
                         <StackPanel Background="{StaticResource PrimaryColor}" Width="795" >
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
@@ -46,7 +46,7 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="Воспитанники" Background="#f7b085" Foreground="{StaticResource TextActiveColor}">
+                    <TabItem Header="Воспитанники" Background="#f7b085" Foreground="{StaticResource TextDarkColor}">
                         <StackPanel Background="{StaticResource PrimaryColor}" Width="795">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
@@ -65,7 +65,7 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="Сотрудники" Background="#fbc88e" Height="31"  Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="{StaticResource TextActiveColor}">
+                    <TabItem Header="Сотрудники" Background="#fbc88e" Height="31"  Margin="0,0,0,0" VerticalAlignment="Bottom" Foreground="{StaticResource TextDarkColor}">
                         <StackPanel Background="{StaticResource PrimaryColor}" HorizontalAlignment="Left" Width="795">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
@@ -84,7 +84,7 @@
 
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="Договоры" Background="#c9c39f" Foreground="{StaticResource TextActiveColor}">
+                    <TabItem Header="Договоры" Background="#c9c39f" Foreground="{StaticResource TextDarkColor}">
                         <StackPanel Background="{StaticResource PrimaryColor}" Width="795">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
@@ -104,7 +104,7 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="Данные сотрудников" Background="#abcbd2" Foreground="{StaticResource TextActiveColor}">
+                    <TabItem Header="Данные сотрудников" Background="#abcbd2" Foreground="{StaticResource TextDarkColor}">
                         <StackPanel Background="{StaticResource PrimaryColor}" Width="795">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
@@ -124,7 +124,7 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="Зарплата" Background="#c493c2" Foreground="{StaticResource TextActiveColor}">
+                    <TabItem Header="Зарплата" Background="#c493c2" Foreground="{StaticResource TextDarkColor}">
                         <StackPanel Background="{StaticResource PrimaryColor}" Width="795">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
@@ -143,7 +143,7 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="Планы" Background="#7f9b97" Foreground="{StaticResource TextActiveColor}">
+                    <TabItem Header="Планы" Background="#7f9b97" Foreground="{StaticResource TextDarkColor}">
                         <StackPanel Background="{StaticResource PrimaryColor}" Width="795" HorizontalAlignment="Left">
                             <StackPanel.Resources>
                                 <Style TargetType="Button">
