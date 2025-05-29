@@ -41,8 +41,13 @@
                             <Button Content="Добавить" Command="{Binding GAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding GUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding GRemoveCommand}"/>
-                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="32" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Groups, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAddGroup, UpdateSourceTrigger=PropertyChanged}"/>
-
+                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Groups, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAddGroup, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Название группы" DisplayMemberBinding="{Binding GroupName}" Width="670"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                         </StackPanel>
                     </TabItem>
 
@@ -61,7 +66,14 @@
                             <Button Content="Добавить" Command="{Binding KAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding KUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding KRemoveCommand}"/>
-                            <ListView  Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="32" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Kindergartners, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView  Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Kindergartners, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Воспитанник" DisplayMemberBinding="{Binding FIO}" Width="400"/>
+                                        <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="270"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                         </StackPanel>
                     </TabItem>
 
@@ -80,7 +92,14 @@
                             <Button Content="Добавить" Command="{Binding EAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding EUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding ERemoveCommand}"/>
-                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="32" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding FIO}" Width="400"/>
+                                        <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="270"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
 
                         </StackPanel>
                     </TabItem>
@@ -99,7 +118,17 @@
                             <Button Content="Добавить" Command="{Binding AAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding AUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding ARemoveCommand}"/>
-                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="32" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Agreements}" SelectedItem="{Binding SelectedAddAgreement, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="22" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Agreements}" SelectedItem="{Binding SelectedAddAgreement, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Отпуск" DisplayMemberBinding="{Binding Vacation}" Width="80"/>
+                                        <GridViewColumn Header="Больничный" DisplayMemberBinding="{Binding SickLeave}" Width="135"/>
+                                        <GridViewColumn Header="Увольнительный" DisplayMemberBinding="{Binding Dismissal}" Width="185"/>
+                                        <GridViewColumn Header="Труд. договор" DisplayMemberBinding="{Binding EmploymentContract}" Width="170"/>
+                                        <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="150"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
 
                         </StackPanel>
                     </TabItem>
@@ -119,7 +148,17 @@
                             <Button Content="Добавить" Command="{Binding EDAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding EDUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding EDRemoveCommand}"/>
-                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="32" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding EmployeeDatas}" SelectedItem="{Binding SelectedAddEmployeeData, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="22" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding EmployeeDatas}" SelectedItem="{Binding SelectedAddEmployeeData, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Паспорт" DisplayMemberBinding="{Binding Pasport}" Width="120"/>
+                                        <GridViewColumn Header="СНИЛС" DisplayMemberBinding="{Binding SNILS}" Width="150"/>
+                                        <GridViewColumn Header="ИНН" DisplayMemberBinding="{Binding INN}" Width="160"/>
+                                        <GridViewColumn Header="Труд. книга" DisplayMemberBinding="{Binding EmploymentRecord}" Width="170"/>
+                                        <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="150"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
 
                         </StackPanel>
                     </TabItem>
@@ -139,7 +178,14 @@
                             <Button Content="Добавить" Command="{Binding SAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding SUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding SRemoveCommand}"/>
-                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="32" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Salaries}" SelectedItem="{Binding SelectedAddSalary, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="30" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Salaries}" SelectedItem="{Binding SelectedAddSalary, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Итоговая зарплата" DisplayMemberBinding="{Binding FinSalar}" Width="280"/>
+                                        <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="385"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                         </StackPanel>
                     </TabItem>
 
@@ -158,7 +204,15 @@
                             <Button Content="Добавить" Command="{Binding PAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding PUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding PRemoveCommand}"/>
-                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="32" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Plans}" SelectedItem="{Binding SelectedAddPlan, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Plans}" SelectedItem="{Binding SelectedAddPlan, UpdateSourceTrigger=PropertyChanged}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Дата провед." DisplayMemberBinding="{Binding DateOfTheEvent}" Width="170"/>
+                                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Development}" Width="280"/>
+                                        <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="215"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
 
                         </StackPanel>
                     </TabItem>

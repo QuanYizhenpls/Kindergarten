@@ -13,7 +13,7 @@
 
             <Label Content="Название группы"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding GroupName, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding GroupName, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
       Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>

@@ -13,24 +13,24 @@
 
             <Label Content="Паспорт" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding Pasport, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Pasport, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="СНИЛС" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding SNILS, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding SNILS, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="ИНН" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding INN, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding INN, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Трудовая книга" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding EmploymentRecord, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding EmploymentRecord, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
 
             <Label Content="Сотрудник" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
             <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee, UpdateSourceTrigger=PropertyChanged}"  Width="350" HorizontalAlignment="Center"
         Margin="5"
         Tag="Groups"
-        VerticalContentAlignment="Top"/>
+        VerticalContentAlignment="Top" Background="{StaticResource PrimaryColor}" Foreground="{StaticResource TextDarkColor}"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
       Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>

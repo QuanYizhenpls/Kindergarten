@@ -13,17 +13,17 @@
 
             <Label Content="Отпуск" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding Vacation, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Vacation, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Больничный"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding SickLeave, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding SickLeave, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Договор об увольнении" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding Dismissal, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="450" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <TextBox Text="{Binding Dismissal, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="450" TextWrapping="Wrap" AcceptsReturn="True" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Трудовой договор" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding EmploymentContract, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="450" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <TextBox Text="{Binding EmploymentContract, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="450" TextWrapping="Wrap" AcceptsReturn="True" Foreground="{StaticResource TextDarkColor}"/>
 
 
             <Label Content="Сотрудник" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
@@ -31,7 +31,7 @@
         Width="350"
         Margin="5"
         Tag="Groups"
-        VerticalContentAlignment="Top" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}" />
+        VerticalContentAlignment="Top" Background="{StaticResource PrimaryColor}" Foreground="{StaticResource TextDarkColor}"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
       Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>

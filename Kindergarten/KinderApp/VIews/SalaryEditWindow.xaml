@@ -14,26 +14,26 @@
 
             <Label Content="Оклад" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding Wage, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Wage, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Премия" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}"   Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Bonus, UpdateSourceTrigger=PropertyChanged}"   Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
             
             <Label Content="Надбавка" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding Allowance, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Allowance, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Аванс" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding Prepayment, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Prepayment, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Штраф" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding Penalty, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Penalty, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
 
             <Label Content="Сотрудник" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
             <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee, UpdateSourceTrigger=PropertyChanged}"   Width="350" HorizontalAlignment="Center"
         Margin="5"
         Tag="Groups"
-        VerticalContentAlignment="Top"/>
+        VerticalContentAlignment="Top" Background="{StaticResource PrimaryColor}" Foreground="{StaticResource TextDarkColor}"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
       Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>

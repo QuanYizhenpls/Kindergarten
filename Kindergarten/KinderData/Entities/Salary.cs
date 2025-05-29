@@ -59,7 +59,10 @@ namespace KinderData.Entities
         /// <returns>Строковое представление зарплаты — заработная плата и сотрудник.</returns>
         public override string ToString()
         {
-            return $"Заработная плата: {Wage + Bonus + Allowance + Prepayment - Penalty} - {Employee}";
+            return $"Заработная плата: {FinSalar} - {Employee}";
         }
+
+        [NotMapped]
+        public decimal FinSalar => Wage + Bonus + Allowance + Prepayment - Penalty;
     }
 }

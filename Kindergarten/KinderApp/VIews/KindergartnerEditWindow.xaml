@@ -13,20 +13,20 @@
 
             <Label Content="ФИО"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding FIO, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding FIO, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Дата рождения"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged}"  Width="450" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" SpellCheck.IsEnabled="True" VerticalContentAlignment="Top" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged}"  Width="450" TextWrapping="Wrap" VerticalContentAlignment="Top" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Контакты родителей"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding ParentsContactInfo, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="450" TextWrapping="Wrap" AcceptsReturn="True"/>
+            <TextBox Text="{Binding ParentsContactInfo, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="450" TextWrapping="Wrap" AcceptsReturn="True" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Группа"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
             <ComboBox ItemsSource="{Binding Groups}" SelectedItem="{Binding SelectedGroup, UpdateSourceTrigger=PropertyChanged}" Width="350" HorizontalAlignment="Center"
 Margin="5"
 Tag="Groups"
-VerticalContentAlignment="Top"/>
+VerticalContentAlignment="Top" Background="{StaticResource PrimaryColor}" Foreground="{StaticResource TextDarkColor}"/>
 
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"

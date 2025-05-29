@@ -28,7 +28,7 @@
 
                         <Label Content="ЛОГИН" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Login}">
+                        <TextBox Text="{Binding Login}" Foreground="{StaticResource TextDarkColor}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
@@ -38,7 +38,7 @@
 
                         <Label Content="ПАРОЛЬ" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Password}" Width="100">
+                        <TextBox Text="{Binding Password}" Width="100" Foreground="{StaticResource TextDarkColor}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
@@ -75,7 +75,7 @@
 
                         <Label Content="ФАМИЛИЯ" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Lastname}" Width="120">
+                        <TextBox Text="{Binding Lastname}" Width="120" Foreground="{StaticResource TextDarkColor}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
@@ -85,7 +85,7 @@
 
                         <Label Content="ИМЯ" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Firstname}" Width="120">
+                        <TextBox Text="{Binding Firstname}" Width="120" Foreground="{StaticResource TextDarkColor}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
@@ -95,7 +95,7 @@
 
                         <Label Content="ОТЧЕСТВО" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Middlename}" Width="120">
+                        <TextBox Text="{Binding Middlename}" Width="120" Foreground="{StaticResource TextDarkColor}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
@@ -105,7 +105,7 @@
 
                         <Label Content="ЛОГИН" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Login}" Width="120">
+                        <TextBox Text="{Binding Login}" Width="120" Foreground="{StaticResource TextDarkColor}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>
@@ -115,7 +115,7 @@
 
                         <Label Content="ПАРОЛЬ" Foreground="{StaticResource TextPassiveColor}"/>
 
-                        <TextBox Text="{Binding Password}" Width="120">
+                        <TextBox Text="{Binding Password}" Width="120" Foreground="{StaticResource TextDarkColor}">
                             <TextBox.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="CornerRadius" Value="3"/>

@@ -13,11 +13,11 @@
 
             <Label Content="Дата проведения плана" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding DateOfTheEvent, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding DateOfTheEvent, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Описание плана" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding Development, UpdateSourceTrigger=PropertyChanged}"   Width="450" HorizontalAlignment="Center"/>
+            <TextBox Text="{Binding Development, UpdateSourceTrigger=PropertyChanged}"   Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
 
 
@@ -26,7 +26,7 @@
             <ComboBox ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedEmployee, UpdateSourceTrigger=PropertyChanged}"   Width="350" HorizontalAlignment="Center"
         Margin="5"
         Tag="Groups"
-        VerticalContentAlignment="Top"/>
+        VerticalContentAlignment="Top" Background="{StaticResource PrimaryColor}" Foreground="{StaticResource TextDarkColor}"/>
 
             <Button Content="Сохранить" Command="{Binding SaveCommand}"
       Width="140" Margin="0,20,0,10" HorizontalAlignment="Center" FontSize="16" Background="{StaticResource AccentColor}" Foreground="{StaticResource TextActiveColor}"/>
