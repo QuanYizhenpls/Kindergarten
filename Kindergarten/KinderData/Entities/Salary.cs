@@ -62,6 +62,11 @@ namespace KinderData.Entities
             return $"Заработная плата: {FinSalar} - {Employee}";
         }
 
+        /// <summary>
+        /// Финальная зпрплата вычисляемое свойство.
+        /// Формируется как сумма Wage, Bonus, Allowance и Prepayment, вычитая Penalty
+        /// Атрибут <see cref="NotMapped"/> указывает на то, что это свойство не сохраняется в базе данных.
+        /// </summary>
         [NotMapped]
         public decimal FinSalar => Wage + Bonus + Allowance + Prepayment - Penalty;
     }
