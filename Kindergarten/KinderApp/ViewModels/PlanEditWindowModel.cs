@@ -41,40 +41,44 @@ namespace KinderApp.ViewModels
                 Development = plan.Development;
                 SelectedEmployee = plan.Employee;
             }
-
-            // Инициализация команды для сохранения данных
-            SaveCommand = new RelayCommand(o =>
+            else
             {
-                // Проверка корректности данных перед сохранением
-                if (!ValidateData()) return;
+                DateOfTheEvent = DateTime.Now;
+            }
 
-                if (plan == null)
+                // Инициализация команды для сохранения данных
+                SaveCommand = new RelayCommand(o =>
                 {
-                    // Создание нового плана и добавление его через сервис
-                    _planService.Add(new Plan()
+                    // Проверка корректности данных перед сохранением
+                    if (!ValidateData()) return;
+
+                    if (plan == null)
                     {
-                        Plan_Id = Guid.NewGuid(),
-                        DateOfTheEvent = this.DateOfTheEvent,
-                        Development = this.Development,
-                        EmployeeId = Guid.NewGuid(),
-                        Employee = this.SelectedEmployee
-                    });
-                    MessageBox.Show($"{this.GetType().Name} - план добавлен!");
-                }
-                else
-                {
-                    // Обновление существующего плана
-                    _planService.Update(plan, new Plan()
+                        // Создание нового плана и добавление его через сервис
+                        _planService.Add(new Plan()
+                        {
+                            Plan_Id = Guid.NewGuid(),
+                            DateOfTheEvent = this.DateOfTheEvent,
+                            Development = this.Development,
+                            EmployeeId = Guid.NewGuid(),
+                            Employee = this.SelectedEmployee
+                        });
+                        MessageBox.Show($"{this.GetType().Name} - план добавлен!");
+                    }
+                    else
                     {
-                        Plan_Id = Guid.NewGuid(),
-                        DateOfTheEvent = this.DateOfTheEvent,
-                        Development = this.Development,
-                        EmployeeId = Guid.NewGuid(),
-                        Employee = this.SelectedEmployee
-                    });
-                    MessageBox.Show($"{this.GetType().Name} - план изменён!");
-                }
-            });
+                        // Обновление существующего плана
+                        _planService.Update(plan, new Plan()
+                        {
+                            Plan_Id = Guid.NewGuid(),
+                            DateOfTheEvent = this.DateOfTheEvent,
+                            Development = this.Development,
+                            EmployeeId = Guid.NewGuid(),
+                            Employee = this.SelectedEmployee
+                        });
+                        MessageBox.Show($"{this.GetType().Name} - план изменён!");
+                    }
+                });
 
             // Инициализация команды для закрытия окна
             CloseCommand = new RelayCommand(o =>

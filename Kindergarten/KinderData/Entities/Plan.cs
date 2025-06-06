@@ -44,5 +44,13 @@ namespace KinderData.Entities
         {
             return $"{DateOfTheEvent} - {Employee}";
         }
+
+        /// <summary>
+        /// Свойство, выводящее только дату.
+        /// Преобразует дату проведения мероприятия в строковый формат.
+        /// Атрибут <see cref="NotMapped"/> указывает на то, что это свойство не сохраняется в базе данных.
+        /// </summary>
+        [NotMapped]
+        public string OnlyDate => DateOfTheEvent.ToString("d");
     }
 }

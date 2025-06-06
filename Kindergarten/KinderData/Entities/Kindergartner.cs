@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,5 +49,13 @@ namespace KinderData.Entities
         {
             return $"{FIO}, {DateOfBirth}, {ParentsContactInfo} - {Group}";
         }
+
+        /// <summary>
+        /// Свойство, выводящее только дату.
+        /// Преобразует дату рождения воспитанника в строковый формат.
+        /// Атрибут <see cref="NotMapped"/> указывает на то, что это свойство не сохраняется в базе данных.
+        /// </summary>
+        [NotMapped]
+        public string OnlyDateBirth => DateOfBirth.ToString("d");
     }
 }

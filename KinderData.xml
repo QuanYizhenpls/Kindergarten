@@ -189,6 +189,13 @@
             </summary>
             <returns>Строковое представление воспитанника — ФИО, дата рождения и группа.</returns>
         </member>
+        <member name="P:KinderData.Entities.Kindergartner.OnlyDateBirth">
+            <summary>
+            Свойство, выводящее только дату.
+            Преобразует дату рождения воспитанника в строковый формат.
+            Атрибут <see cref="!:NotMapped"/> указывает на то, что это свойство не сохраняется в базе данных.
+            </summary>
+        </member>
         <member name="T:KinderData.Entities.Plan">
             <summary>
             Представляет план или мероприятие.
@@ -220,6 +227,13 @@
             Возвращает описание мероприятия и сотрудника.
             </summary>
             <returns>Строковое представление плана — описание мероприятия и сотрудник.</returns>
+        </member>
+        <member name="P:KinderData.Entities.Plan.OnlyDate">
+            <summary>
+            Свойство, выводящее только дату.
+            Преобразует дату проведения мероприятия в строковый формат.
+            Атрибут <see cref="!:NotMapped"/> указывает на то, что это свойство не сохраняется в базе данных.
+            </summary>
         </member>
         <member name="T:KinderData.Entities.Salary">
             <summary>
@@ -267,6 +281,13 @@
             Возвращает описание мероприятия и сотрудника.
             </summary>
             <returns>Строковое представление зарплаты — заработная плата и сотрудник.</returns>
+        </member>
+        <member name="P:KinderData.Entities.Salary.FinSalar">
+            <summary>
+            Финальная зпрплата вычисляемое свойство.
+            Формируется как сумма Wage, Bonus, Allowance и Prepayment, вычитая Penalty
+            Атрибут <see cref="!:NotMapped"/> указывает на то, что это свойство не сохраняется в базе данных.
+            </summary>
         </member>
         <member name="T:KinderData.Entities.User">
             <summary>

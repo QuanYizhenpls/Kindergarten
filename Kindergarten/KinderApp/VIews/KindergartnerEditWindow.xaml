@@ -17,7 +17,7 @@
 
             <Label Content="Дата рождения"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged}"  Width="450" TextWrapping="Wrap" VerticalContentAlignment="Top" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
+            <DatePicker SelectedDate="{Binding DateOfBirth, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}" Width="450"/>
 
             <Label Content="Контакты родителей"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
             <TextBox Text="{Binding ParentsContactInfo, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Width="450" TextWrapping="Wrap" AcceptsReturn="True" Foreground="{StaticResource TextDarkColor}"/>

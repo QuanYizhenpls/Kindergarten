@@ -13,7 +13,7 @@
 
             <Label Content="Дата проведения плана" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 
-            <TextBox Text="{Binding DateOfTheEvent, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
+            <DatePicker SelectedDate="{Binding DateOfTheEvent, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}" Width="450"/>
 
             <Label Content="Описание плана" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
 

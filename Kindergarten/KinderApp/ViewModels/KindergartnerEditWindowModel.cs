@@ -39,6 +39,10 @@ namespace KinderApp.ViewModels
                 ParentsContactInfo = kindergartner.ParentsContactInfo;
                 SelectedGroup = kindergartner.Group;
             }
+            else
+            {
+                DateOfBirth = DateTime.Now;
+            }
 
             // Команда для сохранения данных воспитанника
             SaveCommand = new RelayCommand(o =>

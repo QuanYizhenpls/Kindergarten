@@ -69,8 +69,9 @@
                             <ListView  Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Kindergartners, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Воспитанник" DisplayMemberBinding="{Binding FIO}" Width="400"/>
-                                        <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="270"/>
+                                        <GridViewColumn Header="Воспитанник" DisplayMemberBinding="{Binding FIO}" Width="300"/>
+                                        <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding OnlyDateBirth}" Width="200"/>
+                                        <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="180"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
@@ -208,7 +209,7 @@
                             <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Plans}" SelectedItem="{Binding SelectedAddPlan, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Дата проведения" DisplayMemberBinding="{Binding DateOfTheEvent}" Width="210"/>
+                                        <GridViewColumn Header="Дата проведения" DisplayMemberBinding="{Binding OnlyDate}" Width="210"/>
                                         <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Development}" Width="280"/>
                                         <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="200"/>
                                     </GridView>
