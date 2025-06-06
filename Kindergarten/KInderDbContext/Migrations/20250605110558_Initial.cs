@@ -67,7 +67,7 @@ namespace KinderDbContext.Migrations
                 {
                     Kindergartner_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FIO = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateOfBirth = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ParentsContactInfo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -131,7 +131,7 @@ namespace KinderDbContext.Migrations
                 columns: table => new
                 {
                     Plan_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DateOfTheEvent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfTheEvent = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Development = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },

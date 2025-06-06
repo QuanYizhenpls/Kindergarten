@@ -85,7 +85,7 @@ namespace KinderApp.ViewModels
 
         // Приватные поля для хранения данных и сервисов
         private string fio = string.Empty;
-        private string dateOfBirth = string.Empty;
+        private DateTime dateOfBirth;
         private string parentsContactInfo = string.Empty;
         private KindergartnerService _kindergartnerService;
         private Kindergartner kindergartner;
@@ -120,12 +120,12 @@ namespace KinderApp.ViewModels
         /// Поле для даты рождения воспитанника.
         /// Обязательное: показывает сообщение, если пустое.
         /// </summary>
-        public string DateOfBirth
+        public DateTime DateOfBirth
         {
             get => dateOfBirth;
             set
             {
-                if (string.IsNullOrEmpty(value))
+                if (value == null)
                 {
                     MessageBox.Show("Поле 'Дата рождения' не может быть пустым.");
                     return;
@@ -197,7 +197,7 @@ namespace KinderApp.ViewModels
                 MessageBox.Show("Поле 'ФИО' не может быть пустым.");
                 return false;
             }
-            if (string.IsNullOrEmpty(DateOfBirth))
+            if (DateOfBirth == null)
             {
                 MessageBox.Show("Поле 'Дата рождения' не может быть пустым.");
                 return false;

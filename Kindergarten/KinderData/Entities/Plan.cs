@@ -22,7 +22,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает дату проведения мероприятия.
         /// </summary>
-        public string DateOfTheEvent { get; set; }
+        public DateTime DateOfTheEvent { get; set; }
 
         /// <summary>
         /// Получает или задает описание мероприятия.
@@ -42,7 +42,7 @@ namespace KinderData.Entities
         /// <returns>Строковое представление плана — описание мероприятия и сотрудник.</returns>
         public override string ToString()
         {
-            return $"{Development} - {Employee}";
+            return $"{DateOfTheEvent} - {Employee}";
         }
     }
 }

@@ -136,9 +136,8 @@ namespace KinderDbContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DateOfBirth")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("FIO")
                         .IsRequired()
@@ -164,9 +163,8 @@ namespace KinderDbContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("DateOfTheEvent")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateOfTheEvent")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Development")
                         .IsRequired()

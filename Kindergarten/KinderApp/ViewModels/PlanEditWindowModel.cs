@@ -84,7 +84,7 @@ namespace KinderApp.ViewModels
         }
 
         // Частные поля для хранения данных
-        private string dateOfTheEvent = string.Empty; // Дата проведения плана
+        private DateTime dateOfTheEvent; // Дата проведения плана
         private string development = string.Empty; // Описание плана
         private Employee selectedEmployee; // выбранный сотрудник
         private PlanService _planService; // сервис для работы с планами
@@ -103,13 +103,12 @@ namespace KinderApp.ViewModels
         /// <summary>
         /// Дата проведения плана. Свойство с проверкой входных данных.
         /// </summary>
-        public string DateOfTheEvent { get => dateOfTheEvent; set {
-                if (string.IsNullOrEmpty(value))
+        public DateTime DateOfTheEvent { get => dateOfTheEvent; 
+                set { if (value == null)
                 {
-                    MessageBox.Show("Поле 'Дата проведения плана' не может быть пустым.");
+                    MessageBox.Show("Поле 'Дата проведения' не может быть пустой.");
                     return;
-                }
-                Set(ref dateOfTheEvent, value, nameof(dateOfTheEvent)); } }
+                } Set(ref dateOfTheEvent, value, nameof(dateOfTheEvent)); } }
         /// <summary>
         /// Описание плана. Свойство с проверкой на пустое значение.
         /// </summary>
@@ -170,7 +169,7 @@ namespace KinderApp.ViewModels
         /// <returns>Истина, если все данные корректны; иначе - ложь.</returns>
         private bool ValidateData()
         {
-            if (string.IsNullOrEmpty(DateOfTheEvent))
+            if (DateOfTheEvent == null)
             {
                 MessageBox.Show("Поле 'Дата проведения плана' не может быть пустым.");
                 return false;

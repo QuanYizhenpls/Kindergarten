@@ -26,7 +26,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает дату рождения воспитанника.
         /// </summary>
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         /// <summary>
         /// Получает или задает контактную информацию родителей воспитанника.
