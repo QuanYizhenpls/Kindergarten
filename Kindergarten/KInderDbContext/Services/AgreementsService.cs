@@ -92,7 +92,7 @@ namespace KinderDbContext.Services
             // Удаление договора из контекста базы данных
             ctx.Agreements.Remove(entity);
             // Сохраняет изменения в базе
-            await ctx.SaveChangesAsync();
+            ctx.SaveChanges();
             return true;
         }
     }

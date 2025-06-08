@@ -96,7 +96,7 @@
                             <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FIO}" Width="300"/>
+                                        <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding FIO}" Width="300"/>
                                         <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Post}" Width="200"/>
                                         <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="170"/>
                                     </GridView>
