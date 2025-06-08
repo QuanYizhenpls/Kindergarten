@@ -46,7 +46,7 @@ namespace KinderDbContext.Migrations
                     Employee_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FIO = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Education = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Experience = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Experience = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Post = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },

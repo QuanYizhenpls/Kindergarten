@@ -62,7 +62,6 @@ namespace KinderDbContext.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Experience")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FIO")

@@ -20,7 +20,7 @@
             <TextBox Text="{Binding Education, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Опыт работы"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
-            <TextBox Text="{Binding Expirience, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
+            <TextBox Text="{Binding Experience, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
             <Label Content="Должность"  HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
             <TextBox Text="{Binding Post, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>

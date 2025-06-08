@@ -37,6 +37,12 @@ namespace KinderApp.ViewModels
                 EmploymentContract = agreement.EmploymentContract!;
                 SelectedEmployee = agreement.Employee;
             }
+            else
+            {
+                Vacation = "-";
+                SickLeave = "-";
+                Dismissal = "-";
+            }
 
             SaveCommand = new RelayCommand(o =>
             {

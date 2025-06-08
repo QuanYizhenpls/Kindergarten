@@ -32,7 +32,7 @@ namespace KinderData.Entities
         /// <summary>
         /// Получает или задает опыт работы сотрудника.
         /// </summary>
-        public string Experience { get; set; }
+        public string? Experience { get; set; }
 
         /// <summary>
         /// Получает или задает должность сотрудника.

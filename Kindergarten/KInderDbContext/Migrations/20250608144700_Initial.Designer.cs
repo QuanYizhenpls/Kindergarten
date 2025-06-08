@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KinderDbContext.Migrations
 {
     [DbContext(typeof(SQLServerDbContext))]
-    [Migration("20250605110558_Initial")]
+    [Migration("20250608144700_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -65,7 +65,6 @@ namespace KinderDbContext.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Experience")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FIO")

@@ -93,12 +93,14 @@
                             <Button Content="Добавить" Command="{Binding EAddCommand}"/>
                             <Button Content="Обновить" Command="{Binding EUpdateCommand}"/>
                             <Button Content="Удалить" Command="{Binding ERemoveCommand}"/>
-                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}">
+                            <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="22" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Employees}" SelectedItem="{Binding SelectedAddEmployee, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding FIO}" Width="300"/>
-                                        <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Post}" Width="200"/>
-                                        <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="170"/>
+                                        <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding FIO}" Width="145"/>
+                                        <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="100"/>
+                                        <GridViewColumn Header="Образование" DisplayMemberBinding="{Binding Education}" Width="150"/>
+                                        <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Post}" Width="130"/>
+                                        <GridViewColumn Header="Опыт работы" DisplayMemberBinding="{Binding Experience}" Width="140"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
@@ -123,11 +125,11 @@
                             <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="22" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Agreements}" SelectedItem="{Binding SelectedAddAgreement, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Отпуск" DisplayMemberBinding="{Binding Vacation}" Width="80"/>
-                                        <GridViewColumn Header="Больничный" DisplayMemberBinding="{Binding SickLeave}" Width="135"/>
-                                        <GridViewColumn Header="Увольнительный" DisplayMemberBinding="{Binding Dismissal}" Width="185"/>
-                                        <GridViewColumn Header="Труд. договор" DisplayMemberBinding="{Binding EmploymentContract}" Width="170"/>
                                         <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="150"/>
+                                        <GridViewColumn Header="Труд. договор" DisplayMemberBinding="{Binding EmploymentContract}" Width="170"/>
+                                        <GridViewColumn Header="Отпуск" DisplayMemberBinding="{Binding Vacation}" Width="90"/>
+                                        <GridViewColumn Header="Больничный" DisplayMemberBinding="{Binding SickLeave}" Width="135"/>
+                                        <GridViewColumn Header="Увольнит." DisplayMemberBinding="{Binding Dismissal}" Width="135"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
@@ -153,11 +155,11 @@
                             <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="22" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding EmployeeDatas}" SelectedItem="{Binding SelectedAddEmployeeData, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Паспорт" DisplayMemberBinding="{Binding Pasport}" Width="120"/>
-                                        <GridViewColumn Header="СНИЛС" DisplayMemberBinding="{Binding SNILS}" Width="150"/>
-                                        <GridViewColumn Header="ИНН" DisplayMemberBinding="{Binding INN}" Width="160"/>
-                                        <GridViewColumn Header="Труд. книга" DisplayMemberBinding="{Binding EmploymentRecord}" Width="170"/>
                                         <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="150"/>
+                                        <GridViewColumn Header="Паспорт" DisplayMemberBinding="{Binding Pasport}" Width="120"/>
+                                        <GridViewColumn Header="СНИЛС" DisplayMemberBinding="{Binding SNILS}" Width="140"/>
+                                        <GridViewColumn Header="ИНН" DisplayMemberBinding="{Binding INN}" Width="100"/>
+                                        <GridViewColumn Header="Труд. книжка" DisplayMemberBinding="{Binding EmploymentRecord}" Width="170"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
@@ -183,8 +185,8 @@
                             <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="30" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Salaries}" SelectedItem="{Binding SelectedAddSalary, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Итоговая зарплата" DisplayMemberBinding="{Binding FinSalar}" Width="280"/>
                                         <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="385"/>
+                                        <GridViewColumn Header="Итоговая зарплата" DisplayMemberBinding="{Binding FinSalar}" Width="280"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
@@ -209,9 +211,9 @@
                             <ListView Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Plans}" SelectedItem="{Binding SelectedAddPlan, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Дата проведения" DisplayMemberBinding="{Binding OnlyDate}" Width="210"/>
-                                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Development}" Width="280"/>
                                         <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding Employee.FIO}" Width="200"/>
+                                        <GridViewColumn Header="Дата проведения" DisplayMemberBinding="{Binding OnlyDate}" Width="210"/>
+                                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Development}" Width="260"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>

@@ -40,6 +40,10 @@ namespace KinderApp.ViewModels
                 Post = employee.Post!;
                 SelectedGroup = Employee.Group;
             }
+            else
+            {
+                Experience = "-";
+            }
 
             // Команда для сохранения данных сотрудника
             SaveCommand = new RelayCommand(o =>
@@ -113,9 +117,10 @@ namespace KinderApp.ViewModels
                     return;
                 }
                 Set(ref fio, value, nameof(fio)); } }
+
         /// <summary>
         /// Поле для ввода уровня образования сотрудника.
-        /// Не обязательное, может быть пустым.
+        /// Обязательное, не может быть пустым.
         /// </summary>
         public string Education
         {
