@@ -22,7 +22,7 @@
             <Label Content="ИНН" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
             <TextBox Text="{Binding INN, UpdateSourceTrigger=PropertyChanged}"  Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
-            <Label Content="Трудовая книга" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
+            <Label Content="Трудовая книжка" HorizontalAlignment="Center" Foreground="{StaticResource TextPassiveColor}" FontSize="16"/>
             <TextBox Text="{Binding EmploymentRecord, UpdateSourceTrigger=PropertyChanged}" Width="450" HorizontalAlignment="Center" Foreground="{StaticResource TextDarkColor}"/>
 
 

@@ -69,9 +69,11 @@
                             <ListView  Foreground="{StaticResource TextPassiveColor}" FontStyle="Normal" FontSize="26" HorizontalAlignment ="Right" Height="375" Width="670" VerticalAlignment="Top" Margin="0,-110,10,0" ItemsSource="{Binding Kindergartners, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedAddKindergartner, UpdateSourceTrigger=PropertyChanged}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="Воспитанник" DisplayMemberBinding="{Binding FIO}" Width="300"/>
+                                        <GridViewColumn Header="Воспитанник" DisplayMemberBinding="{Binding FIO}" Width="200"/>
+                                        <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="130"/>
                                         <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding OnlyDateBirth}" Width="200"/>
-                                        <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Group.GroupName}" Width="180"/>
+                                        <GridViewColumn Header="Контакты" DisplayMemberBinding="{Binding ParentsContactInfo}" Width="140"/>
+                                        
                                     </GridView>
                                 </ListView.View>
                             </ListView>
